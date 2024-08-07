@@ -58,6 +58,18 @@ class PythonQtTestSlotCallingHelper;
 class PythonQtTestApiHelper;
 class QWidget;
 
+class PythonQtMinimalTests : public QObject
+{
+  Q_OBJECT
+
+private Q_SLOTS:
+  void baseInitTest();
+  void initWithFlagsTest();
+  void severalInitializeTest();
+  void initWithPreconfigTest();
+  void simpleInitAlreadyInitializedTest();
+};
+
 //! test the PythonQt api
 class PythonQtTestApi : public QObject
 {

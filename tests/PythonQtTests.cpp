@@ -41,6 +41,41 @@
 
 #include "PythonQtTests.h"
 
+void PythonQtMinimalTests::baseInitTest()
+{
+  PythonQt::init();
+  PythonQt::cleanup();
+}
+
+void PythonQtMinimalTests::initWithFlagsTest()
+{
+  PythonQt::init(PythonQt::IgnoreSiteModule | PythonQt::RedirectStdOut);
+  PythonQt::cleanup();
+}
+
+void PythonQtMinimalTests::simpleInitAlreadyInitializedTest()
+{
+  Py_InitializeEx(true);
+  PythonQt::init(PythonQt::PythonAlreadyInitialized);
+  PythonQt::cleanup();
+}
+
+void PythonQtMinimalTests::severalInitializeTest() {
+  PythonQt::init();
+  PythonQt::cleanup();
+
+  PythonQt::init();
+  PythonQt::cleanup();
+}
+
+void PythonQtMinimalTests::initWithPreconfigTest() {
+  PyConfig config;
+  PyConfig_InitPythonConfig(&config);
+  Py_InitializeFromConfig(&config);
+  PythonQt::init(PythonQt::RedirectStdOut | PythonQt::PythonAlreadyInitialized);
+  PythonQt::cleanup();
+}
+
 void PythonQtTestSlotCalling::initTestCase()
 {
   _helper = new PythonQtTestSlotCallingHelper(this);
