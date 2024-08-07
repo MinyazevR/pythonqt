@@ -68,6 +68,7 @@ void PythonQtMinimalTests::severalInitializeTest() {
   PythonQt::cleanup();
 }
 
+#if PY_MINOR_VERSION >= 8
 void PythonQtMinimalTests::initWithPreconfigTest() {
   PyConfig config;
   PyConfig_InitPythonConfig(&config);
@@ -75,6 +76,7 @@ void PythonQtMinimalTests::initWithPreconfigTest() {
   PythonQt::init(PythonQt::RedirectStdOut | PythonQt::PythonAlreadyInitialized);
   PythonQt::cleanup();
 }
+#endif
 
 void PythonQtTestSlotCalling::initTestCase()
 {

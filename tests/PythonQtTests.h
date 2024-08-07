@@ -66,7 +66,9 @@ private Q_SLOTS:
   void baseInitTest();
   void initWithFlagsTest();
   void severalInitializeTest();
+#if PY_MINOR_VERSION >= 8
   void initWithPreconfigTest();
+#endif
   void simpleInitAlreadyInitializedTest();
 };
 
