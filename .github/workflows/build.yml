@@ -109,6 +109,7 @@ jobs:
         sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo
         sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
         ldd --version
+        ldd /lib64/libm.so.6
       if: matrix.container_os == 'centos'
       
     - name: Install Qt
