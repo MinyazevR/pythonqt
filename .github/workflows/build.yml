@@ -94,7 +94,10 @@ jobs:
     container: '${{ matrix.container_os }}:${{ matrix.container_os_version }}'
     steps:
     - name: Change centos archive repository
-      run: sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
+      run: |
+        sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
+        sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo
+	sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
       if: matrix.container_os == 'centos'
       
     - name: Install Qt
