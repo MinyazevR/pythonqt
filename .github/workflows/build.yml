@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:${{ matrix.container_version }}
     steps:
+    - name: Cancel Previous Workflow Runs
+      uses: n1hility/cancel-previous-runs@v3.0
+      
     - name: Install Qt
       run: |
         apt-get update
@@ -47,6 +50,9 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Build PythonQt
       run: |
         export QT_SELECT=qt5
@@ -93,6 +99,11 @@ jobs:
     runs-on: ubuntu-latest
     container: '${{ matrix.container_os }}:${{ matrix.container_os_version }}'
     steps:
+    - name: Cancel Previous Workflow Runs
+      uses: n1hility/cancel-previous-runs@v3.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Change centos archive repository
       run: |
         sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
@@ -165,6 +176,10 @@ jobs:
            configuration: 'debug'
     runs-on: macos-${{ matrix.macos-version }}
     steps:
+    
+    - name: Cancel Previous Workflow Runs
+      uses: n1hility/cancel-previous-runs@v3.0
+      
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
@@ -273,7 +288,9 @@ jobs:
 
     runs-on: windows-latest
     steps:
-
+    - name: Cancel Previous Workflow Runs
+      uses: n1hility/cancel-previous-runs@v3.0
+      
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
