@@ -176,10 +176,11 @@ jobs:
            configuration: 'debug'
     runs-on: macos-${{ matrix.macos-version }}
     steps:
-    
     - name: Cancel Previous Workflow Runs
       uses: n1hility/cancel-previous-runs@v3.0
-      
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
@@ -290,6 +291,8 @@ jobs:
     steps:
     - name: Cancel Previous Workflow Runs
       uses: n1hility/cancel-previous-runs@v3.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Checkout PythonQt
       uses: actions/checkout@v4
