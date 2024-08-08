@@ -9,7 +9,10 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
-        
+       
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+   
 defaults:
   run:
     shell: bash
@@ -118,12 +121,6 @@ jobs:
         qt5-qtmultimedia \
         qt5-qt3d \
         qt5-*-devel
-
-    - name: Change node version
-      run: |
-        cd $RUNNER_HOME/actions-runner/externals
-        mv node20 node20.backup
-        ln -s node16 node20
         
     - name: Checkout PythonQt
       uses: actions/checkout@v3
