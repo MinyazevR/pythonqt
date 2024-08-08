@@ -67,7 +67,7 @@ jobs:
         QT_VERSION_FULL=$($QT_ROOT_DIR/bin/qmake -query QT_VERSION)
         if [[ $QT_VERSION_FULL == 5.12* ]]; then
           export LSAN_OPTIONS="suppressions=leak:QPlatformIntegrationFactory::create"
-	fi
+        fi
         cd lib
         PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
         UBSAN_OPTIONS="halt_on_error=1" ASAN_OPTIONS="detect_leaks=1:detect_stack_use_after_return=1:fast_unwind_on_malloc=0" \
