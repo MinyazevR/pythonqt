@@ -125,7 +125,6 @@ jobs:
         qt5-qt3d \
         qt5-*-devel
 
-    - name: Setup node
     - name: Checkout PythonQt
       uses: actions/checkout@v3
       env:
