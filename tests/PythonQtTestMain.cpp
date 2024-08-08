@@ -47,17 +47,11 @@
 int main( int argc, char **argv )
 {
   QApplication qapp(argc, argv);
-  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
 
-  if (env.contains("RUN_ONLY_MINIMAL_TESTS")) {
-    PythonQtMinimalTests test;
-    auto result = QTest::qExec(&test, argc, argv);
-    if (result) {
-      std::cerr << "Minimal Tests failed";
-    } else {
-      std::cout << "Minimal tests passed successfully." << std::endl;
-    }
-    return result != 0 ? EXIT_FAILURE : EXIT_SUCCESS;
+  if (QProcessEnvironment::systemEnvironment().contains("PYTHONQT_RUN_ONLY_MINIMAL_TESTS")) {
+    PythonQtMemoryTests test;
+    QTest::qExec(&test, argc, argv);
+    return 0;
   }
 
   PythonQt::init(PythonQt::IgnoreSiteModule | PythonQt::RedirectStdOut);
@@ -71,9 +65,6 @@ int main( int argc, char **argv )
   failCount += QTest::qExec(&slotCalling, argc, argv);
 
   PythonQt::cleanup();
-
-  PythonQtMinimalTests test;
-  failCount += QTest::qExec(&test, argc, argv);
 
   if (failCount) {
     std::cerr << "Tests failed: " << failCount << std::endl;

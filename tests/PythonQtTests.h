@@ -58,17 +58,15 @@ class PythonQtTestSlotCallingHelper;
 class PythonQtTestApiHelper;
 class QWidget;
 
-class PythonQtMinimalTests : public QObject
+class PythonQtMemoryTests : public QObject
 {
   Q_OBJECT
 
 private Q_SLOTS:
-  void baseInitTest();
+  void baseCleanupTest();
   void initWithFlagsTest();
   void severalInitializeTest();
-#if PY_MINOR_VERSION >= 8
   void initWithPreconfigTest();
-#endif
   void simpleInitAlreadyInitializedTest();
 };
 

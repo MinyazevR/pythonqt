@@ -41,26 +41,26 @@
 
 #include "PythonQtTests.h"
 
-void PythonQtMinimalTests::baseInitTest()
+void PythonQtMemoryTests::baseCleanupTest()
 {
   PythonQt::init();
   PythonQt::cleanup();
 }
 
-void PythonQtMinimalTests::initWithFlagsTest()
+void PythonQtMemoryTests::cleanupWithFlagsTest()
 {
   PythonQt::init(PythonQt::IgnoreSiteModule | PythonQt::RedirectStdOut);
   PythonQt::cleanup();
 }
 
-void PythonQtMinimalTests::simpleInitAlreadyInitializedTest()
+void PythonQtMemoryTests::simpleInitAlreadyInitializedTest()
 {
   Py_InitializeEx(true);
   PythonQt::init(PythonQt::PythonAlreadyInitialized);
   PythonQt::cleanup();
 }
 
-void PythonQtMinimalTests::severalInitializeTest() {
+void PythonQtMemoryTests::severalCleanupTest() {
   PythonQt::init();
   PythonQt::cleanup();
 
@@ -68,16 +68,15 @@ void PythonQtMinimalTests::severalInitializeTest() {
   PythonQt::cleanup();
 }
 
-#if PY_MINOR_VERSION >= 8
-void PythonQtMinimalTests::initWithPreconfigTest() {
+void PythonQtMemoryTests::initWithPreconfigTest() {
+#if PY_VERSION_HEX >= 0x030800
   PyConfig config;
   PyConfig_InitPythonConfig(&config);
   Py_InitializeFromConfig(&config);
   PythonQt::init(PythonQt::RedirectStdOut | PythonQt::PythonAlreadyInitialized);
   PythonQt::cleanup();
-}
 #endif
-
+}
 void PythonQtTestSlotCalling::initTestCase()
 {
   _helper = new PythonQtTestSlotCallingHelper(this);
