@@ -5,22 +5,17 @@ on:
     branches: 
       - master
   pull_request:
-      
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+        
 defaults:
   run:
     shell: bash
 
-jobs:
-  setup-job:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Cancel Previous Workflow Runs
-      uses: n1hility/cancel-previous-runs@v3.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        
+jobs:   
   ubuntu:
-    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
@@ -87,7 +82,6 @@ jobs:
         path: generated_cpp
 
   oldschool:
-    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
@@ -125,12 +119,14 @@ jobs:
         qt5-qt3d \
         qt5-*-devel
 
+    - name: Change node version
+      run: |
+        cd $RUNNER_HOME/actions-runner/externals
+        mv node20 node20.backup
+        ln -s node16 node20
+        
     - name: Checkout PythonQt
       uses: actions/checkout@v3
-      env:
-        ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-        ACTIONS_RUNNER_FORCED_INTERNAL_NODE_VERSION: node16
-        ACTIONS_RUNNER_FORCE_ACTIONS_NODE_VERSION: node16
 
     - name: Build PythonQt
       run: |
@@ -165,7 +161,6 @@ jobs:
         path: generated_cpp
 
   macOS:
-    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
@@ -251,7 +246,6 @@ jobs:
         path: generated_cpp
 
   windows:
-    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
