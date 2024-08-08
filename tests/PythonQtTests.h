@@ -64,8 +64,8 @@ class PythonQtMemoryTests : public QObject
 
 private Q_SLOTS:
   void baseCleanupTest();
-  void initWithFlagsTest();
-  void severalInitializeTest();
+  void cleanupWithFlagsTest();
+  void severalCleanupTest();
   void initWithPreconfigTest();
   void simpleInitAlreadyInitializedTest();
 };
