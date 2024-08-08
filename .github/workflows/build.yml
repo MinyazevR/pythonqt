@@ -11,7 +11,16 @@ defaults:
     shell: bash
 
 jobs:
+  setup-job:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Cancel Previous Workflow Runs
+      uses: n1hility/cancel-previous-runs@v3.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
   ubuntu:
+    needs: setup_job
     strategy:
       fail-fast: false
       matrix:
@@ -21,11 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:${{ matrix.container_version }}
     steps:
-    - name: Cancel Previous Workflow Runs
-      uses: n1hility/cancel-previous-runs@v3.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-      
     - name: Install Qt
       run: |
         apt-get update
@@ -51,9 +55,6 @@ jobs:
       
     - name: Checkout PythonQt
       uses: actions/checkout@v4
-
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Build PythonQt
       run: |
@@ -86,6 +87,7 @@ jobs:
         path: generated_cpp
 
   oldschool:
+    needs: setup_job
     strategy:
       fail-fast: false
       matrix:
@@ -101,11 +103,6 @@ jobs:
     runs-on: ubuntu-latest
     container: '${{ matrix.container_os }}:${{ matrix.container_os_version }}'
     steps:
-    - name: Cancel Previous Workflow Runs
-      uses: n1hility/cancel-previous-runs@v3.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        
     - name: Change centos archive repository
       run: |
         sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
@@ -164,6 +161,7 @@ jobs:
         path: generated_cpp
 
   macOS:
+    needs: setup_job
     strategy:
       fail-fast: false
       matrix:
@@ -178,11 +176,6 @@ jobs:
            configuration: 'debug'
     runs-on: macos-${{ matrix.macos-version }}
     steps:
-    - name: Cancel Previous Workflow Runs
-      uses: n1hility/cancel-previous-runs@v3.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
@@ -254,6 +247,7 @@ jobs:
         path: generated_cpp
 
   windows:
+    needs: setup_job
     strategy:
       fail-fast: false
       matrix:
@@ -291,11 +285,6 @@ jobs:
 
     runs-on: windows-latest
     steps:
-    - name: Cancel Previous Workflow Runs
-      uses: n1hility/cancel-previous-runs@v3.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-      
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
