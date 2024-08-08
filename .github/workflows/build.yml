@@ -20,7 +20,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         
   ubuntu:
-    needs: setup_job
+    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
@@ -87,7 +87,7 @@ jobs:
         path: generated_cpp
 
   oldschool:
-    needs: setup_job
+    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
@@ -161,7 +161,7 @@ jobs:
         path: generated_cpp
 
   macOS:
-    needs: setup_job
+    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
@@ -247,7 +247,7 @@ jobs:
         path: generated_cpp
 
   windows:
-    needs: setup_job
+    needs: setup-job
     strategy:
       fail-fast: false
       matrix:
