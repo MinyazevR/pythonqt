@@ -71,6 +71,7 @@ jobs:
         
     - name: Run memory tests with sanitizers
       run: |
+        set -x
         QT_VERSION_FULL=$(qmake -query QT_VERSION)
         if [[ "$QT_VERSION_FULL" == 5.12* ]]; then
           export LSAN_OPTIONS="suppressions=leak:QPlatformIntegrationFactory::create"
