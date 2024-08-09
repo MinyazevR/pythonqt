@@ -48,6 +48,12 @@ int main( int argc, char **argv )
 {
   QApplication qapp(argc, argv);
 
+  if (QProcessEnvironment::systemEnvironment().contains("PYTHONQT_RUN_ONLY_MINIMAL_TESTS")) {
+    PythonQtMemoryTests test;
+    QTest::qExec(&test, argc, argv);
+    return 0;
+  }
+
   PythonQt::init(PythonQt::IgnoreSiteModule | PythonQt::RedirectStdOut);
 
   int failCount = 0;
