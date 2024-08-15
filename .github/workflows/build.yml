@@ -54,13 +54,18 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.container_version }} 
+        
     - name: Build PythonQt
       run: |
         export QT_SELECT=qt5
         echo ======= SYSTEM INFO ========
         uname -a; gcc --version | grep "gcc"; python3 --version; qmake --version
         echo ============================
-        qmake -r PythonQt.pro CONFIG+=release CONFIG+=force_debug_info \
+        qmake -r PythonQt.pro CONFIG+=release CONFIG+=force_debug_info CONFIG+=ccache \
         CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
         PYTHON_VERSION=$(python3 --version | cut -d " " -f 2 | cut -d "." -f1,2) \
         PYTHON_DIR=$(which python3 | xargs dirname | xargs dirname)
@@ -68,6 +73,18 @@ jobs:
         PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
         UBSAN_OPTIONS="halt_on_error=1" ASAN_OPTIONS="detect_leaks=0:detect_stack_use_after_return=1:fast_unwind_on_malloc=0" \
           make check TESTARGS="-platform offscreen"
+        
+    - name: Run memory tests with sanitizers
+      run: |
+        QT_VERSION_FULL=$(qmake -query QT_VERSION)
+        if [[ "$QT_VERSION_FULL" == 5.12* ]]; then
+          echo "leak:QPlatformIntegrationFactory::create" >> $PWD/lsan.supp
+          export LSAN_OPTIONS="suppressions=$PWD/lsan.supp"
+        fi
+        PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
+        UBSAN_OPTIONS="halt_on_error=1" ASAN_OPTIONS="detect_leaks=1:detect_stack_use_after_return=1:fast_unwind_on_malloc=0" \
+        PYTHONQT_RUN_ONLY_MEMORY_TESTS=1 \
+          make check TESTARGS="-platform minimal"
       
     - name: Generate Wrappers
       run: |
@@ -137,7 +154,7 @@ jobs:
         export PYTHON_DIR=`which python${PYTHON_VERSION_SUFFIX} | xargs dirname | xargs dirname`
         echo PYTHON_VERSION_SHORT=${PYTHON_VERSION_SHORT}
         echo PYTHON_DIR=${PYTHON_DIR}
-        qmake-qt5 -r PythonQt.pro CONFIG+=${{ matrix.configuration }} \
+        qmake-qt5 -r PythonQt.pro CONFIG+=ccache CONFIG+=${{ matrix.configuration }} \
           "PYTHON_VERSION=${PYTHON_VERSION_SHORT}" "PYTHON_DIR=${PYTHON_DIR}"
         make -j $(nproc) && \
         PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
@@ -190,6 +207,11 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.qt-version }} 
+         
     - name: Detect exact versions
       id : versions
       run : |
@@ -218,7 +240,7 @@ jobs:
         for i in "python${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}-embed" "python${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}" \
                  "python${PYTHON_VERSION_MAJOR}-embed" "python${PYTHON_VERSION_MAJOR}"
         do if pkg-config --exists "$i"; then PYTHON_PKGCONFIG_NAME="$i"; break; fi; done
-        qmake CONFIG+=${{ matrix.configuration }} CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
+        qmake CONFIG+=ccache CONFIG+=${{ matrix.configuration }} CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
           PYTHON_VERSION=${{ steps.versions.outputs.PYTHON_VERSION_SHORT }} \
           PYTHON_DIR="$pythonLocation" \
           PKGCONFIG+=$PYTHON_PKGCONFIG_NAME \
@@ -287,6 +309,11 @@ jobs:
     - name: Reset PATH
       uses: egor-tensin/cleanup-path@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.include-qt-arch }}-${{ matrix.include.qt-version }} 
+         
     - name: Install MSVC++
       uses: ilammy/msvc-dev-cmd@v1
       if: ${{ contains(matrix.qt-arch, 'msvc') }}
@@ -352,3 +379,4 @@ jobs:
       with:
         name: wrappers_${{ matrix.qt-arch }}_${{ steps.versions.outputs.QT_VERSION_SHORT }}
         path: generated_cpp
+        
