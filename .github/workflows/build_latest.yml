@@ -43,6 +43,9 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      
     - name: Set environment
       id: setenv
       run: |
