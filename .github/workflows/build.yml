@@ -154,7 +154,7 @@ jobs:
         export PYTHON_DIR=`which python${PYTHON_VERSION_SUFFIX} | xargs dirname | xargs dirname`
         echo PYTHON_VERSION_SHORT=${PYTHON_VERSION_SHORT}
         echo PYTHON_DIR=${PYTHON_DIR}
-        qmake-qt5 -r PythonQt.pro CONFIG+=${{ matrix.configuration }} \
+        qmake-qt5 -r PythonQt.pro CONFIG+=ccache CONFIG+=${{ matrix.configuration }} \
           "PYTHON_VERSION=${PYTHON_VERSION_SHORT}" "PYTHON_DIR=${PYTHON_DIR}"
         make -j $(nproc) && \
         PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
@@ -207,6 +207,11 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.qt-version }} 
+         
     - name: Detect exact versions
       id : versions
       run : |
@@ -235,7 +240,7 @@ jobs:
         for i in "python${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}-embed" "python${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}" \
                  "python${PYTHON_VERSION_MAJOR}-embed" "python${PYTHON_VERSION_MAJOR}"
         do if pkg-config --exists "$i"; then PYTHON_PKGCONFIG_NAME="$i"; break; fi; done
-        qmake CONFIG+=${{ matrix.configuration }} CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
+        qmake CONFIG+=ccache CONFIG+=${{ matrix.configuration }} CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
           PYTHON_VERSION=${{ steps.versions.outputs.PYTHON_VERSION_SHORT }} \
           PYTHON_DIR="$pythonLocation" \
           PKGCONFIG+=$PYTHON_PKGCONFIG_NAME \
@@ -304,6 +309,11 @@ jobs:
     - name: Reset PATH
       uses: egor-tensin/cleanup-path@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.include-qt-arch }}-${{ matrix.include.qt-version }} 
+         
     - name: Install MSVC++
       uses: ilammy/msvc-dev-cmd@v1
       if: ${{ contains(matrix.qt-arch, 'msvc') }}
