@@ -54,13 +54,18 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-ubuntu-${{ matrix.container_version }} 
+         
     - name: Build PythonQt
       run: |
         export QT_SELECT=qt5
         echo ======= SYSTEM INFO ========
         uname -a; gcc --version | grep "gcc"; python3 --version; qmake --version
         echo ============================
-        qmake -r PythonQt.pro CONFIG+=release CONFIG+=force_debug_info \
+        qmake -r PythonQt.pro CONFIG+=ccache CONFIG+=release CONFIG+=force_debug_info \
         CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
         PYTHON_VERSION=$(python3 --version | cut -d " " -f 2 | cut -d "." -f1,2) \
         PYTHON_DIR=$(which python3 | xargs dirname | xargs dirname)
@@ -125,6 +130,11 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v3
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.container_os }}-${{ matrix.container_os_version }} 
+         
     - name: Build PythonQt
       run: |
         export QT_SELECT=qt5
@@ -137,7 +147,7 @@ jobs:
         export PYTHON_DIR=`which python${PYTHON_VERSION_SUFFIX} | xargs dirname | xargs dirname`
         echo PYTHON_VERSION_SHORT=${PYTHON_VERSION_SHORT}
         echo PYTHON_DIR=${PYTHON_DIR}
-        qmake-qt5 -r PythonQt.pro CONFIG+=${{ matrix.configuration }} \
+        qmake-qt5 -r PythonQt.pro CONFIG+=ccache CONFIG+=${{ matrix.configuration }} \
           "PYTHON_VERSION=${PYTHON_VERSION_SHORT}" "PYTHON_DIR=${PYTHON_DIR}"
         make -j $(nproc) && \
         PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
@@ -190,6 +200,11 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.qt-version }} 
+         
     - name: Detect exact versions
       id : versions
       run : |
@@ -218,7 +233,7 @@ jobs:
         for i in "python${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}-embed" "python${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}" \
                  "python${PYTHON_VERSION_MAJOR}-embed" "python${PYTHON_VERSION_MAJOR}"
         do if pkg-config --exists "$i"; then PYTHON_PKGCONFIG_NAME="$i"; break; fi; done
-        qmake CONFIG+=${{ matrix.configuration }} CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
+        qmake CONFIG+=ccache CONFIG+=${{ matrix.configuration }} CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
           PYTHON_VERSION=${{ steps.versions.outputs.PYTHON_VERSION_SHORT }} \
           PYTHON_DIR="$pythonLocation" \
           PKGCONFIG+=$PYTHON_PKGCONFIG_NAME \
@@ -287,6 +302,11 @@ jobs:
     - name: Reset PATH
       uses: egor-tensin/cleanup-path@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.include-qt-arch }}-${{ matrix.include.qt-version }} 
+         
     - name: Install MSVC++
       uses: ilammy/msvc-dev-cmd@v1
       if: ${{ contains(matrix.qt-arch, 'msvc') }}
@@ -329,7 +349,7 @@ jobs:
         qmake -query
         python --version
         set PYTHONQTALL_CONFIG=${{ matrix.pythonqtall-config }}
-        qmake CONFIG+=release CONFIG-=debug_and_release CONFIG-=debug_and_release_target ^
+        qmake CONFIG+=ccache CONFIG+=release CONFIG-=debug_and_release CONFIG-=debug_and_release_target ^
            "PYTHON_PATH=%pythonLocation%" ^
            "PYTHON_VERSION=${{ steps.versions.outputs.PYTHON_VERSION_SHORT }}" ^
            PythonQt.pro

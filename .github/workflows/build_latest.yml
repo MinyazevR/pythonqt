@@ -43,6 +43,11 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
+    - name: Ccache
+      uses: hendrikmuhs/ccache-action@v1.2.14
+      with:
+         key: ${{ runner.os }}-${{ matrix.qt-version }}
+         
     - name: Set environment
       id: setenv
       run: |
@@ -60,7 +65,7 @@ jobs:
       if: ${{ matrix.os == 'ubuntu' }}
       run: |
         cd generator
-        qmake -r generator.pro CONFIG+=release CONFIG-=debug_and_release CONFIG+=force_debug_info \
+        qmake -r generator.pro CONFIG+=ccache CONFIG+=release CONFIG-=debug_and_release CONFIG+=force_debug_info \
         CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address
         make -j $(nproc)
 
@@ -69,7 +74,7 @@ jobs:
       if: ${{ matrix.os == 'windows' }}
       run: |
         cd generator
-        qmake CONFIG+=release CONFIG-=debug_and_release CONFIG-=debug_and_release_target generator.pro
+        qmake CONFIG+=ccache CONFIG+=release CONFIG-=debug_and_release CONFIG-=debug_and_release_target generator.pro
         nmake
 
     - name: Generate Wrappers
@@ -93,7 +98,7 @@ jobs:
         echo ======= SYSTEM INFO ========
         uname -a; gcc --version | grep "gcc"; python3 --version; qmake --version
         echo ============================
-        qmake -r PythonQt.pro CONFIG+=release CONFIG+=force_debug_info \
+        qmake -r PythonQt.pro CONFIG+=ccache CONFIG+=release CONFIG+=force_debug_info \
         CONFIG+=sanitizer CONFIG+=sanitize_undefined CONFIG+=sanitize_address \
         PYTHON_VERSION=$(python3 --version | cut -d " " -f 2 | cut -d "." -f1,2) \
         PYTHON_DIR=$(which python3 | xargs dirname | xargs dirname)
@@ -108,7 +113,7 @@ jobs:
       run: |
         qmake -query
         python --version
-        qmake CONFIG+=release CONFIG-=debug_and_release CONFIG-=debug_and_release_target ^
+        qmake CONFIG+=ccache CONFIG+=release CONFIG-=debug_and_release CONFIG-=debug_and_release_target ^
            "PYTHONQTALL_CONFIG=${{ matrix.pythonqtall-config }}" ^
            "PYTHON_PATH=%pythonLocation%" ^
            "PYTHON_VERSION=${{ steps.setenv.outputs.PYTHON_VERSION_SHORT }}" ^
