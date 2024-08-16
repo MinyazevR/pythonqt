@@ -299,13 +299,13 @@ jobs:
     - name: Checkout PythonQt
       uses: actions/checkout@v4
 
-    - name: Reset PATH
-      uses: egor-tensin/cleanup-path@v4
-
     - name: Ccache
       uses: hendrikmuhs/ccache-action@v1.2.14
       with:
          key: ${{ runner.os }}-${{ matrix.include-qt-arch }}-${{ matrix.include.qt-version }} 
+         
+    - name: Reset PATH
+      uses: egor-tensin/cleanup-path@v4
          
     - name: Install MSVC++
       uses: ilammy/msvc-dev-cmd@v1
