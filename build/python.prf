@@ -66,11 +66,10 @@ contains(PKGCONFIG, "python.*"){
   isEmpty(PYTHON_PATH):PYTHON_PATH=$(PYTHON_PATH)
   isEmpty(PYTHON_PATH)|!exists("$$PYTHON_PATH\\include") | !exists("$$PYTHON_PATH\\libs\\") {
      error("PYTHON_PATH must be set to correct folder with \\libs and \\include subfolders ")
-  }
+  }  
+  INCLUDEPATH += $${PYTHON_PATH}/include
 
-  INCLUDEPATH += $$shell_path($${PYTHON_PATH}/include)
-
-  LIBS += $$shell_path(-L$${PYTHON_PATH}/libs)
+  LIBS += -L$${PYTHON_PATH}/libs
   LIBS += -lpython$${PYTHON_VERSION_MAJOR}$${PYTHON_VERSION_MINOR}$${DEBUG_EXT}
 
   # Hack for "CONFIG+=testcase" and 'make check' to add python's dll to PATH
