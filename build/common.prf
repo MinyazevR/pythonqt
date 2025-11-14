@@ -29,10 +29,11 @@ isEmpty(PYTHONQT_GENERATED_PATH) {
 
 # Fallbacks to checked-in wrappers
 !exists($$PYTHONQT_GENERATED_PATH) {
-  # Exact version directory (e.g., generated_cpp_515 or generated_cpp_69)
-  PYTHONQT_GENERATED_PATH_VERSIONED = $$PWD/../generated_cpp_$${QT_MAJOR_VERSION}$${QT_MINOR_VERSION}
-  exists($$PYTHONQT_GENERATED_PATH_VERSIONED) {
-    PYTHONQT_GENERATED_PATH = $$PYTHONQT_GENERATED_PATH_VERSIONED
+  # If no files are generated, try the checked-in wrappers:
+  PYTHONQT_GENERATED_PATH = $$PWD/../generated_cpp_$${QT_MAJOR_VERSION}.$${QT_MINOR_VERSION}.$${QT_PATCH_VERSION}
+
+  !exists($$PYTHONQT_GENERATED_PATH) {
+    PYTHONQT_GENERATED_PATH = $$PWD/../generated_cpp_$${QT_MAJOR_VERSION}.$${QT_MINOR_VERSION}
   }
 }
 
@@ -40,7 +41,7 @@ isEmpty(PYTHONQT_GENERATED_PATH) {
   error("No generated wrapper sources for Qt $${QT_VERSION}.\n" \
         "Looked in:\n" \
         "  - $$PWD/../generated_cpp\n" \
-        "  - $$PWD/../generated_cpp_$${QT_MAJOR_VERSION}$${QT_MINOR_VERSION} (e.g., generated_cpp_515)\n" \
+	"  - $$PWD/../generated_cpp_$${QT_MAJOR_VERSION}.$${QT_MINOR_VERSION} (e.g., generated_cpp_5.15)\n" \
         "Generate them first:\n" \
         "  qmake CONFIG+=generator_only && make\n" \
         "  cd generator && ./pythonqt_generator\n" \
