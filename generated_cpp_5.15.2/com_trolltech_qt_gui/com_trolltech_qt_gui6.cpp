@@ -973,12 +973,12 @@ if (_wrapper) {
 }
   return QOpenGLWidget::metric(metric0);
 }
-QSize  PythonQtShell_QOpenGLWidget::getMinimumSizeHint() const
+QSize  PythonQtShell_QOpenGLWidget::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -990,7 +990,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -1380,12 +1380,12 @@ if (_wrapper) {
 }
   QOpenGLWidget::showEvent(event0);
 }
-QSize  PythonQtShell_QOpenGLWidget::getSizeHint() const
+QSize  PythonQtShell_QOpenGLWidget::sizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getSizeHint");
+    static PyObject* name = PyUnicode_FromString("sizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -1397,7 +1397,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("sizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }

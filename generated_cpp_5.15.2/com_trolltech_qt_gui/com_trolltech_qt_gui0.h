@@ -49,6 +49,7 @@
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qwidget.h>
+#include <qabstracteventdispatcher.h>
 #include <qabstractitemmodel.h>
 #include <qabstractproxymodel.h>
 #include <qabstracttextdocumentlayout.h>
@@ -149,7 +150,7 @@ void keyPressEvent(QKeyEvent*  e) override;
 void keyReleaseEvent(QKeyEvent*  e) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  e) override;
 void mousePressEvent(QMouseEvent*  e) override;
@@ -164,7 +165,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  e) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -1146,7 +1147,6 @@ void delete_QAbstractScrollArea(QAbstractScrollArea* obj) { delete obj; }
    Qt::ScrollBarPolicy  horizontalScrollBarPolicy(QAbstractScrollArea* theWrappedObject) const;
    void py_q_keyPressEvent(QAbstractScrollArea* theWrappedObject, QKeyEvent*  arg__1){  (((PythonQtPublicPromoter_QAbstractScrollArea*)theWrappedObject)->py_q_keyPressEvent(arg__1));}
    QSize  maximumViewportSize(QAbstractScrollArea* theWrappedObject) const;
-   QSize  minimumSizeHint(QAbstractScrollArea* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QAbstractScrollArea* theWrappedObject) const{  return (((PythonQtPublicPromoter_QAbstractScrollArea*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseDoubleClickEvent(QAbstractScrollArea* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QAbstractScrollArea*)theWrappedObject)->py_q_mouseDoubleClickEvent(arg__1));}
    void py_q_mouseMoveEvent(QAbstractScrollArea* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QAbstractScrollArea*)theWrappedObject)->py_q_mouseMoveEvent(arg__1));}
@@ -1219,7 +1219,7 @@ void keyPressEvent(QKeyEvent*  ev) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1233,7 +1233,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void sliderChange(QAbstractSlider::SliderChange  change) override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  arg__1) override;
@@ -1459,7 +1459,6 @@ void delete_QAbstractSpinBox(QAbstractSpinBox* obj) { delete obj; }
    void py_q_keyReleaseEvent(QAbstractSpinBox* theWrappedObject, QKeyEvent*  event){  (((PythonQtPublicPromoter_QAbstractSpinBox*)theWrappedObject)->py_q_keyReleaseEvent(event));}
    bool  keyboardTracking(QAbstractSpinBox* theWrappedObject) const;
    QLineEdit*  lineEdit(QAbstractSpinBox* theWrappedObject) const;
-   QSize  minimumSizeHint(QAbstractSpinBox* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QAbstractSpinBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QAbstractSpinBox*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseMoveEvent(QAbstractSpinBox* theWrappedObject, QMouseEvent*  event){  (((PythonQtPublicPromoter_QAbstractSpinBox*)theWrappedObject)->py_q_mouseMoveEvent(event));}
    void py_q_mousePressEvent(QAbstractSpinBox* theWrappedObject, QMouseEvent*  event){  (((PythonQtPublicPromoter_QAbstractSpinBox*)theWrappedObject)->py_q_mousePressEvent(event));}
@@ -1478,7 +1477,6 @@ void delete_QAbstractSpinBox(QAbstractSpinBox* obj) { delete obj; }
    void setSpecialValueText(QAbstractSpinBox* theWrappedObject, const QString&  txt);
    void setWrapping(QAbstractSpinBox* theWrappedObject, bool  w);
    void py_q_showEvent(QAbstractSpinBox* theWrappedObject, QShowEvent*  event){  (((PythonQtPublicPromoter_QAbstractSpinBox*)theWrappedObject)->py_q_showEvent(event));}
-   QSize  sizeHint(QAbstractSpinBox* theWrappedObject) const;
    QSize  py_q_sizeHint(QAbstractSpinBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QAbstractSpinBox*)theWrappedObject)->py_q_sizeHint());}
    QString  specialValueText(QAbstractSpinBox* theWrappedObject) const;
    void stepBy(QAbstractSpinBox* theWrappedObject, int  steps);
@@ -2171,7 +2169,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -2186,7 +2184,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -2209,11 +2207,11 @@ inline void promoted_updateCells() { this->updateCells(); }
 inline bool  py_q_event(QEvent*  event) { return QCalendarWidget::event(event); }
 inline bool  py_q_eventFilter(QObject*  watched, QEvent*  event) { return QCalendarWidget::eventFilter(watched, event); }
 inline void py_q_keyPressEvent(QKeyEvent*  event) { QCalendarWidget::keyPressEvent(event); }
-inline QSize  py_q_getMinimumSizeHint() const { return QCalendarWidget::minimumSizeHint(); }
+inline QSize  py_q_minimumSizeHint() const { return QCalendarWidget::minimumSizeHint(); }
 inline void py_q_mousePressEvent(QMouseEvent*  event) { QCalendarWidget::mousePressEvent(event); }
 inline void py_q_paintCell(QPainter*  painter, const QRect&  rect, const QDate&  date) const { QCalendarWidget::paintCell(painter, rect, date); }
 inline void py_q_resizeEvent(QResizeEvent*  event) { QCalendarWidget::resizeEvent(event); }
-inline QSize  py_q_getSizeHint() const { return QCalendarWidget::sizeHint(); }
+inline QSize  py_q_sizeHint() const { return QCalendarWidget::sizeHint(); }
 };
 
 class PythonQtWrapper_QCalendarWidget : public QObject
@@ -2237,7 +2235,7 @@ void delete_QCalendarWidget(QCalendarWidget* obj) { delete obj; }
    void py_q_keyPressEvent(QCalendarWidget* theWrappedObject, QKeyEvent*  event){  (((PythonQtPublicPromoter_QCalendarWidget*)theWrappedObject)->py_q_keyPressEvent(event));}
    QDate  maximumDate(QCalendarWidget* theWrappedObject) const;
    QDate  minimumDate(QCalendarWidget* theWrappedObject) const;
-   QSize  py_q_getMinimumSizeHint(QCalendarWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QCalendarWidget*)theWrappedObject)->py_q_minimumSizeHint());}
+   QSize  py_q_minimumSizeHint(QCalendarWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QCalendarWidget*)theWrappedObject)->py_q_minimumSizeHint());}
    int  monthShown(QCalendarWidget* theWrappedObject) const;
    void py_q_mousePressEvent(QCalendarWidget* theWrappedObject, QMouseEvent*  event){  (((PythonQtPublicPromoter_QCalendarWidget*)theWrappedObject)->py_q_mousePressEvent(event));}
    void paintCell(QCalendarWidget* theWrappedObject, QPainter*  painter, const QRect&  rect, const QDate&  date) const;
@@ -2257,7 +2255,7 @@ void delete_QCalendarWidget(QCalendarWidget* obj) { delete obj; }
    void setSelectionMode(QCalendarWidget* theWrappedObject, QCalendarWidget::SelectionMode  mode);
    void setVerticalHeaderFormat(QCalendarWidget* theWrappedObject, QCalendarWidget::VerticalHeaderFormat  format);
    void setWeekdayTextFormat(QCalendarWidget* theWrappedObject, Qt::DayOfWeek  dayOfWeek, const QTextCharFormat&  format);
-   QSize  py_q_getSizeHint(QCalendarWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QCalendarWidget*)theWrappedObject)->py_q_sizeHint());}
+   QSize  py_q_sizeHint(QCalendarWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QCalendarWidget*)theWrappedObject)->py_q_sizeHint());}
    void updateCell(QCalendarWidget* theWrappedObject, const QDate&  date);
    void updateCells(QCalendarWidget* theWrappedObject);
    QCalendarWidget::VerticalHeaderFormat  verticalHeaderFormat(QCalendarWidget* theWrappedObject) const;
@@ -2363,14 +2361,12 @@ void delete_QCheckBox(QCheckBox* obj) { delete obj; }
    bool  py_q_hitButton(QCheckBox* theWrappedObject, const QPoint&  pos) const{  return (((PythonQtPublicPromoter_QCheckBox*)theWrappedObject)->py_q_hitButton(pos));}
    void initStyleOption(QCheckBox* theWrappedObject, QStyleOptionButton*  option) const;
    bool  isTristate(QCheckBox* theWrappedObject) const;
-   QSize  minimumSizeHint(QCheckBox* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QCheckBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QCheckBox*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseMoveEvent(QCheckBox* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QCheckBox*)theWrappedObject)->py_q_mouseMoveEvent(arg__1));}
    void py_q_nextCheckState(QCheckBox* theWrappedObject){  (((PythonQtPublicPromoter_QCheckBox*)theWrappedObject)->py_q_nextCheckState());}
    void py_q_paintEvent(QCheckBox* theWrappedObject, QPaintEvent*  arg__1){  (((PythonQtPublicPromoter_QCheckBox*)theWrappedObject)->py_q_paintEvent(arg__1));}
    void setCheckState(QCheckBox* theWrappedObject, Qt::CheckState  state);
    void setTristate(QCheckBox* theWrappedObject, bool  y = true);
-   QSize  sizeHint(QCheckBox* theWrappedObject) const;
    QSize  py_q_sizeHint(QCheckBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QCheckBox*)theWrappedObject)->py_q_sizeHint());}
 };
 
@@ -2908,7 +2904,6 @@ void delete_QComboBox(QComboBox* obj) { delete obj; }
    int  maxCount(QComboBox* theWrappedObject) const;
    int  maxVisibleItems(QComboBox* theWrappedObject) const;
    int  minimumContentsLength(QComboBox* theWrappedObject) const;
-   QSize  minimumSizeHint(QComboBox* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QComboBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QComboBox*)theWrappedObject)->py_q_minimumSizeHint());}
    QAbstractItemModel*  model(QComboBox* theWrappedObject) const;
    int  modelColumn(QComboBox* theWrappedObject) const;
@@ -2944,7 +2939,6 @@ void delete_QComboBox(QComboBox* obj) { delete obj; }
    void showPopup(QComboBox* theWrappedObject);
    void py_q_showPopup(QComboBox* theWrappedObject){  (((PythonQtPublicPromoter_QComboBox*)theWrappedObject)->py_q_showPopup());}
    QComboBox::SizeAdjustPolicy  sizeAdjustPolicy(QComboBox* theWrappedObject) const;
-   QSize  sizeHint(QComboBox* theWrappedObject) const;
    QSize  py_q_sizeHint(QComboBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QComboBox*)theWrappedObject)->py_q_sizeHint());}
    const QValidator*  validator(QComboBox* theWrappedObject) const;
    QAbstractItemView*  view(QComboBox* theWrappedObject) const;

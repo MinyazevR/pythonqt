@@ -12,13 +12,12 @@
 #include <qbytearray.h>
 #include <qcoreevent.h>
 #include <qdatastream.h>
-#include <qdatetime.h>
 #include <qeasingcurve.h>
 #include <qfileinfo.h>
 #include <qiodevice.h>
 #include <qlist.h>
-#include <qlocale.h>
 #include <qlogging.h>
+#include <qmargins.h>
 #include <qmetaobject.h>
 #include <qmetatype.h>
 #include <qmimetype.h>
@@ -29,11 +28,219 @@
 #include <qprocess.h>
 #include <qrandom.h>
 #include <qreadwritelock.h>
+#include <qrect.h>
 #include <qregularexpression.h>
 #include <qstringlist.h>
 #include <qthread.h>
 #include <qurl.h>
 #include <qvector.h>
+
+QMarginsF* PythonQtWrapper_QMarginsF::new_QMarginsF()
+{ 
+return new QMarginsF(); }
+
+QMarginsF* PythonQtWrapper_QMarginsF::new_QMarginsF(const QMargins&  margins)
+{ 
+return new QMarginsF(margins); }
+
+QMarginsF* PythonQtWrapper_QMarginsF::new_QMarginsF(qreal  left, qreal  top, qreal  right, qreal  bottom)
+{ 
+return new QMarginsF(left, top, right, bottom); }
+
+qreal  PythonQtWrapper_QMarginsF::bottom(QMarginsF* theWrappedObject) const
+{
+  return ( theWrappedObject->bottom());
+}
+
+bool  PythonQtWrapper_QMarginsF::isNull(QMarginsF* theWrappedObject) const
+{
+  return ( theWrappedObject->isNull());
+}
+
+qreal  PythonQtWrapper_QMarginsF::left(QMarginsF* theWrappedObject) const
+{
+  return ( theWrappedObject->left());
+}
+
+bool  PythonQtWrapper_QMarginsF::__ne__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
+{
+  return ( (*theWrappedObject)!= rhs);
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__mul__(QMarginsF* theWrappedObject, qreal  rhs)
+{
+  return ( (*theWrappedObject)* rhs);
+}
+
+QMarginsF*  PythonQtWrapper_QMarginsF::__imul__(QMarginsF* theWrappedObject, qreal  factor)
+{
+  return &( (*theWrappedObject)*= factor);
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject)
+{
+  return (+  (*theWrappedObject));
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
+{
+  return ( (*theWrappedObject)+ rhs);
+}
+
+QRectF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject, const QRectF&  rhs)
+{
+  return ( (*theWrappedObject)+ rhs);
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject, qreal  rhs)
+{
+  return ( (*theWrappedObject)+ rhs);
+}
+
+QMarginsF*  PythonQtWrapper_QMarginsF::__iadd__(QMarginsF* theWrappedObject, const QMarginsF&  margins)
+{
+  return &( (*theWrappedObject)+= margins);
+}
+
+QMarginsF*  PythonQtWrapper_QMarginsF::__iadd__(QMarginsF* theWrappedObject, qreal  addend)
+{
+  return &( (*theWrappedObject)+= addend);
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__sub__(QMarginsF* theWrappedObject)
+{
+  return (-  (*theWrappedObject));
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__sub__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
+{
+  return ( (*theWrappedObject)- rhs);
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__sub__(QMarginsF* theWrappedObject, qreal  rhs)
+{
+  return ( (*theWrappedObject)- rhs);
+}
+
+QMarginsF*  PythonQtWrapper_QMarginsF::__isub__(QMarginsF* theWrappedObject, const QMarginsF&  margins)
+{
+  return &( (*theWrappedObject)-= margins);
+}
+
+QMarginsF*  PythonQtWrapper_QMarginsF::__isub__(QMarginsF* theWrappedObject, qreal  subtrahend)
+{
+  return &( (*theWrappedObject)-= subtrahend);
+}
+
+QMarginsF  PythonQtWrapper_QMarginsF::__div__(QMarginsF* theWrappedObject, qreal  divisor)
+{
+  return ( (*theWrappedObject)/ divisor);
+}
+
+QMarginsF*  PythonQtWrapper_QMarginsF::__idiv__(QMarginsF* theWrappedObject, qreal  divisor)
+{
+  return &( (*theWrappedObject)/= divisor);
+}
+
+void PythonQtWrapper_QMarginsF::writeTo(QMarginsF* theWrappedObject, QDataStream&  arg__1)
+{
+  arg__1 <<  (*theWrappedObject);
+}
+
+bool  PythonQtWrapper_QMarginsF::__eq__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
+{
+  return ( (*theWrappedObject)== rhs);
+}
+
+void PythonQtWrapper_QMarginsF::readFrom(QMarginsF* theWrappedObject, QDataStream&  arg__1)
+{
+  arg__1 >>  (*theWrappedObject);
+}
+
+qreal  PythonQtWrapper_QMarginsF::right(QMarginsF* theWrappedObject) const
+{
+  return ( theWrappedObject->right());
+}
+
+void PythonQtWrapper_QMarginsF::setBottom(QMarginsF* theWrappedObject, qreal  bottom)
+{
+  ( theWrappedObject->setBottom(bottom));
+}
+
+void PythonQtWrapper_QMarginsF::setLeft(QMarginsF* theWrappedObject, qreal  left)
+{
+  ( theWrappedObject->setLeft(left));
+}
+
+void PythonQtWrapper_QMarginsF::setRight(QMarginsF* theWrappedObject, qreal  right)
+{
+  ( theWrappedObject->setRight(right));
+}
+
+void PythonQtWrapper_QMarginsF::setTop(QMarginsF* theWrappedObject, qreal  top)
+{
+  ( theWrappedObject->setTop(top));
+}
+
+QMargins  PythonQtWrapper_QMarginsF::toMargins(QMarginsF* theWrappedObject) const
+{
+  return ( theWrappedObject->toMargins());
+}
+
+qreal  PythonQtWrapper_QMarginsF::top(QMarginsF* theWrappedObject) const
+{
+  return ( theWrappedObject->top());
+}
+
+QString PythonQtWrapper_QMarginsF::py_toString(QMarginsF* obj) {
+  QString result;
+  QDebug d(&result);
+  d << *obj;
+  return result;
+}
+
+
+
+QMessageAuthenticationCode* PythonQtWrapper_QMessageAuthenticationCode::new_QMessageAuthenticationCode(QCryptographicHash::Algorithm  method, const QByteArray&  key)
+{ 
+return new QMessageAuthenticationCode(method, key); }
+
+bool  PythonQtWrapper_QMessageAuthenticationCode::addData(QMessageAuthenticationCode* theWrappedObject, QIODevice*  device)
+{
+  return ( theWrappedObject->addData(device));
+}
+
+void PythonQtWrapper_QMessageAuthenticationCode::addData(QMessageAuthenticationCode* theWrappedObject, const QByteArray&  data)
+{
+  ( theWrappedObject->addData(data));
+}
+
+void PythonQtWrapper_QMessageAuthenticationCode::addData(QMessageAuthenticationCode* theWrappedObject, const char*  data, int  length)
+{
+  ( theWrappedObject->addData(data, length));
+}
+
+QByteArray  PythonQtWrapper_QMessageAuthenticationCode::static_QMessageAuthenticationCode_hash(const QByteArray&  message, const QByteArray&  key, QCryptographicHash::Algorithm  method)
+{
+  return (QMessageAuthenticationCode::hash(message, key, method));
+}
+
+void PythonQtWrapper_QMessageAuthenticationCode::reset(QMessageAuthenticationCode* theWrappedObject)
+{
+  ( theWrappedObject->reset());
+}
+
+QByteArray  PythonQtWrapper_QMessageAuthenticationCode::result(QMessageAuthenticationCode* theWrappedObject) const
+{
+  return ( theWrappedObject->result());
+}
+
+void PythonQtWrapper_QMessageAuthenticationCode::setKey(QMessageAuthenticationCode* theWrappedObject, const QByteArray&  key)
+{
+  ( theWrappedObject->setKey(key));
+}
+
+
 
 PythonQtShell_QMessageLogContext::~PythonQtShell_QMessageLogContext() {
   PythonQtPrivate* priv = PythonQt::priv();
@@ -4037,173 +4244,6 @@ QRegularExpression  PythonQtWrapper_QRegularExpressionMatchIterator::regularExpr
 void PythonQtWrapper_QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterator* theWrappedObject, QRegularExpressionMatchIterator&  other)
 {
   ( theWrappedObject->swap(other));
-}
-
-
-
-PythonQtShell_QResource::~PythonQtShell_QResource() {
-  PythonQtPrivate* priv = PythonQt::priv();
-  if (priv) { priv->shellClassDeleted(this); }
-}
-QResource* PythonQtWrapper_QResource::new_QResource(const QString&  file, const QLocale&  locale)
-{ 
-return new PythonQtShell_QResource(file, locale); }
-
-QString  PythonQtWrapper_QResource::absoluteFilePath(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->absoluteFilePath());
-}
-
-void PythonQtWrapper_QResource::static_QResource_addSearchPath(const QString&  path)
-{
-  (QResource::addSearchPath(path));
-}
-
-QStringList  PythonQtWrapper_QResource::children(QResource* theWrappedObject) const
-{
-  return ( ((PythonQtPublicPromoter_QResource*)theWrappedObject)->promoted_children());
-}
-
-QResource::Compression  PythonQtWrapper_QResource::compressionAlgorithm(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->compressionAlgorithm());
-}
-
-const uchar*  PythonQtWrapper_QResource::data(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->data());
-}
-
-QString  PythonQtWrapper_QResource::fileName(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->fileName());
-}
-
-bool  PythonQtWrapper_QResource::isCompressed(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->isCompressed());
-}
-
-bool  PythonQtWrapper_QResource::isDir(QResource* theWrappedObject) const
-{
-  return ( ((PythonQtPublicPromoter_QResource*)theWrappedObject)->promoted_isDir());
-}
-
-bool  PythonQtWrapper_QResource::isFile(QResource* theWrappedObject) const
-{
-  return ( ((PythonQtPublicPromoter_QResource*)theWrappedObject)->promoted_isFile());
-}
-
-bool  PythonQtWrapper_QResource::isValid(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->isValid());
-}
-
-QDateTime  PythonQtWrapper_QResource::lastModified(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->lastModified());
-}
-
-QLocale  PythonQtWrapper_QResource::locale(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->locale());
-}
-
-bool  PythonQtWrapper_QResource::static_QResource_registerResource(const QString&  rccFilename, const QString&  resourceRoot)
-{
-  return (QResource::registerResource(rccFilename, resourceRoot));
-}
-
-bool  PythonQtWrapper_QResource::static_QResource_registerResource(const uchar*  rccData, const QString&  resourceRoot)
-{
-  return (QResource::registerResource(rccData, resourceRoot));
-}
-
-QStringList  PythonQtWrapper_QResource::static_QResource_searchPaths()
-{
-  return (QResource::searchPaths());
-}
-
-void PythonQtWrapper_QResource::setFileName(QResource* theWrappedObject, const QString&  file)
-{
-  ( theWrappedObject->setFileName(file));
-}
-
-void PythonQtWrapper_QResource::setLocale(QResource* theWrappedObject, const QLocale&  locale)
-{
-  ( theWrappedObject->setLocale(locale));
-}
-
-qint64  PythonQtWrapper_QResource::size(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->size());
-}
-
-QByteArray  PythonQtWrapper_QResource::uncompressedData(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->uncompressedData());
-}
-
-qint64  PythonQtWrapper_QResource::uncompressedSize(QResource* theWrappedObject) const
-{
-  return ( theWrappedObject->uncompressedSize());
-}
-
-bool  PythonQtWrapper_QResource::static_QResource_unregisterResource(const QString&  rccFilename, const QString&  resourceRoot)
-{
-  return (QResource::unregisterResource(rccFilename, resourceRoot));
-}
-
-bool  PythonQtWrapper_QResource::static_QResource_unregisterResource(const uchar*  rccData, const QString&  resourceRoot)
-{
-  return (QResource::unregisterResource(rccData, resourceRoot));
-}
-
-
-
-PythonQtShell_QRunnable::~PythonQtShell_QRunnable() {
-  PythonQtPrivate* priv = PythonQt::priv();
-  if (priv) { priv->shellClassDeleted(this); }
-}
-void PythonQtShell_QRunnable::run()
-{
-if (_wrapper) {
-  PYTHONQT_GIL_SCOPE
-  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("run");
-    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
-    if (obj) {
-      static const char* argumentList[] ={""};
-      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(1, argumentList);
-      void* args[1] = {nullptr};
-      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
-      if (result) { Py_DECREF(result); }
-      Py_DECREF(obj);
-      return;
-    } else {
-      PyErr_Clear();
-    }
-  }
-}
-  
-}
-QRunnable* PythonQtWrapper_QRunnable::new_QRunnable()
-{ 
-return new PythonQtShell_QRunnable(); }
-
-bool  PythonQtWrapper_QRunnable::autoDelete(QRunnable* theWrappedObject) const
-{
-  return ( theWrappedObject->autoDelete());
-}
-
-void PythonQtWrapper_QRunnable::run(QRunnable* theWrappedObject)
-{
-  ( theWrappedObject->run());
-}
-
-void PythonQtWrapper_QRunnable::setAutoDelete(QRunnable* theWrappedObject, bool  _autoDelete)
-{
-  ( theWrappedObject->setAutoDelete(_autoDelete));
 }
 
 

@@ -48,6 +48,8 @@ static void* polymorphichandler_QEvent(const void *ptr, const char **class_name)
 
 void PythonQt_init_QtCore(PyObject* module) {
 PythonQt::priv()->registerClass(&QAbstractAnimation::staticMetaObject, "QtCore", PythonQtCreateObject<PythonQtWrapper_QAbstractAnimation>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QAbstractAnimation>, module, 0);
+PythonQt::priv()->registerClass(&QAbstractEventDispatcher::staticMetaObject, "QtCore", PythonQtCreateObject<PythonQtWrapper_QAbstractEventDispatcher>, nullptr, module, 0);
+PythonQt::priv()->registerCPPClass("QAbstractEventDispatcher::TimerInfo", "", "QtCore", PythonQtCreateObject<PythonQtWrapper_QAbstractEventDispatcher__TimerInfo>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QAbstractEventDispatcher__TimerInfo>, module, 0);
 PythonQt::priv()->registerClass(&QAbstractItemModel::staticMetaObject, "QtCore", PythonQtCreateObject<PythonQtWrapper_QAbstractItemModel>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QAbstractItemModel>, module, 0);
 PythonQt::priv()->registerClass(&QAbstractListModel::staticMetaObject, "QtCore", PythonQtCreateObject<PythonQtWrapper_QAbstractListModel>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QAbstractListModel>, module, 0);
 PythonQt::priv()->registerClass(&QAbstractState::staticMetaObject, "QtCore", PythonQtCreateObject<PythonQtWrapper_QAbstractState>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QAbstractState>, module, 0);
@@ -180,6 +182,7 @@ PythonQt::priv()->registerGlobalNamespace("QtCore", "QtCore", PythonQtCreateObje
 
 PythonQt::self()->addPolymorphicHandler("QEvent", polymorphichandler_QEvent);
 
+PythonQtRegisterListTemplateConverterForKnownClass(QList, QAbstractEventDispatcher::TimerInfo);
 PythonQtRegisterListTemplateConverterForKnownClass(QList, QCommandLineOption);
 PythonQtRegisterListTemplateConverterForKnownClass(QList, QFileInfo);
 PythonQtRegisterListTemplateConverterForKnownClass(QList, QMimeType);

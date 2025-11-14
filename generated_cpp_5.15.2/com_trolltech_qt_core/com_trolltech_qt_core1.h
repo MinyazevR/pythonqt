@@ -1,4 +1,5 @@
 #include <PythonQt.h>
+#include <PythonQtConversion.h>
 #include <QDateTime>
 #include <QDir>
 #include <QObject>
@@ -12,6 +13,7 @@
 #include <qcoreevent.h>
 #include <qdatastream.h>
 #include <qdatetime.h>
+#include <qdeadlinetimer.h>
 #include <qdir.h>
 #include <qdiriterator.h>
 #include <qeasingcurve.h>
@@ -38,13 +40,10 @@
 #include <qlist.h>
 #include <qlockfile.h>
 #include <qloggingcategory.h>
-#include <qmargins.h>
-#include <qmessageauthenticationcode.h>
 #include <qmetaobject.h>
 #include <qmimedata.h>
 #include <qobject.h>
 #include <qpoint.h>
-#include <qrect.h>
 #include <qsize.h>
 #include <qstate.h>
 #include <qstatemachine.h>
@@ -53,6 +52,144 @@
 #include <qurl.h>
 #include <qvector.h>
 #include <qversionnumber.h>
+
+
+
+class PythonQtWrapper_QDataStream : public QObject
+{ Q_OBJECT
+public:
+Q_ENUMS(ByteOrder FloatingPointPrecision Status Version )
+enum ByteOrder{
+  BigEndian = QDataStream::BigEndian,   LittleEndian = QDataStream::LittleEndian};
+enum FloatingPointPrecision{
+  SinglePrecision = QDataStream::SinglePrecision,   DoublePrecision = QDataStream::DoublePrecision};
+enum Status{
+  Ok = QDataStream::Ok,   ReadPastEnd = QDataStream::ReadPastEnd,   ReadCorruptData = QDataStream::ReadCorruptData,   WriteFailed = QDataStream::WriteFailed};
+enum Version{
+  Qt_1_0 = QDataStream::Qt_1_0,   Qt_2_0 = QDataStream::Qt_2_0,   Qt_2_1 = QDataStream::Qt_2_1,   Qt_3_0 = QDataStream::Qt_3_0,   Qt_3_1 = QDataStream::Qt_3_1,   Qt_3_3 = QDataStream::Qt_3_3,   Qt_4_0 = QDataStream::Qt_4_0,   Qt_4_1 = QDataStream::Qt_4_1,   Qt_4_2 = QDataStream::Qt_4_2,   Qt_4_3 = QDataStream::Qt_4_3,   Qt_4_4 = QDataStream::Qt_4_4,   Qt_4_5 = QDataStream::Qt_4_5,   Qt_4_6 = QDataStream::Qt_4_6,   Qt_4_7 = QDataStream::Qt_4_7,   Qt_4_8 = QDataStream::Qt_4_8,   Qt_4_9 = QDataStream::Qt_4_9,   Qt_5_0 = QDataStream::Qt_5_0,   Qt_5_1 = QDataStream::Qt_5_1,   Qt_5_2 = QDataStream::Qt_5_2,   Qt_5_3 = QDataStream::Qt_5_3,   Qt_5_4 = QDataStream::Qt_5_4,   Qt_5_5 = QDataStream::Qt_5_5,   Qt_5_6 = QDataStream::Qt_5_6,   Qt_5_7 = QDataStream::Qt_5_7,   Qt_5_8 = QDataStream::Qt_5_8,   Qt_5_9 = QDataStream::Qt_5_9,   Qt_5_10 = QDataStream::Qt_5_10,   Qt_5_11 = QDataStream::Qt_5_11,   Qt_5_12 = QDataStream::Qt_5_12,   Qt_5_13 = QDataStream::Qt_5_13,   Qt_5_14 = QDataStream::Qt_5_14,   Qt_5_15 = QDataStream::Qt_5_15,   Qt_DefaultCompiledVersion = QDataStream::Qt_DefaultCompiledVersion};
+public Q_SLOTS:
+QDataStream* new_QDataStream();
+QDataStream* new_QDataStream(QByteArray*  arg__1, QIODevice::OpenMode  flags);
+QDataStream* new_QDataStream(QIODevice*  arg__1);
+QDataStream* new_QDataStream(const QByteArray&  arg__1);
+void delete_QDataStream(QDataStream* obj) { delete obj; }
+   void abortTransaction(QDataStream* theWrappedObject);
+   bool  atEnd(QDataStream* theWrappedObject) const;
+   QDataStream::ByteOrder  byteOrder(QDataStream* theWrappedObject) const;
+   bool  commitTransaction(QDataStream* theWrappedObject);
+   QIODevice*  device(QDataStream* theWrappedObject) const;
+   QDataStream::FloatingPointPrecision  floatingPointPrecision(QDataStream* theWrappedObject) const;
+   void resetStatus(QDataStream* theWrappedObject);
+   void rollbackTransaction(QDataStream* theWrappedObject);
+   void setByteOrder(QDataStream* theWrappedObject, QDataStream::ByteOrder  arg__1);
+   void setDevice(QDataStream* theWrappedObject, QIODevice*  arg__1);
+   void setFloatingPointPrecision(QDataStream* theWrappedObject, QDataStream::FloatingPointPrecision  precision);
+   void setStatus(QDataStream* theWrappedObject, QDataStream::Status  status);
+   void setVersion(QDataStream* theWrappedObject, int  arg__1);
+   int  skipRawData(QDataStream* theWrappedObject, int  len);
+   void startTransaction(QDataStream* theWrappedObject);
+   QDataStream::Status  status(QDataStream* theWrappedObject) const;
+   void unsetDevice(QDataStream* theWrappedObject);
+   int  version(QDataStream* theWrappedObject) const;
+
+   QString readQString(QDataStream* d) { QString r; (*d) >> r; return r; }
+   QString readString(QDataStream* d) { QString r; (*d) >> r; return r; }
+   QChar readQChar(QDataStream* d) { QChar r; (*d) >> r; return r; }
+   QStringList readQStringList(QDataStream* d) { QStringList r; (*d) >> r; return r; }
+   QVariant readQVariant(QDataStream* d) { QVariant r; (*d) >> r; return r; }
+   bool readBool(QDataStream* d) { bool r; (*d) >> r; return r; }
+   qint8 readInt8(QDataStream* d) { qint8 r; (*d) >> r; return r; }
+   quint8 readUInt8(QDataStream* d) { quint8 r; (*d) >> r; return r; }
+   qint16 readInt16(QDataStream* d) { qint16 r; (*d) >> r; return r; }
+   quint16 readUInt16(QDataStream* d) { quint16 r; (*d) >> r; return r; }
+   qint32 readInt32(QDataStream* d) { qint32 r; (*d) >> r; return r; }
+   quint32 readUInt32(QDataStream* d) { quint32 r; (*d) >> r; return r; }
+   qint64 readInt64(QDataStream* d) { qint64 r; (*d) >> r; return r; }
+   quint64 readUInt64(QDataStream* d) { quint64 r; (*d) >> r; return r; }
+   float readFloat(QDataStream* d) { float r; (*d) >> r; return r; }
+   double readDouble(QDataStream* d) { double r; (*d) >> r; return r; }
+
+   void writeQString(QDataStream* d, const QString& v) { (*d) << v; }
+   void writeString(QDataStream* d, const QString& v) { (*d) << v; }
+   void writeQChar(QDataStream* d, const QChar& v) { (*d) << v; }
+   void writeQStringList(QDataStream* d, const QStringList& v) { (*d) << v; }
+   void writeQVariant(QDataStream* d, const QVariant& v) { (*d) << v; }
+   void writeBool(QDataStream* d, bool v) { (*d) << v; }
+   void writeInt8(QDataStream* d, qint8 v) { (*d) << v; }
+   void writeUInt8(QDataStream* d, quint8 v) { (*d) << v; }
+   void writeInt16(QDataStream* d, qint16 v) { (*d) << v; }
+   void writeUInt16(QDataStream* d, quint16 v) { (*d) << v; }
+   void writeInt32(QDataStream* d, qint32 v) { (*d) << v; }
+   void writeUInt32(QDataStream* d, quint32 v) { (*d) << v; }
+   void writeInt64(QDataStream* d, qint64 v) { (*d) << v; }
+   void writeUInt64(QDataStream* d, quint64 v) { (*d) << v; }
+   void writeFloat(QDataStream* d, float v) { (*d) << v; }
+   void writeDouble(QDataStream* d, double v) { (*d) << v; }
+
+   int writeRawData(QDataStream* d, PyObject* o) {
+     bool ok;
+     QByteArray r = PythonQtConv::PyObjGetBytes(o, false, ok);
+     return (*d).writeRawData(r.constData(), r.size());
+   }
+
+   PyObject* readRawData(QDataStream* d, int len) {
+     QByteArray r;
+     r.resize(len);
+     int result = d->readRawData(r.data(), r.size());
+     if (result>=0) {
+       return PyBytes_FromStringAndSize(r.data(), result);
+     } else {
+       Py_INCREF(Py_None);
+       return Py_None;
+     }
+   }
+    
+};
+
+
+
+
+
+class PythonQtWrapper_QDeadlineTimer : public QObject
+{ Q_OBJECT
+public:
+Q_ENUMS(ForeverConstant )
+enum ForeverConstant{
+  Forever = QDeadlineTimer::Forever};
+public Q_SLOTS:
+QDeadlineTimer* new_QDeadlineTimer(QDeadlineTimer::ForeverConstant  arg__1, Qt::TimerType  type_ = Qt::CoarseTimer);
+QDeadlineTimer* new_QDeadlineTimer(Qt::TimerType  type_ = Qt::CoarseTimer);
+QDeadlineTimer* new_QDeadlineTimer(qint64  msecs, Qt::TimerType  type = Qt::CoarseTimer);
+void delete_QDeadlineTimer(QDeadlineTimer* obj) { delete obj; }
+   QDeadlineTimer  static_QDeadlineTimer_addNSecs(QDeadlineTimer  dt, qint64  nsecs);
+   QDeadlineTimer  static_QDeadlineTimer_current(Qt::TimerType  timerType = Qt::CoarseTimer);
+   qint64  deadline(QDeadlineTimer* theWrappedObject) const;
+   qint64  deadlineNSecs(QDeadlineTimer* theWrappedObject) const;
+   bool  hasExpired(QDeadlineTimer* theWrappedObject) const;
+   bool  isForever(QDeadlineTimer* theWrappedObject) const;
+   bool  __ne__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2);
+   QDeadlineTimer  __add__(QDeadlineTimer* theWrappedObject, qint64  msecs);
+   QDeadlineTimer*  __iadd__(QDeadlineTimer* theWrappedObject, qint64  msecs);
+   qint64  __sub__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  dt2);
+   QDeadlineTimer  __sub__(QDeadlineTimer* theWrappedObject, qint64  msecs);
+   QDeadlineTimer*  __isub__(QDeadlineTimer* theWrappedObject, qint64  msecs);
+   bool  __lt__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2);
+   bool  __le__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2);
+   bool  __eq__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2);
+   bool  __gt__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2);
+   bool  __ge__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2);
+   qint64  remainingTime(QDeadlineTimer* theWrappedObject) const;
+   qint64  remainingTimeNSecs(QDeadlineTimer* theWrappedObject) const;
+   void setDeadline(QDeadlineTimer* theWrappedObject, qint64  msecs, Qt::TimerType  timerType = Qt::CoarseTimer);
+   void setPreciseDeadline(QDeadlineTimer* theWrappedObject, qint64  secs, qint64  nsecs = 0, Qt::TimerType  type = Qt::CoarseTimer);
+   void setPreciseRemainingTime(QDeadlineTimer* theWrappedObject, qint64  secs, qint64  nsecs = 0, Qt::TimerType  type = Qt::CoarseTimer);
+   void setRemainingTime(QDeadlineTimer* theWrappedObject, qint64  msecs, Qt::TimerType  type = Qt::CoarseTimer);
+   void setTimerType(QDeadlineTimer* theWrappedObject, Qt::TimerType  type);
+   void swap(QDeadlineTimer* theWrappedObject, QDeadlineTimer&  other);
+   Qt::TimerType  timerType(QDeadlineTimer* theWrappedObject) const;
+};
+
+
 
 
 
@@ -1462,70 +1599,6 @@ void delete_QLoggingCategory(QLoggingCategory* obj) { delete obj; }
    bool  isWarningEnabled(QLoggingCategory* theWrappedObject) const;
    void setEnabled(QLoggingCategory* theWrappedObject, QtMsgType  type, bool  enable);
    void static_QLoggingCategory_setFilterRules(const QString&  rules);
-};
-
-
-
-
-
-class PythonQtWrapper_QMarginsF : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QMarginsF* new_QMarginsF();
-QMarginsF* new_QMarginsF(const QMargins&  margins);
-QMarginsF* new_QMarginsF(qreal  left, qreal  top, qreal  right, qreal  bottom);
-void delete_QMarginsF(QMarginsF* obj) { delete obj; }
-   qreal  bottom(QMarginsF* theWrappedObject) const;
-   bool  isNull(QMarginsF* theWrappedObject) const;
-   qreal  left(QMarginsF* theWrappedObject) const;
-   bool  __ne__(QMarginsF* theWrappedObject, const QMarginsF&  rhs);
-   QMarginsF  __mul__(QMarginsF* theWrappedObject, qreal  rhs);
-   QMarginsF*  __imul__(QMarginsF* theWrappedObject, qreal  factor);
-   QMarginsF  __add__(QMarginsF* theWrappedObject);
-   QMarginsF  __add__(QMarginsF* theWrappedObject, const QMarginsF&  rhs);
-   QRectF  __add__(QMarginsF* theWrappedObject, const QRectF&  rhs);
-   QMarginsF  __add__(QMarginsF* theWrappedObject, qreal  rhs);
-   QMarginsF*  __iadd__(QMarginsF* theWrappedObject, const QMarginsF&  margins);
-   QMarginsF*  __iadd__(QMarginsF* theWrappedObject, qreal  addend);
-   QMarginsF  __sub__(QMarginsF* theWrappedObject);
-   QMarginsF  __sub__(QMarginsF* theWrappedObject, const QMarginsF&  rhs);
-   QMarginsF  __sub__(QMarginsF* theWrappedObject, qreal  rhs);
-   QMarginsF*  __isub__(QMarginsF* theWrappedObject, const QMarginsF&  margins);
-   QMarginsF*  __isub__(QMarginsF* theWrappedObject, qreal  subtrahend);
-   QMarginsF  __div__(QMarginsF* theWrappedObject, qreal  divisor);
-   QMarginsF*  __idiv__(QMarginsF* theWrappedObject, qreal  divisor);
-   void writeTo(QMarginsF* theWrappedObject, QDataStream&  arg__1);
-   bool  __eq__(QMarginsF* theWrappedObject, const QMarginsF&  rhs);
-   void readFrom(QMarginsF* theWrappedObject, QDataStream&  arg__1);
-   qreal  right(QMarginsF* theWrappedObject) const;
-   void setBottom(QMarginsF* theWrappedObject, qreal  bottom);
-   void setLeft(QMarginsF* theWrappedObject, qreal  left);
-   void setRight(QMarginsF* theWrappedObject, qreal  right);
-   void setTop(QMarginsF* theWrappedObject, qreal  top);
-   QMargins  toMargins(QMarginsF* theWrappedObject) const;
-   qreal  top(QMarginsF* theWrappedObject) const;
-    QString py_toString(QMarginsF*);
-    bool __nonzero__(QMarginsF* obj) { return !obj->isNull(); }
-};
-
-
-
-
-
-class PythonQtWrapper_QMessageAuthenticationCode : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QMessageAuthenticationCode* new_QMessageAuthenticationCode(QCryptographicHash::Algorithm  method, const QByteArray&  key = QByteArray());
-void delete_QMessageAuthenticationCode(QMessageAuthenticationCode* obj) { delete obj; }
-   bool  addData(QMessageAuthenticationCode* theWrappedObject, QIODevice*  device);
-   void addData(QMessageAuthenticationCode* theWrappedObject, const QByteArray&  data);
-   void addData(QMessageAuthenticationCode* theWrappedObject, const char*  data, int  length);
-   QByteArray  static_QMessageAuthenticationCode_hash(const QByteArray&  message, const QByteArray&  key, QCryptographicHash::Algorithm  method);
-   void reset(QMessageAuthenticationCode* theWrappedObject);
-   QByteArray  result(QMessageAuthenticationCode* theWrappedObject) const;
-   void setKey(QMessageAuthenticationCode* theWrappedObject, const QByteArray&  key);
 };
 
 

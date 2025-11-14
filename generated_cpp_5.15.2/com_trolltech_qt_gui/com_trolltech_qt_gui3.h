@@ -28,6 +28,7 @@
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qwidget.h>
+#include <qabstracteventdispatcher.h>
 #include <qabstractitemmodel.h>
 #include <qbackingstore.h>
 #include <qbitmap.h>
@@ -2329,7 +2330,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -2379,7 +2380,6 @@ void delete_QGroupBox(QGroupBox* obj) { delete obj; }
    bool  isCheckable(QGroupBox* theWrappedObject) const;
    bool  isChecked(QGroupBox* theWrappedObject) const;
    bool  isFlat(QGroupBox* theWrappedObject) const;
-   QSize  minimumSizeHint(QGroupBox* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QGroupBox* theWrappedObject) const{  return (((PythonQtPublicPromoter_QGroupBox*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseMoveEvent(QGroupBox* theWrappedObject, QMouseEvent*  event){  (((PythonQtPublicPromoter_QGroupBox*)theWrappedObject)->py_q_mouseMoveEvent(event));}
    void py_q_mousePressEvent(QGroupBox* theWrappedObject, QMouseEvent*  event){  (((PythonQtPublicPromoter_QGroupBox*)theWrappedObject)->py_q_mousePressEvent(event));}

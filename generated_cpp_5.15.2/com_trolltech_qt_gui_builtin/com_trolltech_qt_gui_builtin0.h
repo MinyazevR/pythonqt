@@ -724,11 +724,11 @@ void delete_QMatrix(QMatrix* obj) { delete obj; }
    bool  __eq__(QMatrix* theWrappedObject, const QMatrix&  arg__1) const;
    void readFrom(QMatrix* theWrappedObject, QDataStream&  arg__1);
    void reset(QMatrix* theWrappedObject);
-   QMatrix*  rotate_private(QMatrix* theWrappedObject, qreal  a);
-   QMatrix*  scale_private(QMatrix* theWrappedObject, qreal  sx, qreal  sy);
+   QMatrix*  rotate(QMatrix* theWrappedObject, qreal  a);
+   QMatrix*  scale(QMatrix* theWrappedObject, qreal  sx, qreal  sy);
    void setMatrix(QMatrix* theWrappedObject, qreal  m11, qreal  m12, qreal  m21, qreal  m22, qreal  dx, qreal  dy);
-   QMatrix*  shear_private(QMatrix* theWrappedObject, qreal  sh, qreal  sv);
-   QMatrix*  translate_private(QMatrix* theWrappedObject, qreal  dx, qreal  dy);
+   QMatrix*  shear(QMatrix* theWrappedObject, qreal  sh, qreal  sv);
+   QMatrix*  translate(QMatrix* theWrappedObject, qreal  dx, qreal  dy);
     QString py_toString(QMatrix*);
 };
 
@@ -1279,7 +1279,7 @@ void delete_QTextFormat(QTextFormat* obj) { delete obj; }
    void setObjectIndex(QTextFormat* theWrappedObject, int  object);
    void setObjectType(QTextFormat* theWrappedObject, int  type);
    void setProperty(QTextFormat* theWrappedObject, int  propertyId, const QVariant&  value);
-   void setLengthVectorProperty(QTextFormat* theWrappedObject, int  propertyId, const QVector<QTextLength >&  lengths);
+   void setProperty(QTextFormat* theWrappedObject, int  propertyId, const QVector<QTextLength >&  lengths);
    QString  stringProperty(QTextFormat* theWrappedObject, int  propertyId) const;
    void swap(QTextFormat* theWrappedObject, QTextFormat&  other);
    QTextBlockFormat  toBlockFormat(QTextFormat* theWrappedObject) const;

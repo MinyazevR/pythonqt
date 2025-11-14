@@ -566,7 +566,7 @@ void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 QMediaObject*  mediaObject() const override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;

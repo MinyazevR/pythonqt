@@ -6,6 +6,7 @@
 #include <qcborcommon.h>
 #include <qcoreevent.h>
 #include <qdatastream.h>
+#include <qdatetime.h>
 #include <qdeadlinetimer.h>
 #include <qeasingcurve.h>
 #include <qlist.h>
@@ -18,6 +19,8 @@
 #include <qreadwritelock.h>
 #include <qstringlist.h>
 #include <qthread.h>
+#include <qtimer.h>
+#include <qtimezone.h>
 #include <qtranslator.h>
 #include <qurl.h>
 #include <qurlquery.h>
@@ -27,6 +30,108 @@
 #include <qversionnumber.h>
 #include <qwaitcondition.h>
 #include <qxmlstream.h>
+
+
+
+class PythonQtWrapper_QTimeZone : public QObject
+{ Q_OBJECT
+public:
+Q_ENUMS(NameType TimeType )
+enum NameType{
+  DefaultName = QTimeZone::DefaultName,   LongName = QTimeZone::LongName,   ShortName = QTimeZone::ShortName,   OffsetName = QTimeZone::OffsetName};
+enum TimeType{
+  StandardTime = QTimeZone::StandardTime,   DaylightTime = QTimeZone::DaylightTime,   GenericTime = QTimeZone::GenericTime};
+public Q_SLOTS:
+QTimeZone* new_QTimeZone();
+QTimeZone* new_QTimeZone(const QByteArray&  ianaId);
+QTimeZone* new_QTimeZone(const QByteArray&  zoneId, int  offsetSeconds, const QString&  name, const QString&  abbreviation, QLocale::Country  country = QLocale::AnyCountry, const QString&  comment = QString());
+QTimeZone* new_QTimeZone(const QTimeZone&  other);
+QTimeZone* new_QTimeZone(int  offsetSeconds);
+void delete_QTimeZone(QTimeZone* obj) { delete obj; }
+   QString  abbreviation(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
+   QList<QByteArray >  static_QTimeZone_availableTimeZoneIds();
+   QList<QByteArray >  static_QTimeZone_availableTimeZoneIds(QLocale::Country  country);
+   QList<QByteArray >  static_QTimeZone_availableTimeZoneIds(int  offsetSeconds);
+   QString  comment(QTimeZone* theWrappedObject) const;
+   QLocale::Country  country(QTimeZone* theWrappedObject) const;
+   int  daylightTimeOffset(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
+   QString  displayName(QTimeZone* theWrappedObject, QTimeZone::TimeType  timeType, QTimeZone::NameType  nameType = QTimeZone::DefaultName, const QLocale&  locale = QLocale()) const;
+   QString  displayName(QTimeZone* theWrappedObject, const QDateTime&  atDateTime, QTimeZone::NameType  nameType = QTimeZone::DefaultName, const QLocale&  locale = QLocale()) const;
+   bool  hasDaylightTime(QTimeZone* theWrappedObject) const;
+   bool  hasTransitions(QTimeZone* theWrappedObject) const;
+   QByteArray  static_QTimeZone_ianaIdToWindowsId(const QByteArray&  ianaId);
+   QByteArray  id(QTimeZone* theWrappedObject) const;
+   bool  isDaylightTime(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
+   bool  static_QTimeZone_isTimeZoneIdAvailable(const QByteArray&  ianaId);
+   bool  isValid(QTimeZone* theWrappedObject) const;
+   int  offsetFromUtc(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
+   bool  __ne__(QTimeZone* theWrappedObject, const QTimeZone&  other) const;
+   void writeTo(QTimeZone* theWrappedObject, QDataStream&  ds);
+   QTimeZone*  operator_assign(QTimeZone* theWrappedObject, const QTimeZone&  other);
+   bool  __eq__(QTimeZone* theWrappedObject, const QTimeZone&  other) const;
+   void readFrom(QTimeZone* theWrappedObject, QDataStream&  ds);
+   int  standardTimeOffset(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
+   void swap(QTimeZone* theWrappedObject, QTimeZone&  other);
+   QTimeZone  static_QTimeZone_systemTimeZone();
+   QByteArray  static_QTimeZone_systemTimeZoneId();
+   QTimeZone  static_QTimeZone_utc();
+   QByteArray  static_QTimeZone_windowsIdToDefaultIanaId(const QByteArray&  windowsId);
+   QByteArray  static_QTimeZone_windowsIdToDefaultIanaId(const QByteArray&  windowsId, QLocale::Country  country);
+   QList<QByteArray >  static_QTimeZone_windowsIdToIanaIds(const QByteArray&  windowsId);
+   QList<QByteArray >  static_QTimeZone_windowsIdToIanaIds(const QByteArray&  windowsId, QLocale::Country  country);
+    QString py_toString(QTimeZone*);
+    bool __nonzero__(QTimeZone* obj) { return obj->isValid(); }
+};
+
+
+
+
+
+class PythonQtShell_QTimer : public QTimer
+{
+public:
+    PythonQtShell_QTimer(QObject*  parent = nullptr):QTimer(parent),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QTimer() override;
+
+void childEvent(QChildEvent*  event) override;
+void customEvent(QEvent*  event) override;
+bool  event(QEvent*  event) override;
+bool  eventFilter(QObject*  watched, QEvent*  event) override;
+void timerEvent(QTimerEvent*  arg__1) override;
+
+  const QMetaObject* metaObject() const override;
+  int qt_metacall(QMetaObject::Call call, int id, void** args) override;
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtPublicPromoter_QTimer : public QTimer
+{ public:
+inline void promoted_timerEvent(QTimerEvent*  arg__1) { this->timerEvent(arg__1); }
+inline void py_q_timerEvent(QTimerEvent*  arg__1) { QTimer::timerEvent(arg__1); }
+};
+
+class PythonQtWrapper_QTimer : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QTimer* new_QTimer(QObject*  parent = nullptr);
+void delete_QTimer(QTimer* obj) { delete obj; }
+   int  interval(QTimer* theWrappedObject) const;
+   bool  isActive(QTimer* theWrappedObject) const;
+   bool  isSingleShot(QTimer* theWrappedObject) const;
+   int  remainingTime(QTimer* theWrappedObject) const;
+   void setInterval(QTimer* theWrappedObject, int  msec);
+   void setSingleShot(QTimer* theWrappedObject, bool  singleShot);
+   void setTimerType(QTimer* theWrappedObject, Qt::TimerType  atype);
+   void static_QTimer_singleShot(int  msec, Qt::TimerType  timerType, const QObject*  receiver, const char*  member);
+   void static_QTimer_singleShot(int  msec, const QObject*  receiver, const char*  member);
+   void py_q_timerEvent(QTimer* theWrappedObject, QTimerEvent*  arg__1){  (((PythonQtPublicPromoter_QTimer*)theWrappedObject)->py_q_timerEvent(arg__1));}
+   int  timerId(QTimer* theWrappedObject) const;
+   Qt::TimerType  timerType(QTimer* theWrappedObject) const;
+};
+
+
 
 
 
