@@ -7,8 +7,6 @@
 TARGET   = PyDecoratorsExample
 TEMPLATE = app
 
-DESTDIR           = ../../lib
-
 include ( ../../build/common.prf )  
 include ( ../../build/PythonQt.prf )  
   

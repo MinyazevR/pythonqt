@@ -1,5 +1,6 @@
 # profile for non-mevis users to link to PythonQt_QtAll
 
+include(../build/PythonQt.prf)
 INCLUDEPATH += $$PWD/../extensions/PythonQt_QtAll
 
 # check if debug or release
@@ -9,7 +10,4 @@ CONFIG(debug, debug|release) {
   DEBUG_EXT = 
 }
 
-
-win32-g++: LIBS += $$DESTDIR/../lib/PythonQt_QtAll-Qt$${QT_MAJOR_VERSION}-Python$${PYTHON_VERSION}$${DEBUG_EXT}.dll
-win32-msvc*: LIBS += $$DESTDIR/../lib/PythonQt_QtAll-Qt$${QT_MAJOR_VERSION}-Python$${PYTHON_VERSION}$${DEBUG_EXT}.lib
-unix: LIBS += -L$$DESTDIR/../lib -lPythonQt_QtAll-Qt$${QT_MAJOR_VERSION}-Python$${PYTHON_VERSION}$${DEBUG_EXT}
+LIBS += -ltrikPythonQt_QtAll-Qt$${QT_MAJOR_VERSION}$${QT_MINOR_VERSION}-Python$${PYTHON_VERSION}$${DEBUG_EXT}

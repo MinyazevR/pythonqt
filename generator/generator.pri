@@ -18,7 +18,7 @@ include($$GENERATORPATH/parser/rxx.pri)
 
 include($$GENERATORPATH/simplecpp/simplecpp.pri)
 
-CONFIG += strict_c++
+CONFIG += qt strict_c++
 win32-msvc*{
 #Disable warning C4996 (deprecated declarations)
         QMAKE_CXXFLAGS += -wd4996

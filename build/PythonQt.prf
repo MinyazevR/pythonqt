@@ -11,8 +11,10 @@ CONFIG(debug, debug|release) {
   DEBUG_EXT = 
 }
 
-PYTHONQT_LIB_NAME=PythonQt-Qt$${QT_MAJOR_VERSION}-Python$${PYTHON_VERSION}$${DEBUG_EXT}
+message("TRY READ DESTDIR: $$DESTDIR")
+!isEmpty(DESTDIR) {
+  LIBS += -L$$DESTDIR
+  QMAKE_RPATHDIR += $$DESTDIR
+}
 
-win32-g++: LIBS += $$DESTDIR/../lib/$${PYTHONQT_LIB_NAME}.dll
-win32-*msvc*: LIBS += $$DESTDIR/../lib/$${PYTHONQT_LIB_NAME}.lib
-unix: LIBS += -L$$DESTDIR/../lib -l$${PYTHONQT_LIB_NAME}
+LIBS += -ltrikPythonQt-Qt$${QT_MAJOR_VERSION}$${QT_MINOR_VERSION}-Python$${PYTHON_VERSION}$${DEBUG_EXT}

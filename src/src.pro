@@ -4,10 +4,8 @@
 # $Source$
 # --------------------------------------------------
 
-TARGET = PythonQt-Qt$${QT_MAJOR_VERSION}-PythonXY
+TARGET = trikPythonQt-QtXY-PythonXY
 TEMPLATE = lib
-
-DESTDIR    = ../lib
 
 CONFIG += qt msvc_mp
 CONFIG -= flat
@@ -38,6 +36,7 @@ macx {
 include ( ../build/common.prf )  
 include ( ../build/python.prf )
 TARGET = $$replace(TARGET, PythonXY, Python$${PYTHON_VERSION})
+TARGET = $$replace(TARGET, QtXY, Qt$${QT_MAJOR_VERSION}$${QT_MINOR_VERSION})
 
 include ( src.pri )  
 

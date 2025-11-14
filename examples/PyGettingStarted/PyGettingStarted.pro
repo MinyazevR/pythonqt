@@ -7,8 +7,6 @@
 TARGET   = PyGettingStarted
 TEMPLATE = app
 
-DESTDIR           = ../../lib
-
 CONFIG += console
 
 include ( ../../build/common.prf )  

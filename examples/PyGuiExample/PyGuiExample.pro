@@ -9,8 +9,6 @@ TEMPLATE = app
 
 mac:CONFIG -= app_bundle
 
-DESTDIR           = ../../lib
-
 QT += widgets
 
 include ( ../../build/common.prf )  

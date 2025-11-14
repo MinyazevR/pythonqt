@@ -7,8 +7,6 @@
 TARGET   = PyScriptingConsole
 TEMPLATE = app
 
-DESTDIR           = ../../lib
-
 mac:CONFIG-= app_bundle
 
 include ( ../../build/common.prf )  

@@ -30,15 +30,13 @@ isEmpty( PYTHONQTALL_CONFIG ) {
   eval(CONFIG += $${PYTHONQTALL_CONFIG})
 }
 
-TARGET   = PythonQt_QtAll-Qt$${QT_MAJOR_VERSION}-PythonXY
+TARGET   = trikPythonQt_QtAll-QtXY-PythonXY
 TEMPLATE = lib
-
-DESTDIR    = ../../lib
 
 include ( ../../build/common.prf )  
 include ( ../../build/PythonQt.prf )  
 TARGET = $$replace(TARGET, PythonXY, Python$${PYTHON_VERSION})
-
+TARGET = $$replace(TARGET, QtXY, Qt$${QT_MAJOR_VERSION}$${QT_MINOR_VERSION})
 CONFIG += qt strict_c++ msvc_mp
 
 !static:!staticlib {

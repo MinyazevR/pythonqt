@@ -6,11 +6,9 @@
 TARGET   = PythonQtTest
 TEMPLATE = app
 
-DESTDIR    = ../lib
 QMAKE_RPATHDIR += $$DESTDIR
-
 QT += testlib
-CONFIG += testcase cmdline exceptions testcase_no_bundle no_testcase_installs
+CONFIG += qt testcase cmdline exceptions testcase_no_bundle no_testcase_installs
 
 #Workaround for MinGW build. Qt incorrectly sets it to empty string on Win32 for bash
 mingw: TEST_TARGET_DIR = .
