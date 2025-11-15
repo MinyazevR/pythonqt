@@ -14,6 +14,7 @@
 #include <qcoreevent.h>
 #include <qdatastream.h>
 #include <qdatetime.h>
+#include <qdeadlinetimer.h>
 #include <qdir.h>
 #include <qeasingcurve.h>
 #include <qelapsedtimer.h>
@@ -27,12 +28,10 @@
 #include <qjsonvalue.h>
 #include <qlist.h>
 #include <qloggingcategory.h>
-#include <qmargins.h>
 #include <qmetaobject.h>
 #include <qmimedata.h>
 #include <qobject.h>
 #include <qpoint.h>
-#include <qrect.h>
 #include <qsize.h>
 #include <qstate.h>
 #include <qstatemachine.h>
@@ -41,6 +40,258 @@
 #include <qurl.h>
 #include <qvector.h>
 #include <qversionnumber.h>
+
+QDataStream* PythonQtWrapper_QDataStream::new_QDataStream()
+{ 
+return new QDataStream(); }
+
+QDataStream* PythonQtWrapper_QDataStream::new_QDataStream(QByteArray*  arg__1, QIODevice::OpenMode  flags)
+{ 
+return new QDataStream(arg__1, flags); }
+
+QDataStream* PythonQtWrapper_QDataStream::new_QDataStream(QIODevice*  arg__1)
+{ 
+return new QDataStream(arg__1); }
+
+QDataStream* PythonQtWrapper_QDataStream::new_QDataStream(const QByteArray&  arg__1)
+{ 
+return new QDataStream(arg__1); }
+
+void PythonQtWrapper_QDataStream::abortTransaction(QDataStream* theWrappedObject)
+{
+  ( theWrappedObject->abortTransaction());
+}
+
+bool  PythonQtWrapper_QDataStream::atEnd(QDataStream* theWrappedObject) const
+{
+  return ( theWrappedObject->atEnd());
+}
+
+QDataStream::ByteOrder  PythonQtWrapper_QDataStream::byteOrder(QDataStream* theWrappedObject) const
+{
+  return ( theWrappedObject->byteOrder());
+}
+
+bool  PythonQtWrapper_QDataStream::commitTransaction(QDataStream* theWrappedObject)
+{
+  return ( theWrappedObject->commitTransaction());
+}
+
+QIODevice*  PythonQtWrapper_QDataStream::device(QDataStream* theWrappedObject) const
+{
+  return ( theWrappedObject->device());
+}
+
+QDataStream::FloatingPointPrecision  PythonQtWrapper_QDataStream::floatingPointPrecision(QDataStream* theWrappedObject) const
+{
+  return ( theWrappedObject->floatingPointPrecision());
+}
+
+void PythonQtWrapper_QDataStream::resetStatus(QDataStream* theWrappedObject)
+{
+  ( theWrappedObject->resetStatus());
+}
+
+void PythonQtWrapper_QDataStream::rollbackTransaction(QDataStream* theWrappedObject)
+{
+  ( theWrappedObject->rollbackTransaction());
+}
+
+void PythonQtWrapper_QDataStream::setByteOrder(QDataStream* theWrappedObject, QDataStream::ByteOrder  arg__1)
+{
+  ( theWrappedObject->setByteOrder(arg__1));
+}
+
+void PythonQtWrapper_QDataStream::setDevice(QDataStream* theWrappedObject, QIODevice*  arg__1)
+{
+  ( theWrappedObject->setDevice(arg__1));
+}
+
+void PythonQtWrapper_QDataStream::setFloatingPointPrecision(QDataStream* theWrappedObject, QDataStream::FloatingPointPrecision  precision)
+{
+  ( theWrappedObject->setFloatingPointPrecision(precision));
+}
+
+void PythonQtWrapper_QDataStream::setStatus(QDataStream* theWrappedObject, QDataStream::Status  status)
+{
+  ( theWrappedObject->setStatus(status));
+}
+
+void PythonQtWrapper_QDataStream::setVersion(QDataStream* theWrappedObject, int  arg__1)
+{
+  ( theWrappedObject->setVersion(arg__1));
+}
+
+int  PythonQtWrapper_QDataStream::skipRawData(QDataStream* theWrappedObject, int  len)
+{
+  return ( theWrappedObject->skipRawData(len));
+}
+
+void PythonQtWrapper_QDataStream::startTransaction(QDataStream* theWrappedObject)
+{
+  ( theWrappedObject->startTransaction());
+}
+
+QDataStream::Status  PythonQtWrapper_QDataStream::status(QDataStream* theWrappedObject) const
+{
+  return ( theWrappedObject->status());
+}
+
+void PythonQtWrapper_QDataStream::unsetDevice(QDataStream* theWrappedObject)
+{
+  ( theWrappedObject->unsetDevice());
+}
+
+int  PythonQtWrapper_QDataStream::version(QDataStream* theWrappedObject) const
+{
+  return ( theWrappedObject->version());
+}
+
+
+
+QDeadlineTimer* PythonQtWrapper_QDeadlineTimer::new_QDeadlineTimer(QDeadlineTimer::ForeverConstant  arg__1, Qt::TimerType  type_)
+{ 
+return new QDeadlineTimer(arg__1, type_); }
+
+QDeadlineTimer* PythonQtWrapper_QDeadlineTimer::new_QDeadlineTimer(Qt::TimerType  type_)
+{ 
+return new QDeadlineTimer(type_); }
+
+QDeadlineTimer* PythonQtWrapper_QDeadlineTimer::new_QDeadlineTimer(qint64  msecs, Qt::TimerType  type)
+{ 
+return new QDeadlineTimer(msecs, type); }
+
+QDeadlineTimer  PythonQtWrapper_QDeadlineTimer::static_QDeadlineTimer_addNSecs(QDeadlineTimer  dt, qint64  nsecs)
+{
+  return (QDeadlineTimer::addNSecs(dt, nsecs));
+}
+
+QDeadlineTimer  PythonQtWrapper_QDeadlineTimer::static_QDeadlineTimer_current(Qt::TimerType  timerType)
+{
+  return (QDeadlineTimer::current(timerType));
+}
+
+qint64  PythonQtWrapper_QDeadlineTimer::deadline(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->deadline());
+}
+
+qint64  PythonQtWrapper_QDeadlineTimer::deadlineNSecs(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->deadlineNSecs());
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::hasExpired(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->hasExpired());
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::isForever(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->isForever());
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::__ne__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2)
+{
+  return ( (*theWrappedObject)!= d2);
+}
+
+QDeadlineTimer  PythonQtWrapper_QDeadlineTimer::__add__(QDeadlineTimer* theWrappedObject, qint64  msecs)
+{
+  return ( (*theWrappedObject)+ msecs);
+}
+
+QDeadlineTimer*  PythonQtWrapper_QDeadlineTimer::__iadd__(QDeadlineTimer* theWrappedObject, qint64  msecs)
+{
+  return &( (*theWrappedObject)+= msecs);
+}
+
+qint64  PythonQtWrapper_QDeadlineTimer::__sub__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  dt2)
+{
+  return ( (*theWrappedObject)- dt2);
+}
+
+QDeadlineTimer  PythonQtWrapper_QDeadlineTimer::__sub__(QDeadlineTimer* theWrappedObject, qint64  msecs)
+{
+  return ( (*theWrappedObject)- msecs);
+}
+
+QDeadlineTimer*  PythonQtWrapper_QDeadlineTimer::__isub__(QDeadlineTimer* theWrappedObject, qint64  msecs)
+{
+  return &( (*theWrappedObject)-= msecs);
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::__lt__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2)
+{
+  return ( (*theWrappedObject)< d2);
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::__le__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2)
+{
+  return ( (*theWrappedObject)<= d2);
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::__eq__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2)
+{
+  return ( (*theWrappedObject)== d2);
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::__gt__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2)
+{
+  return ( (*theWrappedObject)> d2);
+}
+
+bool  PythonQtWrapper_QDeadlineTimer::__ge__(QDeadlineTimer* theWrappedObject, QDeadlineTimer  d2)
+{
+  return ( (*theWrappedObject)>= d2);
+}
+
+qint64  PythonQtWrapper_QDeadlineTimer::remainingTime(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->remainingTime());
+}
+
+qint64  PythonQtWrapper_QDeadlineTimer::remainingTimeNSecs(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->remainingTimeNSecs());
+}
+
+void PythonQtWrapper_QDeadlineTimer::setDeadline(QDeadlineTimer* theWrappedObject, qint64  msecs, Qt::TimerType  timerType)
+{
+  ( theWrappedObject->setDeadline(msecs, timerType));
+}
+
+void PythonQtWrapper_QDeadlineTimer::setPreciseDeadline(QDeadlineTimer* theWrappedObject, qint64  secs, qint64  nsecs, Qt::TimerType  type)
+{
+  ( theWrappedObject->setPreciseDeadline(secs, nsecs, type));
+}
+
+void PythonQtWrapper_QDeadlineTimer::setPreciseRemainingTime(QDeadlineTimer* theWrappedObject, qint64  secs, qint64  nsecs, Qt::TimerType  type)
+{
+  ( theWrappedObject->setPreciseRemainingTime(secs, nsecs, type));
+}
+
+void PythonQtWrapper_QDeadlineTimer::setRemainingTime(QDeadlineTimer* theWrappedObject, qint64  msecs, Qt::TimerType  type)
+{
+  ( theWrappedObject->setRemainingTime(msecs, type));
+}
+
+void PythonQtWrapper_QDeadlineTimer::setTimerType(QDeadlineTimer* theWrappedObject, Qt::TimerType  type)
+{
+  ( theWrappedObject->setTimerType(type));
+}
+
+void PythonQtWrapper_QDeadlineTimer::swap(QDeadlineTimer* theWrappedObject, QDeadlineTimer&  other)
+{
+  ( theWrappedObject->swap(other));
+}
+
+Qt::TimerType  PythonQtWrapper_QDeadlineTimer::timerType(QDeadlineTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->timerType());
+}
+
+
 
 QDeferredDeleteEvent* PythonQtWrapper_QDeferredDeleteEvent::new_QDeferredDeleteEvent()
 { 
@@ -7351,213 +7602,6 @@ void PythonQtWrapper_QLoggingCategory::setEnabled(QLoggingCategory* theWrappedOb
 void PythonQtWrapper_QLoggingCategory::static_QLoggingCategory_setFilterRules(const QString&  rules)
 {
   (QLoggingCategory::setFilterRules(rules));
-}
-
-
-
-QMarginsF* PythonQtWrapper_QMarginsF::new_QMarginsF()
-{ 
-return new QMarginsF(); }
-
-QMarginsF* PythonQtWrapper_QMarginsF::new_QMarginsF(const QMargins&  margins)
-{ 
-return new QMarginsF(margins); }
-
-QMarginsF* PythonQtWrapper_QMarginsF::new_QMarginsF(qreal  left, qreal  top, qreal  right, qreal  bottom)
-{ 
-return new QMarginsF(left, top, right, bottom); }
-
-qreal  PythonQtWrapper_QMarginsF::bottom(QMarginsF* theWrappedObject) const
-{
-  return ( theWrappedObject->bottom());
-}
-
-bool  PythonQtWrapper_QMarginsF::isNull(QMarginsF* theWrappedObject) const
-{
-  return ( theWrappedObject->isNull());
-}
-
-qreal  PythonQtWrapper_QMarginsF::left(QMarginsF* theWrappedObject) const
-{
-  return ( theWrappedObject->left());
-}
-
-bool  PythonQtWrapper_QMarginsF::__ne__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
-{
-  return ( (*theWrappedObject)!= rhs);
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__mul__(QMarginsF* theWrappedObject, qreal  rhs)
-{
-  return ( (*theWrappedObject)* rhs);
-}
-
-QMarginsF*  PythonQtWrapper_QMarginsF::__imul__(QMarginsF* theWrappedObject, qreal  factor)
-{
-  return &( (*theWrappedObject)*= factor);
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject)
-{
-  return (+  (*theWrappedObject));
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
-{
-  return ( (*theWrappedObject)+ rhs);
-}
-
-QRectF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject, const QRectF&  rhs)
-{
-  return ( (*theWrappedObject)+ rhs);
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__add__(QMarginsF* theWrappedObject, qreal  rhs)
-{
-  return ( (*theWrappedObject)+ rhs);
-}
-
-QMarginsF*  PythonQtWrapper_QMarginsF::__iadd__(QMarginsF* theWrappedObject, const QMarginsF&  margins)
-{
-  return &( (*theWrappedObject)+= margins);
-}
-
-QMarginsF*  PythonQtWrapper_QMarginsF::__iadd__(QMarginsF* theWrappedObject, qreal  addend)
-{
-  return &( (*theWrappedObject)+= addend);
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__sub__(QMarginsF* theWrappedObject)
-{
-  return (-  (*theWrappedObject));
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__sub__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
-{
-  return ( (*theWrappedObject)- rhs);
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__sub__(QMarginsF* theWrappedObject, qreal  rhs)
-{
-  return ( (*theWrappedObject)- rhs);
-}
-
-QMarginsF*  PythonQtWrapper_QMarginsF::__isub__(QMarginsF* theWrappedObject, const QMarginsF&  margins)
-{
-  return &( (*theWrappedObject)-= margins);
-}
-
-QMarginsF*  PythonQtWrapper_QMarginsF::__isub__(QMarginsF* theWrappedObject, qreal  subtrahend)
-{
-  return &( (*theWrappedObject)-= subtrahend);
-}
-
-QMarginsF  PythonQtWrapper_QMarginsF::__div__(QMarginsF* theWrappedObject, qreal  divisor)
-{
-  return ( (*theWrappedObject)/ divisor);
-}
-
-QMarginsF*  PythonQtWrapper_QMarginsF::__idiv__(QMarginsF* theWrappedObject, qreal  divisor)
-{
-  return &( (*theWrappedObject)/= divisor);
-}
-
-void PythonQtWrapper_QMarginsF::writeTo(QMarginsF* theWrappedObject, QDataStream&  arg__1)
-{
-  arg__1 <<  (*theWrappedObject);
-}
-
-bool  PythonQtWrapper_QMarginsF::__eq__(QMarginsF* theWrappedObject, const QMarginsF&  rhs)
-{
-  return ( (*theWrappedObject)== rhs);
-}
-
-void PythonQtWrapper_QMarginsF::readFrom(QMarginsF* theWrappedObject, QDataStream&  arg__1)
-{
-  arg__1 >>  (*theWrappedObject);
-}
-
-qreal  PythonQtWrapper_QMarginsF::right(QMarginsF* theWrappedObject) const
-{
-  return ( theWrappedObject->right());
-}
-
-void PythonQtWrapper_QMarginsF::setBottom(QMarginsF* theWrappedObject, qreal  bottom)
-{
-  ( theWrappedObject->setBottom(bottom));
-}
-
-void PythonQtWrapper_QMarginsF::setLeft(QMarginsF* theWrappedObject, qreal  left)
-{
-  ( theWrappedObject->setLeft(left));
-}
-
-void PythonQtWrapper_QMarginsF::setRight(QMarginsF* theWrappedObject, qreal  right)
-{
-  ( theWrappedObject->setRight(right));
-}
-
-void PythonQtWrapper_QMarginsF::setTop(QMarginsF* theWrappedObject, qreal  top)
-{
-  ( theWrappedObject->setTop(top));
-}
-
-QMargins  PythonQtWrapper_QMarginsF::toMargins(QMarginsF* theWrappedObject) const
-{
-  return ( theWrappedObject->toMargins());
-}
-
-qreal  PythonQtWrapper_QMarginsF::top(QMarginsF* theWrappedObject) const
-{
-  return ( theWrappedObject->top());
-}
-
-QString PythonQtWrapper_QMarginsF::py_toString(QMarginsF* obj) {
-  QString result;
-  QDebug d(&result);
-  d << *obj;
-  return result;
-}
-
-
-
-QMessageAuthenticationCode* PythonQtWrapper_QMessageAuthenticationCode::new_QMessageAuthenticationCode(QCryptographicHash::Algorithm  method, const QByteArray&  key)
-{ 
-return new QMessageAuthenticationCode(method, key); }
-
-bool  PythonQtWrapper_QMessageAuthenticationCode::addData(QMessageAuthenticationCode* theWrappedObject, QIODevice*  device)
-{
-  return ( theWrappedObject->addData(device));
-}
-
-void PythonQtWrapper_QMessageAuthenticationCode::addData(QMessageAuthenticationCode* theWrappedObject, const QByteArray&  data)
-{
-  ( theWrappedObject->addData(data));
-}
-
-void PythonQtWrapper_QMessageAuthenticationCode::addData(QMessageAuthenticationCode* theWrappedObject, const char*  data, int  length)
-{
-  ( theWrappedObject->addData(data, length));
-}
-
-QByteArray  PythonQtWrapper_QMessageAuthenticationCode::static_QMessageAuthenticationCode_hash(const QByteArray&  message, const QByteArray&  key, QCryptographicHash::Algorithm  method)
-{
-  return (QMessageAuthenticationCode::hash(message, key, method));
-}
-
-void PythonQtWrapper_QMessageAuthenticationCode::reset(QMessageAuthenticationCode* theWrappedObject)
-{
-  ( theWrappedObject->reset());
-}
-
-QByteArray  PythonQtWrapper_QMessageAuthenticationCode::result(QMessageAuthenticationCode* theWrappedObject) const
-{
-  return ( theWrappedObject->result());
-}
-
-void PythonQtWrapper_QMessageAuthenticationCode::setKey(QMessageAuthenticationCode* theWrappedObject, const QByteArray&  key)
-{
-  ( theWrappedObject->setKey(key));
 }
 
 

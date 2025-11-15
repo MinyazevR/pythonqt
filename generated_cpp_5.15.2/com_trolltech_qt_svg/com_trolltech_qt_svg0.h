@@ -294,7 +294,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -334,7 +334,6 @@ QSvgWidget* new_QSvgWidget(const QString&  file, QWidget*  parent = nullptr);
 void delete_QSvgWidget(QSvgWidget* obj) { delete obj; }
    void py_q_paintEvent(QSvgWidget* theWrappedObject, QPaintEvent*  event){  (((PythonQtPublicPromoter_QSvgWidget*)theWrappedObject)->py_q_paintEvent(event));}
    QSvgRenderer*  renderer(QSvgWidget* theWrappedObject) const;
-   QSize  sizeHint(QSvgWidget* theWrappedObject) const;
    QSize  py_q_sizeHint(QSvgWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QSvgWidget*)theWrappedObject)->py_q_sizeHint());}
 };
 

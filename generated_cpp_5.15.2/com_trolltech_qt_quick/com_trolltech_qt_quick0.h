@@ -928,7 +928,7 @@ void keyPressEvent(QKeyEvent*  arg__1) override;
 void keyReleaseEvent(QKeyEvent*  arg__1) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  arg__1) override;
 void mouseMoveEvent(QMouseEvent*  arg__1) override;
 void mousePressEvent(QMouseEvent*  arg__1) override;
@@ -1035,7 +1035,6 @@ void delete_QQuickWidget(QQuickWidget* obj) { delete obj; }
    void setFormat(QQuickWidget* theWrappedObject, const QSurfaceFormat&  format);
    void setResizeMode(QQuickWidget* theWrappedObject, QQuickWidget::ResizeMode  arg__1);
    void py_q_showEvent(QQuickWidget* theWrappedObject, QShowEvent*  arg__1){  (((PythonQtPublicPromoter_QQuickWidget*)theWrappedObject)->py_q_showEvent(arg__1));}
-   QSize  sizeHint(QQuickWidget* theWrappedObject) const;
    QSize  py_q_sizeHint(QQuickWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QQuickWidget*)theWrappedObject)->py_q_sizeHint());}
    QUrl  source(QQuickWidget* theWrappedObject) const;
    QQuickWidget::Status  status(QQuickWidget* theWrappedObject) const;

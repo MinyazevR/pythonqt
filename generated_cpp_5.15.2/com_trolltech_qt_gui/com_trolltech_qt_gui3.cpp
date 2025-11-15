@@ -25,6 +25,7 @@
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qwidget.h>
+#include <qabstracteventdispatcher.h>
 #include <qabstractitemmodel.h>
 #include <qbackingstore.h>
 #include <qbitmap.h>
@@ -17254,12 +17255,12 @@ if (_wrapper) {
 }
   QGroupBox::showEvent(event0);
 }
-QSize  PythonQtShell_QGroupBox::getSizeHint() const
+QSize  PythonQtShell_QGroupBox::sizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getSizeHint");
+    static PyObject* name = PyUnicode_FromString("sizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -17271,7 +17272,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("sizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -17397,11 +17398,6 @@ bool  PythonQtWrapper_QGroupBox::isChecked(QGroupBox* theWrappedObject) const
 bool  PythonQtWrapper_QGroupBox::isFlat(QGroupBox* theWrappedObject) const
 {
   return ( theWrappedObject->isFlat());
-}
-
-QSize  PythonQtWrapper_QGroupBox::minimumSizeHint(QGroupBox* theWrappedObject) const
-{
-  return ( theWrappedObject->minimumSizeHint());
 }
 
 void PythonQtWrapper_QGroupBox::setAlignment(QGroupBox* theWrappedObject, int  alignment)

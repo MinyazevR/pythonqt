@@ -197,7 +197,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  arg__1) override;
 void mousePressEvent(QMouseEvent*  arg__1) override;
@@ -261,7 +261,6 @@ void delete_QSizeGrip(QSizeGrip* obj) { delete obj; }
    void py_q_paintEvent(QSizeGrip* theWrappedObject, QPaintEvent*  arg__1){  (((PythonQtPublicPromoter_QSizeGrip*)theWrappedObject)->py_q_paintEvent(arg__1));}
    void py_q_setVisible(QSizeGrip* theWrappedObject, bool  arg__1){  (((PythonQtPublicPromoter_QSizeGrip*)theWrappedObject)->py_q_setVisible(arg__1));}
    void py_q_showEvent(QSizeGrip* theWrappedObject, QShowEvent*  showEvent){  (((PythonQtPublicPromoter_QSizeGrip*)theWrappedObject)->py_q_showEvent(showEvent));}
-   QSize  sizeHint(QSizeGrip* theWrappedObject) const;
    QSize  py_q_sizeHint(QSizeGrip* theWrappedObject) const{  return (((PythonQtPublicPromoter_QSizeGrip*)theWrappedObject)->py_q_sizeHint());}
 };
 
@@ -354,7 +353,6 @@ QSlider* new_QSlider(Qt::Orientation  orientation, QWidget*  parent = nullptr);
 void delete_QSlider(QSlider* obj) { delete obj; }
    bool  py_q_event(QSlider* theWrappedObject, QEvent*  event){  return (((PythonQtPublicPromoter_QSlider*)theWrappedObject)->py_q_event(event));}
    void initStyleOption(QSlider* theWrappedObject, QStyleOptionSlider*  option) const;
-   QSize  minimumSizeHint(QSlider* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QSlider* theWrappedObject) const{  return (((PythonQtPublicPromoter_QSlider*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseMoveEvent(QSlider* theWrappedObject, QMouseEvent*  ev){  (((PythonQtPublicPromoter_QSlider*)theWrappedObject)->py_q_mouseMoveEvent(ev));}
    void py_q_mousePressEvent(QSlider* theWrappedObject, QMouseEvent*  ev){  (((PythonQtPublicPromoter_QSlider*)theWrappedObject)->py_q_mousePressEvent(ev));}
@@ -362,7 +360,6 @@ void delete_QSlider(QSlider* obj) { delete obj; }
    void py_q_paintEvent(QSlider* theWrappedObject, QPaintEvent*  ev){  (((PythonQtPublicPromoter_QSlider*)theWrappedObject)->py_q_paintEvent(ev));}
    void setTickInterval(QSlider* theWrappedObject, int  ti);
    void setTickPosition(QSlider* theWrappedObject, QSlider::TickPosition  position);
-   QSize  sizeHint(QSlider* theWrappedObject) const;
    QSize  py_q_sizeHint(QSlider* theWrappedObject) const{  return (((PythonQtPublicPromoter_QSlider*)theWrappedObject)->py_q_sizeHint());}
    int  tickInterval(QSlider* theWrappedObject) const;
    QSlider::TickPosition  tickPosition(QSlider* theWrappedObject) const;
@@ -755,7 +752,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  arg__1) override;
@@ -769,7 +766,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -911,7 +908,6 @@ void delete_QSplitter(QSplitter* obj) { delete obj; }
    int  indexOf(QSplitter* theWrappedObject, QWidget*  w) const;
    void insertWidget(QSplitter* theWrappedObject, int  index, PythonQtPassOwnershipToCPP<QWidget* >  widget);
    bool  isCollapsible(QSplitter* theWrappedObject, int  index) const;
-   QSize  minimumSizeHint(QSplitter* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QSplitter* theWrappedObject) const{  return (((PythonQtPublicPromoter_QSplitter*)theWrappedObject)->py_q_minimumSizeHint());}
    void moveSplitter(QSplitter* theWrappedObject, int  pos, int  index);
    bool  opaqueResize(QSplitter* theWrappedObject) const;
@@ -974,7 +970,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  arg__1) override;
 void mousePressEvent(QMouseEvent*  arg__1) override;
@@ -1034,7 +1030,6 @@ void delete_QSplitterHandle(QSplitterHandle* obj) { delete obj; }
    void py_q_paintEvent(QSplitterHandle* theWrappedObject, QPaintEvent*  arg__1){  (((PythonQtPublicPromoter_QSplitterHandle*)theWrappedObject)->py_q_paintEvent(arg__1));}
    void py_q_resizeEvent(QSplitterHandle* theWrappedObject, QResizeEvent*  arg__1){  (((PythonQtPublicPromoter_QSplitterHandle*)theWrappedObject)->py_q_resizeEvent(arg__1));}
    void setOrientation(QSplitterHandle* theWrappedObject, Qt::Orientation  o);
-   QSize  sizeHint(QSplitterHandle* theWrappedObject) const;
    QSize  py_q_sizeHint(QSplitterHandle* theWrappedObject) const{  return (((PythonQtPublicPromoter_QSplitterHandle*)theWrappedObject)->py_q_sizeHint());}
    QSplitter*  splitter(QSplitterHandle* theWrappedObject) const;
 };
@@ -1160,7 +1155,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1569,7 +1564,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1583,7 +1578,7 @@ void resizeEvent(QResizeEvent*  arg__1) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  arg__1) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;

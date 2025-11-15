@@ -3272,11 +3272,6 @@ bool  PythonQtWrapper_QTabBar::isTabVisible(QTabBar* theWrappedObject, int  inde
   return ( theWrappedObject->isTabVisible(index));
 }
 
-QSize  PythonQtWrapper_QTabBar::minimumSizeHint(QTabBar* theWrappedObject) const
-{
-  return ( theWrappedObject->minimumSizeHint());
-}
-
 QSize  PythonQtWrapper_QTabBar::minimumTabSizeHint(QTabBar* theWrappedObject, int  index) const
 {
   return ( ((PythonQtPublicPromoter_QTabBar*)theWrappedObject)->promoted_minimumTabSizeHint(index));
@@ -3410,11 +3405,6 @@ void PythonQtWrapper_QTabBar::setUsesScrollButtons(QTabBar* theWrappedObject, bo
 QTabBar::Shape  PythonQtWrapper_QTabBar::shape(QTabBar* theWrappedObject) const
 {
   return ( theWrappedObject->shape());
-}
-
-QSize  PythonQtWrapper_QTabBar::sizeHint(QTabBar* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 int  PythonQtWrapper_QTabBar::tabAt(QTabBar* theWrappedObject, const QPoint&  pos) const
@@ -4788,11 +4778,6 @@ bool  PythonQtWrapper_QTabWidget::isTabVisible(QTabWidget* theWrappedObject, int
   return ( theWrappedObject->isTabVisible(index));
 }
 
-QSize  PythonQtWrapper_QTabWidget::minimumSizeHint(QTabWidget* theWrappedObject) const
-{
-  return ( theWrappedObject->minimumSizeHint());
-}
-
 void PythonQtWrapper_QTabWidget::removeTab(QTabWidget* theWrappedObject, int  index)
 {
   ( theWrappedObject->removeTab(index));
@@ -4881,11 +4866,6 @@ void PythonQtWrapper_QTabWidget::setTabsClosable(QTabWidget* theWrappedObject, b
 void PythonQtWrapper_QTabWidget::setUsesScrollButtons(QTabWidget* theWrappedObject, bool  useButtons)
 {
   ( theWrappedObject->setUsesScrollButtons(useButtons));
-}
-
-QSize  PythonQtWrapper_QTabWidget::sizeHint(QTabWidget* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 QTabBar*  PythonQtWrapper_QTabWidget::tabBar(QTabWidget* theWrappedObject) const

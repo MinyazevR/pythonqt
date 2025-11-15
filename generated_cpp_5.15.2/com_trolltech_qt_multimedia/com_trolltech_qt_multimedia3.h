@@ -172,7 +172,7 @@ void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 QMediaObject*  mediaObject() const override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -236,7 +236,6 @@ void delete_QVideoWidget(QVideoWidget* obj) { delete obj; }
    int  saturation(QVideoWidget* theWrappedObject) const;
    bool  py_q_setMediaObject(QVideoWidget* theWrappedObject, QMediaObject*  object){  return (((PythonQtPublicPromoter_QVideoWidget*)theWrappedObject)->py_q_setMediaObject(object));}
    void py_q_showEvent(QVideoWidget* theWrappedObject, QShowEvent*  event){  (((PythonQtPublicPromoter_QVideoWidget*)theWrappedObject)->py_q_showEvent(event));}
-   QSize  sizeHint(QVideoWidget* theWrappedObject) const;
    QSize  py_q_sizeHint(QVideoWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QVideoWidget*)theWrappedObject)->py_q_sizeHint());}
    QAbstractVideoSurface*  videoSurface(QVideoWidget* theWrappedObject) const;
 };

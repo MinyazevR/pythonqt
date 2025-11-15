@@ -459,7 +459,7 @@ QTextList* new_QTextList(QTextDocument*  doc);
 void delete_QTextList(QTextList* obj) { delete obj; }
    void add(QTextList* theWrappedObject, const QTextBlock&  block);
    int  count(QTextList* theWrappedObject) const;
-   QTextListFormat  textListFormat(QTextList* theWrappedObject) const;
+   QTextListFormat  format(QTextList* theWrappedObject) const;
    QTextBlock  item(QTextList* theWrappedObject, int  i) const;
    int  itemNumber(QTextList* theWrappedObject, const QTextBlock&  arg__1) const;
    QString  itemText(QTextList* theWrappedObject, const QTextBlock&  arg__1) const;
@@ -967,7 +967,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -981,7 +981,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -1049,7 +1049,7 @@ void delete_QToolBar(QToolBar* obj) { delete obj; }
     PythonQt::self()->addSignalHandler(a, SIGNAL(triggered(bool)), callable);
     return a;
   }
-  
+
   QAction* addAction (QToolBar* menu, const QIcon& icon, const QString& text, PyObject* callable)
   {
     QAction* a = menu->addAction(text);
@@ -1113,7 +1113,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1295,7 +1295,6 @@ void delete_QToolButton(QToolButton* obj) { delete obj; }
    void initStyleOption(QToolButton* theWrappedObject, QStyleOptionToolButton*  option) const;
    void py_q_leaveEvent(QToolButton* theWrappedObject, QEvent*  arg__1){  (((PythonQtPublicPromoter_QToolButton*)theWrappedObject)->py_q_leaveEvent(arg__1));}
    QMenu*  menu(QToolButton* theWrappedObject) const;
-   QSize  minimumSizeHint(QToolButton* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QToolButton* theWrappedObject) const{  return (((PythonQtPublicPromoter_QToolButton*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mousePressEvent(QToolButton* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QToolButton*)theWrappedObject)->py_q_mousePressEvent(arg__1));}
    void py_q_mouseReleaseEvent(QToolButton* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QToolButton*)theWrappedObject)->py_q_mouseReleaseEvent(arg__1));}
@@ -1306,7 +1305,6 @@ void delete_QToolButton(QToolButton* obj) { delete obj; }
    void setAutoRaise(QToolButton* theWrappedObject, bool  enable);
    void setMenu(QToolButton* theWrappedObject, QMenu*  menu);
    void setPopupMode(QToolButton* theWrappedObject, QToolButton::ToolButtonPopupMode  mode);
-   QSize  sizeHint(QToolButton* theWrappedObject) const;
    QSize  py_q_sizeHint(QToolButton* theWrappedObject) const{  return (((PythonQtPublicPromoter_QToolButton*)theWrappedObject)->py_q_sizeHint());}
    void py_q_timerEvent(QToolButton* theWrappedObject, QTimerEvent*  arg__1){  (((PythonQtPublicPromoter_QToolButton*)theWrappedObject)->py_q_timerEvent(arg__1));}
    Qt::ToolButtonStyle  toolButtonStyle(QToolButton* theWrappedObject) const;

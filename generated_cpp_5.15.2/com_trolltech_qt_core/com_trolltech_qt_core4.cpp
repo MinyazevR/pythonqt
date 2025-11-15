@@ -8,6 +8,7 @@
 #include <qcborcommon.h>
 #include <qcoreevent.h>
 #include <qdatastream.h>
+#include <qdatetime.h>
 #include <qdeadlinetimer.h>
 #include <qeasingcurve.h>
 #include <qlist.h>
@@ -20,11 +21,406 @@
 #include <qreadwritelock.h>
 #include <qstringlist.h>
 #include <qthread.h>
+#include <qtimezone.h>
 #include <qurl.h>
 #include <qurlquery.h>
 #include <quuid.h>
 #include <qvector.h>
 #include <qversionnumber.h>
+
+QTimeZone* PythonQtWrapper_QTimeZone::new_QTimeZone()
+{ 
+return new QTimeZone(); }
+
+QTimeZone* PythonQtWrapper_QTimeZone::new_QTimeZone(const QByteArray&  ianaId)
+{ 
+return new QTimeZone(ianaId); }
+
+QTimeZone* PythonQtWrapper_QTimeZone::new_QTimeZone(const QByteArray&  zoneId, int  offsetSeconds, const QString&  name, const QString&  abbreviation, QLocale::Country  country, const QString&  comment)
+{ 
+return new QTimeZone(zoneId, offsetSeconds, name, abbreviation, country, comment); }
+
+QTimeZone* PythonQtWrapper_QTimeZone::new_QTimeZone(const QTimeZone&  other)
+{ 
+return new QTimeZone(other); }
+
+QTimeZone* PythonQtWrapper_QTimeZone::new_QTimeZone(int  offsetSeconds)
+{ 
+return new QTimeZone(offsetSeconds); }
+
+QString  PythonQtWrapper_QTimeZone::abbreviation(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const
+{
+  return ( theWrappedObject->abbreviation(atDateTime));
+}
+
+QList<QByteArray >  PythonQtWrapper_QTimeZone::static_QTimeZone_availableTimeZoneIds()
+{
+  return (QTimeZone::availableTimeZoneIds());
+}
+
+QList<QByteArray >  PythonQtWrapper_QTimeZone::static_QTimeZone_availableTimeZoneIds(QLocale::Country  country)
+{
+  return (QTimeZone::availableTimeZoneIds(country));
+}
+
+QList<QByteArray >  PythonQtWrapper_QTimeZone::static_QTimeZone_availableTimeZoneIds(int  offsetSeconds)
+{
+  return (QTimeZone::availableTimeZoneIds(offsetSeconds));
+}
+
+QString  PythonQtWrapper_QTimeZone::comment(QTimeZone* theWrappedObject) const
+{
+  return ( theWrappedObject->comment());
+}
+
+QLocale::Country  PythonQtWrapper_QTimeZone::country(QTimeZone* theWrappedObject) const
+{
+  return ( theWrappedObject->country());
+}
+
+int  PythonQtWrapper_QTimeZone::daylightTimeOffset(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const
+{
+  return ( theWrappedObject->daylightTimeOffset(atDateTime));
+}
+
+QString  PythonQtWrapper_QTimeZone::displayName(QTimeZone* theWrappedObject, QTimeZone::TimeType  timeType, QTimeZone::NameType  nameType, const QLocale&  locale) const
+{
+  return ( theWrappedObject->displayName(timeType, nameType, locale));
+}
+
+QString  PythonQtWrapper_QTimeZone::displayName(QTimeZone* theWrappedObject, const QDateTime&  atDateTime, QTimeZone::NameType  nameType, const QLocale&  locale) const
+{
+  return ( theWrappedObject->displayName(atDateTime, nameType, locale));
+}
+
+bool  PythonQtWrapper_QTimeZone::hasDaylightTime(QTimeZone* theWrappedObject) const
+{
+  return ( theWrappedObject->hasDaylightTime());
+}
+
+bool  PythonQtWrapper_QTimeZone::hasTransitions(QTimeZone* theWrappedObject) const
+{
+  return ( theWrappedObject->hasTransitions());
+}
+
+QByteArray  PythonQtWrapper_QTimeZone::static_QTimeZone_ianaIdToWindowsId(const QByteArray&  ianaId)
+{
+  return (QTimeZone::ianaIdToWindowsId(ianaId));
+}
+
+QByteArray  PythonQtWrapper_QTimeZone::id(QTimeZone* theWrappedObject) const
+{
+  return ( theWrappedObject->id());
+}
+
+bool  PythonQtWrapper_QTimeZone::isDaylightTime(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const
+{
+  return ( theWrappedObject->isDaylightTime(atDateTime));
+}
+
+bool  PythonQtWrapper_QTimeZone::static_QTimeZone_isTimeZoneIdAvailable(const QByteArray&  ianaId)
+{
+  return (QTimeZone::isTimeZoneIdAvailable(ianaId));
+}
+
+bool  PythonQtWrapper_QTimeZone::isValid(QTimeZone* theWrappedObject) const
+{
+  return ( theWrappedObject->isValid());
+}
+
+int  PythonQtWrapper_QTimeZone::offsetFromUtc(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const
+{
+  return ( theWrappedObject->offsetFromUtc(atDateTime));
+}
+
+bool  PythonQtWrapper_QTimeZone::__ne__(QTimeZone* theWrappedObject, const QTimeZone&  other) const
+{
+  return ( (*theWrappedObject)!= other);
+}
+
+void PythonQtWrapper_QTimeZone::writeTo(QTimeZone* theWrappedObject, QDataStream&  ds)
+{
+  ds <<  (*theWrappedObject);
+}
+
+QTimeZone*  PythonQtWrapper_QTimeZone::operator_assign(QTimeZone* theWrappedObject, const QTimeZone&  other)
+{
+  return &( (*theWrappedObject)= other);
+}
+
+bool  PythonQtWrapper_QTimeZone::__eq__(QTimeZone* theWrappedObject, const QTimeZone&  other) const
+{
+  return ( (*theWrappedObject)== other);
+}
+
+void PythonQtWrapper_QTimeZone::readFrom(QTimeZone* theWrappedObject, QDataStream&  ds)
+{
+  ds >>  (*theWrappedObject);
+}
+
+int  PythonQtWrapper_QTimeZone::standardTimeOffset(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const
+{
+  return ( theWrappedObject->standardTimeOffset(atDateTime));
+}
+
+void PythonQtWrapper_QTimeZone::swap(QTimeZone* theWrappedObject, QTimeZone&  other)
+{
+  ( theWrappedObject->swap(other));
+}
+
+QTimeZone  PythonQtWrapper_QTimeZone::static_QTimeZone_systemTimeZone()
+{
+  return (QTimeZone::systemTimeZone());
+}
+
+QByteArray  PythonQtWrapper_QTimeZone::static_QTimeZone_systemTimeZoneId()
+{
+  return (QTimeZone::systemTimeZoneId());
+}
+
+QTimeZone  PythonQtWrapper_QTimeZone::static_QTimeZone_utc()
+{
+  return (QTimeZone::utc());
+}
+
+QByteArray  PythonQtWrapper_QTimeZone::static_QTimeZone_windowsIdToDefaultIanaId(const QByteArray&  windowsId)
+{
+  return (QTimeZone::windowsIdToDefaultIanaId(windowsId));
+}
+
+QByteArray  PythonQtWrapper_QTimeZone::static_QTimeZone_windowsIdToDefaultIanaId(const QByteArray&  windowsId, QLocale::Country  country)
+{
+  return (QTimeZone::windowsIdToDefaultIanaId(windowsId, country));
+}
+
+QList<QByteArray >  PythonQtWrapper_QTimeZone::static_QTimeZone_windowsIdToIanaIds(const QByteArray&  windowsId)
+{
+  return (QTimeZone::windowsIdToIanaIds(windowsId));
+}
+
+QList<QByteArray >  PythonQtWrapper_QTimeZone::static_QTimeZone_windowsIdToIanaIds(const QByteArray&  windowsId, QLocale::Country  country)
+{
+  return (QTimeZone::windowsIdToIanaIds(windowsId, country));
+}
+
+QString PythonQtWrapper_QTimeZone::py_toString(QTimeZone* obj) {
+  QString result;
+  QDebug d(&result);
+  d << *obj;
+  return result;
+}
+
+
+
+PythonQtShell_QTimer::~PythonQtShell_QTimer() {
+  PythonQtPrivate* priv = PythonQt::priv();
+  if (priv) { priv->shellClassDeleted(this); }
+}
+void PythonQtShell_QTimer::childEvent(QChildEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("childEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QChildEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QTimer::childEvent(event0);
+}
+void PythonQtShell_QTimer::customEvent(QEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("customEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QTimer::customEvent(event0);
+}
+bool  PythonQtShell_QTimer::event(QEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("event");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      bool returnValue{};
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("event", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QTimer::event(event0);
+}
+bool  PythonQtShell_QTimer::eventFilter(QObject*  watched0, QEvent*  event1)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("eventFilter");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QObject*" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      bool returnValue{};
+      void* args[3] = {nullptr, (void*)&watched0, (void*)&event1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("eventFilter", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QTimer::eventFilter(watched0, event1);
+}
+void PythonQtShell_QTimer::timerEvent(QTimerEvent*  arg__1)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("timerEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QTimerEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&arg__1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QTimer::timerEvent(arg__1);
+}
+QTimer* PythonQtWrapper_QTimer::new_QTimer(QObject*  parent)
+{ 
+return new PythonQtShell_QTimer(parent); }
+
+const QMetaObject* PythonQtShell_QTimer::metaObject() const {
+  if (QObject::d_ptr->metaObject) {
+    return QObject::d_ptr->dynamicMetaObject();
+  } else if (_wrapper) {
+    return PythonQt::priv()->getDynamicMetaObject(_wrapper, &QTimer::staticMetaObject);
+  } else {
+    return &QTimer::staticMetaObject;
+  }
+}
+int PythonQtShell_QTimer::qt_metacall(QMetaObject::Call call, int id, void** args) {
+  int result = QTimer::qt_metacall(call, id, args);
+  return result >= 0 ? PythonQt::priv()->handleMetaCall(this, _wrapper, call, id, args) : result;
+}
+int  PythonQtWrapper_QTimer::interval(QTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->interval());
+}
+
+bool  PythonQtWrapper_QTimer::isActive(QTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->isActive());
+}
+
+bool  PythonQtWrapper_QTimer::isSingleShot(QTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->isSingleShot());
+}
+
+int  PythonQtWrapper_QTimer::remainingTime(QTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->remainingTime());
+}
+
+void PythonQtWrapper_QTimer::setInterval(QTimer* theWrappedObject, int  msec)
+{
+  ( theWrappedObject->setInterval(msec));
+}
+
+void PythonQtWrapper_QTimer::setSingleShot(QTimer* theWrappedObject, bool  singleShot)
+{
+  ( theWrappedObject->setSingleShot(singleShot));
+}
+
+void PythonQtWrapper_QTimer::setTimerType(QTimer* theWrappedObject, Qt::TimerType  atype)
+{
+  ( theWrappedObject->setTimerType(atype));
+}
+
+void PythonQtWrapper_QTimer::static_QTimer_singleShot(int  msec, Qt::TimerType  timerType, const QObject*  receiver, const char*  member)
+{
+  (QTimer::singleShot(msec, timerType, receiver, member));
+}
+
+void PythonQtWrapper_QTimer::static_QTimer_singleShot(int  msec, const QObject*  receiver, const char*  member)
+{
+  (QTimer::singleShot(msec, receiver, member));
+}
+
+int  PythonQtWrapper_QTimer::timerId(QTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->timerId());
+}
+
+Qt::TimerType  PythonQtWrapper_QTimer::timerType(QTimer* theWrappedObject) const
+{
+  return ( theWrappedObject->timerType());
+}
+
+
 
 PythonQtShell_QTimerEvent::~PythonQtShell_QTimerEvent() {
   PythonQtPrivate* priv = PythonQt::priv();

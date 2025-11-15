@@ -1142,12 +1142,12 @@ if (_wrapper) {
 }
   return QVideoWidget::metric(arg__1);
 }
-QSize  PythonQtShell_QVideoWidget::getMinimumSizeHint() const
+QSize  PythonQtShell_QVideoWidget::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -1159,7 +1159,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -1677,11 +1677,6 @@ int  PythonQtWrapper_QVideoWidget::hue(QVideoWidget* theWrappedObject) const
 int  PythonQtWrapper_QVideoWidget::saturation(QVideoWidget* theWrappedObject) const
 {
   return ( theWrappedObject->saturation());
-}
-
-QSize  PythonQtWrapper_QVideoWidget::sizeHint(QVideoWidget* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 QAbstractVideoSurface*  PythonQtWrapper_QVideoWidget::videoSurface(QVideoWidget* theWrappedObject) const

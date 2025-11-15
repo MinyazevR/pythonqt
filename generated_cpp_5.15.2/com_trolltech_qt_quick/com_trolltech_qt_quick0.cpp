@@ -5802,12 +5802,12 @@ if (_wrapper) {
 }
   return QQuickWidget::metric(arg__1);
 }
-QSize  PythonQtShell_QQuickWidget::getMinimumSizeHint() const
+QSize  PythonQtShell_QQuickWidget::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -5819,7 +5819,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -6347,11 +6347,6 @@ void PythonQtWrapper_QQuickWidget::setFormat(QQuickWidget* theWrappedObject, con
 void PythonQtWrapper_QQuickWidget::setResizeMode(QQuickWidget* theWrappedObject, QQuickWidget::ResizeMode  arg__1)
 {
   ( theWrappedObject->setResizeMode(arg__1));
-}
-
-QSize  PythonQtWrapper_QQuickWidget::sizeHint(QQuickWidget* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 QUrl  PythonQtWrapper_QQuickWidget::source(QQuickWidget* theWrappedObject) const

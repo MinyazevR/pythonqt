@@ -1263,7 +1263,7 @@ void keyPressEvent(QKeyEvent*  arg__1) override;
 void keyReleaseEvent(QKeyEvent*  arg__1) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1277,7 +1277,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  arg__1) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -1352,7 +1352,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1521,7 +1521,6 @@ void delete_QLabel(QLabel* obj) { delete obj; }
    int  indent(QLabel* theWrappedObject) const;
    void py_q_keyPressEvent(QLabel* theWrappedObject, QKeyEvent*  ev){  (((PythonQtPublicPromoter_QLabel*)theWrappedObject)->py_q_keyPressEvent(ev));}
    int  margin(QLabel* theWrappedObject) const;
-   QSize  minimumSizeHint(QLabel* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QLabel* theWrappedObject) const{  return (((PythonQtPublicPromoter_QLabel*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseMoveEvent(QLabel* theWrappedObject, QMouseEvent*  ev){  (((PythonQtPublicPromoter_QLabel*)theWrappedObject)->py_q_mouseMoveEvent(ev));}
    void py_q_mousePressEvent(QLabel* theWrappedObject, QMouseEvent*  ev){  (((PythonQtPublicPromoter_QLabel*)theWrappedObject)->py_q_mousePressEvent(ev));}
@@ -1667,9 +1666,9 @@ void delete_QLayout(QLayout* obj) { delete obj; }
    void setMargin(QLayout* theWrappedObject, int  arg__1);
    void setMenuBar(QLayout* theWrappedObject, QWidget*  w);
    void setSizeConstraint(QLayout* theWrappedObject, QLayout::SizeConstraint  arg__1);
-   void setWidgetSpacing(QLayout* theWrappedObject, int  arg__1);
+   void setSpacing(QLayout* theWrappedObject, int  arg__1);
    QLayout::SizeConstraint  sizeConstraint(QLayout* theWrappedObject) const;
-   int  widgetSpacing(QLayout* theWrappedObject) const;
+   int  spacing(QLayout* theWrappedObject) const;
    PythonQtPassOwnershipToPython<QLayoutItem*  > takeAt(QLayout* theWrappedObject, int  index);
    PythonQtPassOwnershipToPython<QLayoutItem*  > py_q_takeAt(QLayout* theWrappedObject, int  index){  return (((PythonQtPublicPromoter_QLayout*)theWrappedObject)->py_q_takeAt(index));}
    int  totalHeightForWidth(QLayout* theWrappedObject, int  w) const;
@@ -1928,7 +1927,6 @@ void delete_QLineEdit(QLineEdit* obj) { delete obj; }
    bool  isUndoAvailable(QLineEdit* theWrappedObject) const;
    void py_q_keyPressEvent(QLineEdit* theWrappedObject, QKeyEvent*  arg__1){  (((PythonQtPublicPromoter_QLineEdit*)theWrappedObject)->py_q_keyPressEvent(arg__1));}
    int  maxLength(QLineEdit* theWrappedObject) const;
-   QSize  minimumSizeHint(QLineEdit* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QLineEdit* theWrappedObject) const{  return (((PythonQtPublicPromoter_QLineEdit*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseDoubleClickEvent(QLineEdit* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QLineEdit*)theWrappedObject)->py_q_mouseDoubleClickEvent(arg__1));}
    void py_q_mouseMoveEvent(QLineEdit* theWrappedObject, QMouseEvent*  arg__1){  (((PythonQtPublicPromoter_QLineEdit*)theWrappedObject)->py_q_mouseMoveEvent(arg__1));}
@@ -1957,7 +1955,6 @@ void delete_QLineEdit(QLineEdit* obj) { delete obj; }
    void setTextMargins(QLineEdit* theWrappedObject, const QMargins&  margins);
    void setTextMargins(QLineEdit* theWrappedObject, int  left, int  top, int  right, int  bottom);
    void setValidator(QLineEdit* theWrappedObject, const QValidator*  arg__1);
-   QSize  sizeHint(QLineEdit* theWrappedObject) const;
    QSize  py_q_sizeHint(QLineEdit* theWrappedObject) const{  return (((PythonQtPublicPromoter_QLineEdit*)theWrappedObject)->py_q_sizeHint());}
    QString  text(QLineEdit* theWrappedObject) const;
    QMargins  textMargins(QLineEdit* theWrappedObject) const;

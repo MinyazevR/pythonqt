@@ -644,7 +644,6 @@ void delete_QTabBar(QTabBar* obj) { delete obj; }
    bool  isTabEnabled(QTabBar* theWrappedObject, int  index) const;
    bool  isTabVisible(QTabBar* theWrappedObject, int  index) const;
    void py_q_keyPressEvent(QTabBar* theWrappedObject, QKeyEvent*  arg__1){  (((PythonQtPublicPromoter_QTabBar*)theWrappedObject)->py_q_keyPressEvent(arg__1));}
-   QSize  minimumSizeHint(QTabBar* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QTabBar* theWrappedObject) const{  return (((PythonQtPublicPromoter_QTabBar*)theWrappedObject)->py_q_minimumSizeHint());}
    QSize  minimumTabSizeHint(QTabBar* theWrappedObject, int  index) const;
    QSize  py_q_minimumTabSizeHint(QTabBar* theWrappedObject, int  index) const{  return (((PythonQtPublicPromoter_QTabBar*)theWrappedObject)->py_q_minimumTabSizeHint(index));}
@@ -680,7 +679,6 @@ void delete_QTabBar(QTabBar* obj) { delete obj; }
    void setUsesScrollButtons(QTabBar* theWrappedObject, bool  useButtons);
    QTabBar::Shape  shape(QTabBar* theWrappedObject) const;
    void py_q_showEvent(QTabBar* theWrappedObject, QShowEvent*  arg__1){  (((PythonQtPublicPromoter_QTabBar*)theWrappedObject)->py_q_showEvent(arg__1));}
-   QSize  sizeHint(QTabBar* theWrappedObject) const;
    QSize  py_q_sizeHint(QTabBar* theWrappedObject) const{  return (((PythonQtPublicPromoter_QTabBar*)theWrappedObject)->py_q_sizeHint());}
    int  tabAt(QTabBar* theWrappedObject, const QPoint&  pos) const;
    QWidget*  tabButton(QTabBar* theWrappedObject, int  index, QTabBar::ButtonPosition  position) const;
@@ -823,7 +821,6 @@ void delete_QTabWidget(QTabWidget* obj) { delete obj; }
    bool  isTabEnabled(QTabWidget* theWrappedObject, int  index) const;
    bool  isTabVisible(QTabWidget* theWrappedObject, int  index) const;
    void py_q_keyPressEvent(QTabWidget* theWrappedObject, QKeyEvent*  arg__1){  (((PythonQtPublicPromoter_QTabWidget*)theWrappedObject)->py_q_keyPressEvent(arg__1));}
-   QSize  minimumSizeHint(QTabWidget* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QTabWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QTabWidget*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_paintEvent(QTabWidget* theWrappedObject, QPaintEvent*  arg__1){  (((PythonQtPublicPromoter_QTabWidget*)theWrappedObject)->py_q_paintEvent(arg__1));}
    void removeTab(QTabWidget* theWrappedObject, int  index);
@@ -846,7 +843,6 @@ void delete_QTabWidget(QTabWidget* obj) { delete obj; }
    void setTabsClosable(QTabWidget* theWrappedObject, bool  closeable);
    void setUsesScrollButtons(QTabWidget* theWrappedObject, bool  useButtons);
    void py_q_showEvent(QTabWidget* theWrappedObject, QShowEvent*  arg__1){  (((PythonQtPublicPromoter_QTabWidget*)theWrappedObject)->py_q_showEvent(arg__1));}
-   QSize  sizeHint(QTabWidget* theWrappedObject) const;
    QSize  py_q_sizeHint(QTabWidget* theWrappedObject) const{  return (((PythonQtPublicPromoter_QTabWidget*)theWrappedObject)->py_q_sizeHint());}
    QTabBar*  tabBar(QTabWidget* theWrappedObject) const;
    bool  tabBarAutoHide(QTabWidget* theWrappedObject) const;

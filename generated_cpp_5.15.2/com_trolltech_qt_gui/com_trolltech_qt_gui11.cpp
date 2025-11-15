@@ -1210,7 +1210,7 @@ int  PythonQtWrapper_QTextList::count(QTextList* theWrappedObject) const
   return ( theWrappedObject->count());
 }
 
-QTextListFormat  PythonQtWrapper_QTextList::textListFormat(QTextList* theWrappedObject) const
+QTextListFormat  PythonQtWrapper_QTextList::format(QTextList* theWrappedObject) const
 {
   return ( theWrappedObject->format());
 }
@@ -4316,12 +4316,12 @@ if (_wrapper) {
 }
   return QToolBar::metric(arg__1);
 }
-QSize  PythonQtShell_QToolBar::getMinimumSizeHint() const
+QSize  PythonQtShell_QToolBar::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -4333,7 +4333,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -4679,12 +4679,12 @@ if (_wrapper) {
 }
   QToolBar::showEvent(event0);
 }
-QSize  PythonQtShell_QToolBar::getSizeHint() const
+QSize  PythonQtShell_QToolBar::sizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getSizeHint");
+    static PyObject* name = PyUnicode_FromString("sizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -4696,7 +4696,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("sizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -5677,12 +5677,12 @@ if (_wrapper) {
 }
   return QToolBox::metric(arg__1);
 }
-QSize  PythonQtShell_QToolBox::getMinimumSizeHint() const
+QSize  PythonQtShell_QToolBox::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -5694,7 +5694,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -7525,11 +7525,6 @@ QMenu*  PythonQtWrapper_QToolButton::menu(QToolButton* theWrappedObject) const
   return ( theWrappedObject->menu());
 }
 
-QSize  PythonQtWrapper_QToolButton::minimumSizeHint(QToolButton* theWrappedObject) const
-{
-  return ( theWrappedObject->minimumSizeHint());
-}
-
 QToolButton::ToolButtonPopupMode  PythonQtWrapper_QToolButton::popupMode(QToolButton* theWrappedObject) const
 {
   return ( theWrappedObject->popupMode());
@@ -7553,11 +7548,6 @@ void PythonQtWrapper_QToolButton::setMenu(QToolButton* theWrappedObject, QMenu* 
 void PythonQtWrapper_QToolButton::setPopupMode(QToolButton* theWrappedObject, QToolButton::ToolButtonPopupMode  mode)
 {
   ( theWrappedObject->setPopupMode(mode));
-}
-
-QSize  PythonQtWrapper_QToolButton::sizeHint(QToolButton* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 Qt::ToolButtonStyle  PythonQtWrapper_QToolButton::toolButtonStyle(QToolButton* theWrappedObject) const

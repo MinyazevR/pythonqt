@@ -661,7 +661,6 @@ public:
     PythonQtShell_QDateTimeEdit(const QDate&  d, QWidget*  parent = nullptr):QDateTimeEdit(d, parent),_wrapper(nullptr) {};
     PythonQtShell_QDateTimeEdit(const QDateTime&  dt, QWidget*  parent = nullptr):QDateTimeEdit(dt, parent),_wrapper(nullptr) {};
     PythonQtShell_QDateTimeEdit(const QTime&  t, QWidget*  parent = nullptr):QDateTimeEdit(t, parent),_wrapper(nullptr) {};
-    PythonQtShell_QDateTimeEdit(const QVariant&  val, QMetaType::Type  parserType, QWidget*  parent = nullptr):QDateTimeEdit(val, parserType, parent),_wrapper(nullptr) {};
     PythonQtShell_QDateTimeEdit(const QVariant&  val, QVariant::Type  parserType, QWidget*  parent = nullptr):QDateTimeEdit(val, parserType, parent),_wrapper(nullptr) {};
 
    ~PythonQtShell_QDateTimeEdit() override;
@@ -768,7 +767,6 @@ QDateTimeEdit* new_QDateTimeEdit(QWidget*  parent = nullptr);
 QDateTimeEdit* new_QDateTimeEdit(const QDate&  d, QWidget*  parent = nullptr);
 QDateTimeEdit* new_QDateTimeEdit(const QDateTime&  dt, QWidget*  parent = nullptr);
 QDateTimeEdit* new_QDateTimeEdit(const QTime&  t, QWidget*  parent = nullptr);
-QDateTimeEdit* new_QDateTimeEdit(const QVariant&  val, QMetaType::Type  parserType, QWidget*  parent = nullptr);
 QDateTimeEdit* new_QDateTimeEdit(const QVariant&  val, QVariant::Type  parserType, QWidget*  parent = nullptr);
 void delete_QDateTimeEdit(QDateTimeEdit* obj) { delete obj; }
    QCalendar  calendar(QDateTimeEdit* theWrappedObject) const;
@@ -898,7 +896,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -912,7 +910,7 @@ void resizeEvent(QResizeEvent*  e) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -1042,7 +1040,6 @@ QDial* new_QDial(QWidget*  parent = nullptr);
 void delete_QDial(QDial* obj) { delete obj; }
    bool  py_q_event(QDial* theWrappedObject, QEvent*  e){  return (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_event(e));}
    void initStyleOption(QDial* theWrappedObject, QStyleOptionSlider*  option) const;
-   QSize  minimumSizeHint(QDial* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QDial* theWrappedObject) const{  return (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_mouseMoveEvent(QDial* theWrappedObject, QMouseEvent*  me){  (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_mouseMoveEvent(me));}
    void py_q_mousePressEvent(QDial* theWrappedObject, QMouseEvent*  me){  (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_mousePressEvent(me));}
@@ -1053,7 +1050,6 @@ void delete_QDial(QDial* obj) { delete obj; }
    void py_q_paintEvent(QDial* theWrappedObject, QPaintEvent*  pe){  (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_paintEvent(pe));}
    void py_q_resizeEvent(QDial* theWrappedObject, QResizeEvent*  re){  (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_resizeEvent(re));}
    void setNotchTarget(QDial* theWrappedObject, double  target);
-   QSize  sizeHint(QDial* theWrappedObject) const;
    QSize  py_q_sizeHint(QDial* theWrappedObject) const{  return (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_sizeHint());}
    void py_q_sliderChange(QDial* theWrappedObject, int  change){  (((PythonQtPublicPromoter_QDial*)theWrappedObject)->py_q_sliderChange(change));}
    bool  wrapping(QDial* theWrappedObject) const;
@@ -1169,7 +1165,6 @@ void delete_QDialog(QDialog* obj) { delete obj; }
    int  py_q_exec(QDialog* theWrappedObject){  return (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_exec());}
    bool  isSizeGripEnabled(QDialog* theWrappedObject) const;
    void py_q_keyPressEvent(QDialog* theWrappedObject, QKeyEvent*  arg__1){  (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_keyPressEvent(arg__1));}
-   QSize  minimumSizeHint(QDialog* theWrappedObject) const;
    QSize  py_q_minimumSizeHint(QDialog* theWrappedObject) const{  return (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_minimumSizeHint());}
    void py_q_open(QDialog* theWrappedObject){  (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_open());}
    void py_q_reject(QDialog* theWrappedObject){  (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_reject());}
@@ -1180,7 +1175,6 @@ void delete_QDialog(QDialog* obj) { delete obj; }
    void setSizeGripEnabled(QDialog* theWrappedObject, bool  arg__1);
    void py_q_setVisible(QDialog* theWrappedObject, bool  visible){  (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_setVisible(visible));}
    void py_q_showEvent(QDialog* theWrappedObject, QShowEvent*  arg__1){  (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_showEvent(arg__1));}
-   QSize  sizeHint(QDialog* theWrappedObject) const;
    QSize  py_q_sizeHint(QDialog* theWrappedObject) const{  return (((PythonQtPublicPromoter_QDialog*)theWrappedObject)->py_q_sizeHint());}
 };
 
@@ -1225,7 +1219,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1239,7 +1233,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;
@@ -1457,7 +1451,7 @@ void keyPressEvent(QKeyEvent*  event) override;
 void keyReleaseEvent(QKeyEvent*  event) override;
 void leaveEvent(QEvent*  event) override;
 int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  getMinimumSizeHint() const override;
+QSize  minimumSizeHint() const override;
 void mouseDoubleClickEvent(QMouseEvent*  event) override;
 void mouseMoveEvent(QMouseEvent*  event) override;
 void mousePressEvent(QMouseEvent*  event) override;
@@ -1471,7 +1465,7 @@ void resizeEvent(QResizeEvent*  event) override;
 void setVisible(bool  visible) override;
 QPainter*  sharedPainter() const override;
 void showEvent(QShowEvent*  event) override;
-QSize  getSizeHint() const override;
+QSize  sizeHint() const override;
 void tabletEvent(QTabletEvent*  event) override;
 void timerEvent(QTimerEvent*  event) override;
 void wheelEvent(QWheelEvent*  event) override;

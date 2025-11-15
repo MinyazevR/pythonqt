@@ -5,12 +5,12 @@
 #include <QVariant>
 #include <QtWidgets/qwidget.h>
 #include <qabstractanimation.h>
+#include <qabstracteventdispatcher.h>
 #include <qabstractstate.h>
 #include <qabstracttransition.h>
 #include <qanimationgroup.h>
 #include <qbytearray.h>
 #include <qcoreevent.h>
-#include <qdatastream.h>
 #include <qdatetime.h>
 #include <qdeadlinetimer.h>
 #include <qdir.h>
@@ -22,6 +22,7 @@
 #include <qmetaobject.h>
 #include <qobject.h>
 #include <qpauseanimation.h>
+#include <qresource.h>
 #include <qrunnable.h>
 #include <qsavefile.h>
 #include <qsemaphore.h>
@@ -47,8 +48,95 @@
 #include <qthread.h>
 #include <qthreadpool.h>
 #include <qtimeline.h>
-#include <qtimer.h>
-#include <qtimezone.h>
+
+
+
+class PythonQtShell_QResource : public QResource
+{
+public:
+    PythonQtShell_QResource(const QString&  file = QString(), const QLocale&  locale = QLocale()):QResource(file, locale),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QResource();
+
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtPublicPromoter_QResource : public QResource
+{ public:
+inline QStringList  promoted_children() const { return this->children(); }
+inline bool  promoted_isDir() const { return this->isDir(); }
+inline bool  promoted_isFile() const { return this->isFile(); }
+};
+
+class PythonQtWrapper_QResource : public QObject
+{ Q_OBJECT
+public:
+Q_ENUMS(Compression )
+enum Compression{
+  NoCompression = QResource::NoCompression,   ZlibCompression = QResource::ZlibCompression,   ZstdCompression = QResource::ZstdCompression};
+public Q_SLOTS:
+QResource* new_QResource(const QString&  file = QString(), const QLocale&  locale = QLocale());
+void delete_QResource(QResource* obj) { delete obj; }
+   QString  absoluteFilePath(QResource* theWrappedObject) const;
+   void static_QResource_addSearchPath(const QString&  path);
+   QStringList  children(QResource* theWrappedObject) const;
+   QResource::Compression  compressionAlgorithm(QResource* theWrappedObject) const;
+   const uchar*  data(QResource* theWrappedObject) const;
+   QString  fileName(QResource* theWrappedObject) const;
+   bool  isCompressed(QResource* theWrappedObject) const;
+   bool  isDir(QResource* theWrappedObject) const;
+   bool  isFile(QResource* theWrappedObject) const;
+   bool  isValid(QResource* theWrappedObject) const;
+   QDateTime  lastModified(QResource* theWrappedObject) const;
+   QLocale  locale(QResource* theWrappedObject) const;
+   bool  static_QResource_registerResource(const QString&  rccFilename, const QString&  resourceRoot = QString());
+   bool  static_QResource_registerResource(const uchar*  rccData, const QString&  resourceRoot = QString());
+   QStringList  static_QResource_searchPaths();
+   void setFileName(QResource* theWrappedObject, const QString&  file);
+   void setLocale(QResource* theWrappedObject, const QLocale&  locale);
+   qint64  size(QResource* theWrappedObject) const;
+   QByteArray  uncompressedData(QResource* theWrappedObject) const;
+   qint64  uncompressedSize(QResource* theWrappedObject) const;
+   bool  static_QResource_unregisterResource(const QString&  rccFilename, const QString&  resourceRoot = QString());
+   bool  static_QResource_unregisterResource(const uchar*  rccData, const QString&  resourceRoot = QString());
+    bool __nonzero__(QResource* obj) { return obj->isValid(); }
+};
+
+
+
+
+
+class PythonQtShell_QRunnable : public QRunnable
+{
+public:
+    PythonQtShell_QRunnable():QRunnable(),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QRunnable() override;
+
+void run() override;
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtPublicPromoter_QRunnable : public QRunnable
+{ public:
+inline void py_q_run() { this->run(); }
+};
+
+class PythonQtWrapper_QRunnable : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QRunnable* new_QRunnable();
+void delete_QRunnable(QRunnable* obj) { delete obj; }
+   bool  autoDelete(QRunnable* theWrappedObject) const;
+   void run(QRunnable* theWrappedObject);
+   void py_q_run(QRunnable* theWrappedObject){  (((PythonQtPublicPromoter_QRunnable*)theWrappedObject)->py_q_run());}
+   void setAutoDelete(QRunnable* theWrappedObject, bool  _autoDelete);
+};
+
+
 
 
 
@@ -839,7 +927,7 @@ void close() override;
 void customEvent(QEvent*  event) override;
 bool  event(QEvent*  event) override;
 bool  eventFilter(QObject*  watched, QEvent*  event) override;
-QString  uniqueFilename() const override;
+QString  fileName() const override;
 bool  isSequential() const override;
 bool  open(QIODevice::OpenMode  flags) override;
 QFileDevice::Permissions  permissions() const override;
@@ -864,7 +952,7 @@ qint64  writeData(const char*  data, qint64  len) override;
 class PythonQtPublicPromoter_QTemporaryFile : public QTemporaryFile
 { public:
 inline bool  promoted_open(QIODevice::OpenMode  flags) { return this->open(flags); }
-inline QString  py_q_uniqueFilename() const { return QTemporaryFile::fileName(); }
+inline QString  py_q_fileName() const { return QTemporaryFile::fileName(); }
 inline bool  py_q_open(QIODevice::OpenMode  flags) { return QTemporaryFile::open(flags); }
 };
 
@@ -882,8 +970,7 @@ void delete_QTemporaryFile(QTemporaryFile* obj) { delete obj; }
    QTemporaryFile*  static_QTemporaryFile_createLocalFile(const QString&  fileName);
    QTemporaryFile*  static_QTemporaryFile_createNativeFile(QFile&  file);
    QTemporaryFile*  static_QTemporaryFile_createNativeFile(const QString&  fileName);
-   QString  uniqueFilename(QTemporaryFile* theWrappedObject) const;
-   QString  py_q_uniqueFilename(QTemporaryFile* theWrappedObject) const{  return (((PythonQtPublicPromoter_QTemporaryFile*)theWrappedObject)->py_q_fileName());}
+   QString  py_q_fileName(QTemporaryFile* theWrappedObject) const{  return (((PythonQtPublicPromoter_QTemporaryFile*)theWrappedObject)->py_q_fileName());}
    QString  fileTemplate(QTemporaryFile* theWrappedObject) const;
    bool  open(QTemporaryFile* theWrappedObject);
    bool  py_q_open(QTemporaryFile* theWrappedObject, QIODevice::OpenMode  flags){  return (((PythonQtPublicPromoter_QTemporaryFile*)theWrappedObject)->py_q_open(flags));}
@@ -1298,108 +1385,6 @@ void delete_QTimeLine(QTimeLine* obj) { delete obj; }
    int  updateInterval(QTimeLine* theWrappedObject) const;
    qreal  valueForTime(QTimeLine* theWrappedObject, int  msec) const;
    qreal  py_q_valueForTime(QTimeLine* theWrappedObject, int  msec) const{  return (((PythonQtPublicPromoter_QTimeLine*)theWrappedObject)->py_q_valueForTime(msec));}
-};
-
-
-
-
-
-class PythonQtWrapper_QTimeZone : public QObject
-{ Q_OBJECT
-public:
-Q_ENUMS(NameType TimeType )
-enum NameType{
-  DefaultName = QTimeZone::DefaultName,   LongName = QTimeZone::LongName,   ShortName = QTimeZone::ShortName,   OffsetName = QTimeZone::OffsetName};
-enum TimeType{
-  StandardTime = QTimeZone::StandardTime,   DaylightTime = QTimeZone::DaylightTime,   GenericTime = QTimeZone::GenericTime};
-public Q_SLOTS:
-QTimeZone* new_QTimeZone();
-QTimeZone* new_QTimeZone(const QByteArray&  ianaId);
-QTimeZone* new_QTimeZone(const QByteArray&  zoneId, int  offsetSeconds, const QString&  name, const QString&  abbreviation, QLocale::Country  country = QLocale::AnyCountry, const QString&  comment = QString());
-QTimeZone* new_QTimeZone(const QTimeZone&  other);
-QTimeZone* new_QTimeZone(int  offsetSeconds);
-void delete_QTimeZone(QTimeZone* obj) { delete obj; }
-   QString  abbreviation(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
-   QList<QByteArray >  static_QTimeZone_availableTimeZoneIds();
-   QList<QByteArray >  static_QTimeZone_availableTimeZoneIds(QLocale::Country  country);
-   QList<QByteArray >  static_QTimeZone_availableTimeZoneIds(int  offsetSeconds);
-   QString  comment(QTimeZone* theWrappedObject) const;
-   QLocale::Country  country(QTimeZone* theWrappedObject) const;
-   int  daylightTimeOffset(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
-   QString  displayName(QTimeZone* theWrappedObject, QTimeZone::TimeType  timeType, QTimeZone::NameType  nameType = QTimeZone::DefaultName, const QLocale&  locale = QLocale()) const;
-   QString  displayName(QTimeZone* theWrappedObject, const QDateTime&  atDateTime, QTimeZone::NameType  nameType = QTimeZone::DefaultName, const QLocale&  locale = QLocale()) const;
-   bool  hasDaylightTime(QTimeZone* theWrappedObject) const;
-   bool  hasTransitions(QTimeZone* theWrappedObject) const;
-   QByteArray  static_QTimeZone_ianaIdToWindowsId(const QByteArray&  ianaId);
-   QByteArray  id(QTimeZone* theWrappedObject) const;
-   bool  isDaylightTime(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
-   bool  static_QTimeZone_isTimeZoneIdAvailable(const QByteArray&  ianaId);
-   bool  isValid(QTimeZone* theWrappedObject) const;
-   int  offsetFromUtc(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
-   bool  __ne__(QTimeZone* theWrappedObject, const QTimeZone&  other) const;
-   void writeTo(QTimeZone* theWrappedObject, QDataStream&  ds);
-   QTimeZone*  operator_assign(QTimeZone* theWrappedObject, const QTimeZone&  other);
-   bool  __eq__(QTimeZone* theWrappedObject, const QTimeZone&  other) const;
-   void readFrom(QTimeZone* theWrappedObject, QDataStream&  ds);
-   int  standardTimeOffset(QTimeZone* theWrappedObject, const QDateTime&  atDateTime) const;
-   void swap(QTimeZone* theWrappedObject, QTimeZone&  other);
-   QTimeZone  static_QTimeZone_systemTimeZone();
-   QByteArray  static_QTimeZone_systemTimeZoneId();
-   QTimeZone  static_QTimeZone_utc();
-   QByteArray  static_QTimeZone_windowsIdToDefaultIanaId(const QByteArray&  windowsId);
-   QByteArray  static_QTimeZone_windowsIdToDefaultIanaId(const QByteArray&  windowsId, QLocale::Country  country);
-   QList<QByteArray >  static_QTimeZone_windowsIdToIanaIds(const QByteArray&  windowsId);
-   QList<QByteArray >  static_QTimeZone_windowsIdToIanaIds(const QByteArray&  windowsId, QLocale::Country  country);
-    QString py_toString(QTimeZone*);
-    bool __nonzero__(QTimeZone* obj) { return obj->isValid(); }
-};
-
-
-
-
-
-class PythonQtShell_QTimer : public QTimer
-{
-public:
-    PythonQtShell_QTimer(QObject*  parent = nullptr):QTimer(parent),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QTimer() override;
-
-void childEvent(QChildEvent*  event) override;
-void customEvent(QEvent*  event) override;
-bool  event(QEvent*  event) override;
-bool  eventFilter(QObject*  watched, QEvent*  event) override;
-void timerEvent(QTimerEvent*  arg__1) override;
-
-  const QMetaObject* metaObject() const override;
-  int qt_metacall(QMetaObject::Call call, int id, void** args) override;
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtPublicPromoter_QTimer : public QTimer
-{ public:
-inline void promoted_timerEvent(QTimerEvent*  arg__1) { this->timerEvent(arg__1); }
-inline void py_q_timerEvent(QTimerEvent*  arg__1) { QTimer::timerEvent(arg__1); }
-};
-
-class PythonQtWrapper_QTimer : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QTimer* new_QTimer(QObject*  parent = nullptr);
-void delete_QTimer(QTimer* obj) { delete obj; }
-   int  interval(QTimer* theWrappedObject) const;
-   bool  isActive(QTimer* theWrappedObject) const;
-   bool  isSingleShot(QTimer* theWrappedObject) const;
-   int  remainingTime(QTimer* theWrappedObject) const;
-   void setInterval(QTimer* theWrappedObject, int  msec);
-   void setSingleShot(QTimer* theWrappedObject, bool  singleShot);
-   void setTimerType(QTimer* theWrappedObject, Qt::TimerType  atype);
-   void static_QTimer_singleShot(int  msec, Qt::TimerType  timerType, const QObject*  receiver, const char*  member);
-   void static_QTimer_singleShot(int  msec, const QObject*  receiver, const char*  member);
-   void py_q_timerEvent(QTimer* theWrappedObject, QTimerEvent*  arg__1){  (((PythonQtPublicPromoter_QTimer*)theWrappedObject)->py_q_timerEvent(arg__1));}
-   int  timerId(QTimer* theWrappedObject) const;
-   Qt::TimerType  timerType(QTimer* theWrappedObject) const;
 };
 
 

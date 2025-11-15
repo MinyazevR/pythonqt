@@ -2579,12 +2579,12 @@ void PythonQtWrapper_QMatrix::reset(QMatrix* theWrappedObject)
   ( theWrappedObject->reset());
 }
 
-QMatrix*  PythonQtWrapper_QMatrix::rotate_private(QMatrix* theWrappedObject, qreal  a)
+QMatrix*  PythonQtWrapper_QMatrix::rotate(QMatrix* theWrappedObject, qreal  a)
 {
   return &( theWrappedObject->rotate(a));
 }
 
-QMatrix*  PythonQtWrapper_QMatrix::scale_private(QMatrix* theWrappedObject, qreal  sx, qreal  sy)
+QMatrix*  PythonQtWrapper_QMatrix::scale(QMatrix* theWrappedObject, qreal  sx, qreal  sy)
 {
   return &( theWrappedObject->scale(sx, sy));
 }
@@ -2594,12 +2594,12 @@ void PythonQtWrapper_QMatrix::setMatrix(QMatrix* theWrappedObject, qreal  m11, q
   ( theWrappedObject->setMatrix(m11, m12, m21, m22, dx, dy));
 }
 
-QMatrix*  PythonQtWrapper_QMatrix::shear_private(QMatrix* theWrappedObject, qreal  sh, qreal  sv)
+QMatrix*  PythonQtWrapper_QMatrix::shear(QMatrix* theWrappedObject, qreal  sh, qreal  sv)
 {
   return &( theWrappedObject->shear(sh, sv));
 }
 
-QMatrix*  PythonQtWrapper_QMatrix::translate_private(QMatrix* theWrappedObject, qreal  dx, qreal  dy)
+QMatrix*  PythonQtWrapper_QMatrix::translate(QMatrix* theWrappedObject, qreal  dx, qreal  dy)
 {
   return &( theWrappedObject->translate(dx, dy));
 }
@@ -4744,7 +4744,7 @@ void PythonQtWrapper_QTextFormat::setProperty(QTextFormat* theWrappedObject, int
   ( theWrappedObject->setProperty(propertyId, value));
 }
 
-void PythonQtWrapper_QTextFormat::setLengthVectorProperty(QTextFormat* theWrappedObject, int  propertyId, const QVector<QTextLength >&  lengths)
+void PythonQtWrapper_QTextFormat::setProperty(QTextFormat* theWrappedObject, int  propertyId, const QVector<QTextLength >&  lengths)
 {
   ( theWrappedObject->setProperty(propertyId, lengths));
 }

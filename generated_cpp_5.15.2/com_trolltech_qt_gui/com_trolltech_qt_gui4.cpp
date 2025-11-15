@@ -6210,12 +6210,12 @@ if (_wrapper) {
 }
   return QKeySequenceEdit::metric(arg__1);
 }
-QSize  PythonQtShell_QKeySequenceEdit::getMinimumSizeHint() const
+QSize  PythonQtShell_QKeySequenceEdit::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -6227,7 +6227,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -6573,12 +6573,12 @@ if (_wrapper) {
 }
   QKeySequenceEdit::showEvent(event0);
 }
-QSize  PythonQtShell_QKeySequenceEdit::getSizeHint() const
+QSize  PythonQtShell_QKeySequenceEdit::sizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getSizeHint");
+    static PyObject* name = PyUnicode_FromString("sizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -6590,7 +6590,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("sizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -7386,12 +7386,12 @@ if (_wrapper) {
 }
   return QLCDNumber::metric(arg__1);
 }
-QSize  PythonQtShell_QLCDNumber::getMinimumSizeHint() const
+QSize  PythonQtShell_QLCDNumber::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -7403,7 +7403,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -9125,11 +9125,6 @@ int  PythonQtWrapper_QLabel::margin(QLabel* theWrappedObject) const
   return ( theWrappedObject->margin());
 }
 
-QSize  PythonQtWrapper_QLabel::minimumSizeHint(QLabel* theWrappedObject) const
-{
-  return ( theWrappedObject->minimumSizeHint());
-}
-
 QMovie*  PythonQtWrapper_QLabel::movie(QLabel* theWrappedObject) const
 {
   return ( theWrappedObject->movie());
@@ -10156,7 +10151,7 @@ void PythonQtWrapper_QLayout::setSizeConstraint(QLayout* theWrappedObject, QLayo
   ( theWrappedObject->setSizeConstraint(arg__1));
 }
 
-void PythonQtWrapper_QLayout::setWidgetSpacing(QLayout* theWrappedObject, int  arg__1)
+void PythonQtWrapper_QLayout::setSpacing(QLayout* theWrappedObject, int  arg__1)
 {
   ( theWrappedObject->setSpacing(arg__1));
 }
@@ -10166,7 +10161,7 @@ QLayout::SizeConstraint  PythonQtWrapper_QLayout::sizeConstraint(QLayout* theWra
   return ( theWrappedObject->sizeConstraint());
 }
 
-int  PythonQtWrapper_QLayout::widgetSpacing(QLayout* theWrappedObject) const
+int  PythonQtWrapper_QLayout::spacing(QLayout* theWrappedObject) const
 {
   return ( theWrappedObject->spacing());
 }
@@ -12120,11 +12115,6 @@ int  PythonQtWrapper_QLineEdit::maxLength(QLineEdit* theWrappedObject) const
   return ( theWrappedObject->maxLength());
 }
 
-QSize  PythonQtWrapper_QLineEdit::minimumSizeHint(QLineEdit* theWrappedObject) const
-{
-  return ( theWrappedObject->minimumSizeHint());
-}
-
 QString  PythonQtWrapper_QLineEdit::placeholderText(QLineEdit* theWrappedObject) const
 {
   return ( theWrappedObject->placeholderText());
@@ -12233,11 +12223,6 @@ void PythonQtWrapper_QLineEdit::setTextMargins(QLineEdit* theWrappedObject, int 
 void PythonQtWrapper_QLineEdit::setValidator(QLineEdit* theWrappedObject, const QValidator*  arg__1)
 {
   ( theWrappedObject->setValidator(arg__1));
-}
-
-QSize  PythonQtWrapper_QLineEdit::sizeHint(QLineEdit* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 QString  PythonQtWrapper_QLineEdit::text(QLineEdit* theWrappedObject) const

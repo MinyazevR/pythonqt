@@ -2404,12 +2404,12 @@ if (_wrapper) {
 }
   return QSvgWidget::metric(arg__1);
 }
-QSize  PythonQtShell_QSvgWidget::getMinimumSizeHint() const
+QSize  PythonQtShell_QSvgWidget::minimumSizeHint() const
 {
 if (_wrapper) {
   PYTHONQT_GIL_SCOPE
   if (Py_REFCNT((PyObject*)_wrapper) > 0) {
-    static PyObject* name = PyUnicode_FromString("getMinimumSizeHint");
+    static PyObject* name = PyUnicode_FromString("minimumSizeHint");
     PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
     if (obj) {
       static const char* argumentList[] ={"QSize"};
@@ -2421,7 +2421,7 @@ if (_wrapper) {
         args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
         if (args[0]!=&returnValue) {
           if (args[0]==nullptr) {
-            PythonQt::priv()->handleVirtualOverloadReturnError("getMinimumSizeHint", methodInfo, result);
+            PythonQt::priv()->handleVirtualOverloadReturnError("minimumSizeHint", methodInfo, result);
           } else {
             returnValue = *((QSize*)args[0]);
           }
@@ -2890,11 +2890,6 @@ int PythonQtShell_QSvgWidget::qt_metacall(QMetaObject::Call call, int id, void**
 QSvgRenderer*  PythonQtWrapper_QSvgWidget::renderer(QSvgWidget* theWrappedObject) const
 {
   return ( theWrappedObject->renderer());
-}
-
-QSize  PythonQtWrapper_QSvgWidget::sizeHint(QSvgWidget* theWrappedObject) const
-{
-  return ( theWrappedObject->sizeHint());
 }
 
 
