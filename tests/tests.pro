@@ -23,6 +23,8 @@ include ( ../build/common.prf )
 include ( ../build/PythonQt.prf )
 include ( ../build/PythonQt_QtAll.prf )
 
+QMAKE_CXXFLAGS -= -Werror=non-virtual-dtor
+
 HEADERS +=                    \
   PythonQtTestCleanup.h       \
   PythonQtTests.h

@@ -17,6 +17,8 @@ CONFIG(debug, debug|release) {
   TARGET = $${TARGET}_d 
 }
 
+!include(../../../global.pri)
+
 isEmpty(DESTDIR) {
   isEmpty(GLOBAL_DESTDIR): DESTDIR = $$PWD/../bin
   !isEmpty(GLOBAL_DESTDIR): DESTDIR = $$GLOBAL_DESTDIR
@@ -61,3 +63,7 @@ gcc|win32-clang-msvc:QMAKE_CXXFLAGS += -Wno-deprecated-declarations -Wuninitiali
 win32-clang-msvc:QMAKE_CXXFLAGS += -Wno-unused-command-line-argument
 #Do not issue warning to system includes
 gcc:!isEmpty(QT_INSTALL_HEADERS): QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]
+
+
+QMAKE_CXXFLAGS -= -Werror -Werror=pedantic -pedantic-errors -Werror=cast-qual
+clang:QMAKE_CXXFLAGS += -Wno-error
