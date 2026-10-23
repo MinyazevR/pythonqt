@@ -62,37 +62,6 @@
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qwidget.h>
 
-PythonQtShell_QShortcutEvent::~PythonQtShell_QShortcutEvent() {
-  PythonQtPrivate* priv = PythonQt::priv();
-  if (priv) { priv->shellClassDeleted(this); }
-}
-QShortcutEvent* PythonQtWrapper_QShortcutEvent::new_QShortcutEvent(const QKeySequence&  key, int  id, bool  ambiguous)
-{ 
-return new PythonQtShell_QShortcutEvent(key, id, ambiguous); }
-
-bool  PythonQtWrapper_QShortcutEvent::isAmbiguous(QShortcutEvent* theWrappedObject) const
-{
-  return ( theWrappedObject->isAmbiguous());
-}
-
-const QKeySequence*  PythonQtWrapper_QShortcutEvent::key(QShortcutEvent* theWrappedObject) const
-{
-  return &( theWrappedObject->key());
-}
-
-int  PythonQtWrapper_QShortcutEvent::shortcutId(QShortcutEvent* theWrappedObject) const
-{
-  return ( theWrappedObject->shortcutId());
-}
-
-
-
-QShowEvent* PythonQtWrapper_QShowEvent::new_QShowEvent()
-{ 
-return new QShowEvent(); }
-
-
-
 PythonQtShell_QSizeGrip::~PythonQtShell_QSizeGrip() {
   PythonQtPrivate* priv = PythonQt::priv();
   if (priv) { priv->shellClassDeleted(this); }
@@ -16834,5 +16803,38 @@ QStyleOptionFocusRect*  PythonQtWrapper_QStyleOptionFocusRect::operator_assign(Q
 {
   return &( (*theWrappedObject)= arg__1);
 }
+
+
+
+PythonQtShell_QStyleOptionFrame::~PythonQtShell_QStyleOptionFrame() {
+  PythonQtPrivate* priv = PythonQt::priv();
+  if (priv) { priv->shellClassDeleted(this); }
+}
+QStyleOptionFrame* PythonQtWrapper_QStyleOptionFrame::new_QStyleOptionFrame()
+{ 
+return new PythonQtShell_QStyleOptionFrame(); }
+
+QStyleOptionFrame* PythonQtWrapper_QStyleOptionFrame::new_QStyleOptionFrame(const QStyleOptionFrame&  other)
+{ 
+return new PythonQtShell_QStyleOptionFrame(other); }
+
+QStyleOptionFrame* PythonQtWrapper_QStyleOptionFrame::new_QStyleOptionFrame(int  version)
+{ 
+return new PythonQtShell_QStyleOptionFrame(version); }
+
+QStyleOptionFrame*  PythonQtWrapper_QStyleOptionFrame::operator_assign(QStyleOptionFrame* theWrappedObject, const QStyleOptionFrame&  arg__1)
+{
+  return &( (*theWrappedObject)= arg__1);
+}
+
+
+
+PythonQtShell_QStyleOptionFrameV2::~PythonQtShell_QStyleOptionFrameV2() {
+  PythonQtPrivate* priv = PythonQt::priv();
+  if (priv) { priv->shellClassDeleted(this); }
+}
+QStyleOptionFrameV2* PythonQtWrapper_QStyleOptionFrameV2::new_QStyleOptionFrameV2()
+{ 
+return new PythonQtShell_QStyleOptionFrameV2(); }
 
 

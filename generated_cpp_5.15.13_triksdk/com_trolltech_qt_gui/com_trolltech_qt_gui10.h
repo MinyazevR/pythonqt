@@ -68,21 +68,17 @@
 #include <QtGui/qtexttable.h>
 #include <QtGui/qwindow.h>
 #include <QtWidgets/qabstractitemdelegate.h>
-#include <QtWidgets/qabstractitemview.h>
 #include <QtWidgets/qaction.h>
 #include <QtWidgets/qgesture.h>
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtWidgets/qgraphicsproxywidget.h>
 #include <QtWidgets/qheaderview.h>
-#include <QtWidgets/qitemeditorfactory.h>
 #include <QtWidgets/qlayout.h>
 #include <QtWidgets/qmenu.h>
 #include <QtWidgets/qscrollbar.h>
 #include <QtWidgets/qsizepolicy.h>
 #include <QtWidgets/qstyle.h>
-#include <QtWidgets/qstyleditemdelegate.h>
 #include <QtWidgets/qstyleoption.h>
-#include <QtWidgets/qstyleplugin.h>
 #include <QtWidgets/qsystemtrayicon.h>
 #include <QtWidgets/qtabbar.h>
 #include <QtWidgets/qtableview.h>
@@ -91,117 +87,6 @@
 #include <QtWidgets/qtextbrowser.h>
 #include <QtWidgets/qtextedit.h>
 #include <QtWidgets/qwidget.h>
-
-
-
-class PythonQtShell_QStylePlugin : public QStylePlugin
-{
-public:
-    PythonQtShell_QStylePlugin(QObject*  parent = nullptr):QStylePlugin(parent),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QStylePlugin() override;
-
-void childEvent(QChildEvent*  event) override;
-QStyle*  create(const QString&  key) override;
-void customEvent(QEvent*  event) override;
-bool  event(QEvent*  event) override;
-bool  eventFilter(QObject*  watched, QEvent*  event) override;
-void timerEvent(QTimerEvent*  event) override;
-
-  const QMetaObject* metaObject() const override;
-  int qt_metacall(QMetaObject::Call call, int id, void** args) override;
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtPublicPromoter_QStylePlugin : public QStylePlugin
-{ public:
-inline QStyle*  py_q_create(const QString&  key) { return this->create(key); }
-};
-
-class PythonQtWrapper_QStylePlugin : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QStylePlugin* new_QStylePlugin(QObject*  parent = nullptr);
-void delete_QStylePlugin(QStylePlugin* obj) { delete obj; }
-   QStyle*  create(QStylePlugin* theWrappedObject, const QString&  key);
-   QStyle*  py_q_create(QStylePlugin* theWrappedObject, const QString&  key){  return (((PythonQtPublicPromoter_QStylePlugin*)theWrappedObject)->py_q_create(key));}
-};
-
-
-
-
-
-class PythonQtShell_QStyledItemDelegate : public QStyledItemDelegate
-{
-public:
-    PythonQtShell_QStyledItemDelegate(QObject*  parent = nullptr):QStyledItemDelegate(parent),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QStyledItemDelegate() override;
-
-void childEvent(QChildEvent*  event) override;
-QWidget*  createEditor(QWidget*  parent, const QStyleOptionViewItem&  option, const QModelIndex&  index) const override;
-void customEvent(QEvent*  event) override;
-void destroyEditor(QWidget*  editor, const QModelIndex&  index) const override;
-QString  displayText(const QVariant&  value, const QLocale&  locale) const override;
-bool  editorEvent(QEvent*  event, QAbstractItemModel*  model, const QStyleOptionViewItem&  option, const QModelIndex&  index) override;
-bool  event(QEvent*  event) override;
-bool  eventFilter(QObject*  object, QEvent*  event) override;
-bool  helpEvent(QHelpEvent*  event, QAbstractItemView*  view, const QStyleOptionViewItem&  option, const QModelIndex&  index) override;
-void initStyleOption(QStyleOptionViewItem*  option, const QModelIndex&  index) const override;
-void paint(QPainter*  painter, const QStyleOptionViewItem&  option, const QModelIndex&  index) const override;
-QVector<int >  paintingRoles() const override;
-void setEditorData(QWidget*  editor, const QModelIndex&  index) const override;
-void setModelData(QWidget*  editor, QAbstractItemModel*  model, const QModelIndex&  index) const override;
-QSize  sizeHint(const QStyleOptionViewItem&  option, const QModelIndex&  index) const override;
-void timerEvent(QTimerEvent*  event) override;
-void updateEditorGeometry(QWidget*  editor, const QStyleOptionViewItem&  option, const QModelIndex&  index) const override;
-
-  const QMetaObject* metaObject() const override;
-  int qt_metacall(QMetaObject::Call call, int id, void** args) override;
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtPublicPromoter_QStyledItemDelegate : public QStyledItemDelegate
-{ public:
-inline bool  promoted_editorEvent(QEvent*  event, QAbstractItemModel*  model, const QStyleOptionViewItem&  option, const QModelIndex&  index) { return this->editorEvent(event, model, option, index); }
-inline bool  promoted_eventFilter(QObject*  object, QEvent*  event) { return this->eventFilter(object, event); }
-inline void promoted_initStyleOption(QStyleOptionViewItem*  option, const QModelIndex&  index) const { this->initStyleOption(option, index); }
-inline QWidget*  py_q_createEditor(QWidget*  parent, const QStyleOptionViewItem&  option, const QModelIndex&  index) const { return QStyledItemDelegate::createEditor(parent, option, index); }
-inline QString  py_q_displayText(const QVariant&  value, const QLocale&  locale) const { return QStyledItemDelegate::displayText(value, locale); }
-inline bool  py_q_editorEvent(QEvent*  event, QAbstractItemModel*  model, const QStyleOptionViewItem&  option, const QModelIndex&  index) { return QStyledItemDelegate::editorEvent(event, model, option, index); }
-inline bool  py_q_eventFilter(QObject*  object, QEvent*  event) { return QStyledItemDelegate::eventFilter(object, event); }
-inline void py_q_initStyleOption(QStyleOptionViewItem*  option, const QModelIndex&  index) const { QStyledItemDelegate::initStyleOption(option, index); }
-inline void py_q_paint(QPainter*  painter, const QStyleOptionViewItem&  option, const QModelIndex&  index) const { QStyledItemDelegate::paint(painter, option, index); }
-inline void py_q_setEditorData(QWidget*  editor, const QModelIndex&  index) const { QStyledItemDelegate::setEditorData(editor, index); }
-inline void py_q_setModelData(QWidget*  editor, QAbstractItemModel*  model, const QModelIndex&  index) const { QStyledItemDelegate::setModelData(editor, model, index); }
-inline QSize  py_q_sizeHint(const QStyleOptionViewItem&  option, const QModelIndex&  index) const { return QStyledItemDelegate::sizeHint(option, index); }
-inline void py_q_updateEditorGeometry(QWidget*  editor, const QStyleOptionViewItem&  option, const QModelIndex&  index) const { QStyledItemDelegate::updateEditorGeometry(editor, option, index); }
-};
-
-class PythonQtWrapper_QStyledItemDelegate : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QStyledItemDelegate* new_QStyledItemDelegate(QObject*  parent = nullptr);
-void delete_QStyledItemDelegate(QStyledItemDelegate* obj) { delete obj; }
-   QWidget*  py_q_createEditor(QStyledItemDelegate* theWrappedObject, QWidget*  parent, const QStyleOptionViewItem&  option, const QModelIndex&  index) const{  return (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_createEditor(parent, option, index));}
-   QString  displayText(QStyledItemDelegate* theWrappedObject, const QVariant&  value, const QLocale&  locale) const;
-   QString  py_q_displayText(QStyledItemDelegate* theWrappedObject, const QVariant&  value, const QLocale&  locale) const{  return (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_displayText(value, locale));}
-   bool  py_q_editorEvent(QStyledItemDelegate* theWrappedObject, QEvent*  event, QAbstractItemModel*  model, const QStyleOptionViewItem&  option, const QModelIndex&  index){  return (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_editorEvent(event, model, option, index));}
-   bool  py_q_eventFilter(QStyledItemDelegate* theWrappedObject, QObject*  object, QEvent*  event){  return (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_eventFilter(object, event));}
-   void initStyleOption(QStyledItemDelegate* theWrappedObject, QStyleOptionViewItem*  option, const QModelIndex&  index) const;
-   void py_q_initStyleOption(QStyledItemDelegate* theWrappedObject, QStyleOptionViewItem*  option, const QModelIndex&  index) const{  (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_initStyleOption(option, index));}
-   QItemEditorFactory*  itemEditorFactory(QStyledItemDelegate* theWrappedObject) const;
-   void py_q_paint(QStyledItemDelegate* theWrappedObject, QPainter*  painter, const QStyleOptionViewItem&  option, const QModelIndex&  index) const{  (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_paint(painter, option, index));}
-   void py_q_setEditorData(QStyledItemDelegate* theWrappedObject, QWidget*  editor, const QModelIndex&  index) const{  (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_setEditorData(editor, index));}
-   void setItemEditorFactory(QStyledItemDelegate* theWrappedObject, QItemEditorFactory*  factory);
-   void py_q_setModelData(QStyledItemDelegate* theWrappedObject, QWidget*  editor, QAbstractItemModel*  model, const QModelIndex&  index) const{  (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_setModelData(editor, model, index));}
-   QSize  py_q_sizeHint(QStyledItemDelegate* theWrappedObject, const QStyleOptionViewItem&  option, const QModelIndex&  index) const{  return (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_sizeHint(option, index));}
-   void py_q_updateEditorGeometry(QStyledItemDelegate* theWrappedObject, QWidget*  editor, const QStyleOptionViewItem&  option, const QModelIndex&  index) const{  (((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->py_q_updateEditorGeometry(editor, option, index));}
-};
-
-
 
 
 
@@ -2523,6 +2408,109 @@ void delete_QTextFrame(QTextFrame* obj) { delete obj; }
    int  lastPosition(QTextFrame* theWrappedObject) const;
    QTextFrame*  parentFrame(QTextFrame* theWrappedObject) const;
    void setFrameFormat(QTextFrame* theWrappedObject, const QTextFrameFormat&  format);
+};
+
+
+
+
+
+class PythonQtShell_QTextFrameFormat : public QTextFrameFormat
+{
+public:
+    PythonQtShell_QTextFrameFormat():QTextFrameFormat(),_wrapper(nullptr) {};
+    PythonQtShell_QTextFrameFormat(const QTextFormat&  fmt):QTextFrameFormat(fmt),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QTextFrameFormat();
+
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtWrapper_QTextFrameFormat : public QObject
+{ Q_OBJECT
+public:
+Q_ENUMS(BorderStyle Position )
+enum BorderStyle{
+  BorderStyle_None = QTextFrameFormat::BorderStyle_None,   BorderStyle_Dotted = QTextFrameFormat::BorderStyle_Dotted,   BorderStyle_Dashed = QTextFrameFormat::BorderStyle_Dashed,   BorderStyle_Solid = QTextFrameFormat::BorderStyle_Solid,   BorderStyle_Double = QTextFrameFormat::BorderStyle_Double,   BorderStyle_DotDash = QTextFrameFormat::BorderStyle_DotDash,   BorderStyle_DotDotDash = QTextFrameFormat::BorderStyle_DotDotDash,   BorderStyle_Groove = QTextFrameFormat::BorderStyle_Groove,   BorderStyle_Ridge = QTextFrameFormat::BorderStyle_Ridge,   BorderStyle_Inset = QTextFrameFormat::BorderStyle_Inset,   BorderStyle_Outset = QTextFrameFormat::BorderStyle_Outset};
+enum Position{
+  InFlow = QTextFrameFormat::InFlow,   FloatLeft = QTextFrameFormat::FloatLeft,   FloatRight = QTextFrameFormat::FloatRight};
+public Q_SLOTS:
+QTextFrameFormat* new_QTextFrameFormat();
+QTextFrameFormat* new_QTextFrameFormat(const QTextFormat&  fmt);
+QTextFrameFormat* new_QTextFrameFormat(const QTextFrameFormat& other) {
+PythonQtShell_QTextFrameFormat* a = new PythonQtShell_QTextFrameFormat();
+*((QTextFrameFormat*)a) = other;
+return a; }
+void delete_QTextFrameFormat(QTextFrameFormat* obj) { delete obj; }
+   qreal  border(QTextFrameFormat* theWrappedObject) const;
+   QBrush  borderBrush(QTextFrameFormat* theWrappedObject) const;
+   QTextFrameFormat::BorderStyle  borderStyle(QTextFrameFormat* theWrappedObject) const;
+   qreal  bottomMargin(QTextFrameFormat* theWrappedObject) const;
+   QTextLength  height(QTextFrameFormat* theWrappedObject) const;
+   bool  isValid(QTextFrameFormat* theWrappedObject) const;
+   qreal  leftMargin(QTextFrameFormat* theWrappedObject) const;
+   qreal  margin(QTextFrameFormat* theWrappedObject) const;
+   qreal  padding(QTextFrameFormat* theWrappedObject) const;
+   QTextFormat::PageBreakFlags  pageBreakPolicy(QTextFrameFormat* theWrappedObject) const;
+   QTextFrameFormat::Position  position(QTextFrameFormat* theWrappedObject) const;
+   qreal  rightMargin(QTextFrameFormat* theWrappedObject) const;
+   void setBorder(QTextFrameFormat* theWrappedObject, qreal  border);
+   void setBorderBrush(QTextFrameFormat* theWrappedObject, const QBrush&  brush);
+   void setBorderStyle(QTextFrameFormat* theWrappedObject, QTextFrameFormat::BorderStyle  style);
+   void setBottomMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
+   void setHeight(QTextFrameFormat* theWrappedObject, const QTextLength&  height);
+   void setHeight(QTextFrameFormat* theWrappedObject, qreal  height);
+   void setLeftMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
+   void setMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
+   void setPadding(QTextFrameFormat* theWrappedObject, qreal  padding);
+   void setPageBreakPolicy(QTextFrameFormat* theWrappedObject, QTextFormat::PageBreakFlags  flags);
+   void setPosition(QTextFrameFormat* theWrappedObject, QTextFrameFormat::Position  f);
+   void setRightMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
+   void setTopMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
+   void setWidth(QTextFrameFormat* theWrappedObject, const QTextLength&  length);
+   void setWidth(QTextFrameFormat* theWrappedObject, qreal  width);
+   qreal  topMargin(QTextFrameFormat* theWrappedObject) const;
+   QTextLength  width(QTextFrameFormat* theWrappedObject) const;
+    bool __nonzero__(QTextFrameFormat* obj) { return !obj->isEmpty(); }
+};
+
+
+
+
+
+class PythonQtShell_QTextImageFormat : public QTextImageFormat
+{
+public:
+    PythonQtShell_QTextImageFormat():QTextImageFormat(),_wrapper(nullptr) {};
+    PythonQtShell_QTextImageFormat(const QTextFormat&  format):QTextImageFormat(format),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QTextImageFormat();
+
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtWrapper_QTextImageFormat : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QTextImageFormat* new_QTextImageFormat();
+QTextImageFormat* new_QTextImageFormat(const QTextFormat&  format);
+QTextImageFormat* new_QTextImageFormat(const QTextImageFormat& other) {
+PythonQtShell_QTextImageFormat* a = new PythonQtShell_QTextImageFormat();
+*((QTextImageFormat*)a) = other;
+return a; }
+void delete_QTextImageFormat(QTextImageFormat* obj) { delete obj; }
+   qreal  height(QTextImageFormat* theWrappedObject) const;
+   bool  isValid(QTextImageFormat* theWrappedObject) const;
+   QString  name(QTextImageFormat* theWrappedObject) const;
+   int  quality(QTextImageFormat* theWrappedObject) const;
+   void setHeight(QTextImageFormat* theWrappedObject, qreal  height);
+   void setName(QTextImageFormat* theWrappedObject, const QString&  name);
+   void setQuality(QTextImageFormat* theWrappedObject, int  quality = 100);
+   void setWidth(QTextImageFormat* theWrappedObject, qreal  width);
+   qreal  width(QTextImageFormat* theWrappedObject) const;
+    bool __nonzero__(QTextImageFormat* obj) { return !obj->isEmpty(); }
 };
 
 

@@ -31,7 +31,6 @@
 #include <QtGui/qicon.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qkeysequence.h>
-#include <QtGui/qmatrix.h>
 #include <QtGui/qpagedpaintdevice.h>
 #include <QtGui/qpagelayout.h>
 #include <QtGui/qpagesize.h>
@@ -41,7 +40,6 @@
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qpalette.h>
 #include <QtGui/qpixmap.h>
-#include <QtGui/qpolygon.h>
 #include <QtGui/qquaternion.h>
 #include <QtGui/qrasterwindow.h>
 #include <QtGui/qrawfont.h>
@@ -54,7 +52,6 @@
 #include <QtGui/qvector3d.h>
 #include <QtGui/qvector4d.h>
 #include <QtGui/qwindow.h>
-#include <QtPrintSupport/qprintdialog.h>
 #include <QtPrintSupport/qprintengine.h>
 #include <QtPrintSupport/qprinter.h>
 #include <QtPrintSupport/qprinterinfo.h>
@@ -83,188 +80,6 @@
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qwidget.h>
-
-
-
-class PythonQtWrapper_QPolygonF : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QPolygonF* new_QPolygonF();
-QPolygonF* new_QPolygonF(const QPolygon&  a);
-QPolygonF* new_QPolygonF(const QPolygonF&  a);
-QPolygonF* new_QPolygonF(const QRectF&  r);
-QPolygonF* new_QPolygonF(const QVector<QPointF >&  v);
-QPolygonF* new_QPolygonF(int  size);
-void delete_QPolygonF(QPolygonF* obj) { delete obj; }
-   void append(QPolygonF* theWrappedObject, const QPointF&  t);
-   void append(QPolygonF* theWrappedObject, const QVector<QPointF >&  l);
-   const QPointF*  at(QPolygonF* theWrappedObject, int  i) const;
-   QRectF  boundingRect(QPolygonF* theWrappedObject) const;
-   int  capacity(QPolygonF* theWrappedObject) const;
-   void clear(QPolygonF* theWrappedObject);
-   const QPointF*  constFirst(QPolygonF* theWrappedObject) const;
-   const QPointF*  constLast(QPolygonF* theWrappedObject) const;
-   bool  contains(QPolygonF* theWrappedObject, const QPointF&  t) const;
-   bool  containsPoint(QPolygonF* theWrappedObject, const QPointF&  pt, Qt::FillRule  fillRule) const;
-   int  count(QPolygonF* theWrappedObject) const;
-   int  count(QPolygonF* theWrappedObject, const QPointF&  t) const;
-   bool  empty(QPolygonF* theWrappedObject) const;
-   bool  endsWith(QPolygonF* theWrappedObject, const QPointF&  t) const;
-   QVector<QPointF >*  fill(QPolygonF* theWrappedObject, const QPointF&  t, int  size = -1);
-   const QPointF*  first(QPolygonF* theWrappedObject) const;
-   QVector<QPointF >  static_QPolygonF_fromList(const QList<QPointF >&  list);
-   int  indexOf(QPolygonF* theWrappedObject, const QPointF&  t, int  from = 0) const;
-   QPolygonF  intersected(QPolygonF* theWrappedObject, const QPolygonF&  r) const;
-   bool  intersects(QPolygonF* theWrappedObject, const QPolygonF&  r) const;
-   bool  isClosed(QPolygonF* theWrappedObject) const;
-   bool  isEmpty(QPolygonF* theWrappedObject) const;
-   bool  isSharedWith(QPolygonF* theWrappedObject, const QVector<QPointF >&  other) const;
-   const QPointF*  last(QPolygonF* theWrappedObject) const;
-   int  lastIndexOf(QPolygonF* theWrappedObject, const QPointF&  t, int  from = -1) const;
-   int  length(QPolygonF* theWrappedObject) const;
-   QVector<QPointF >  mid(QPolygonF* theWrappedObject, int  pos, int  len = -1) const;
-   void move(QPolygonF* theWrappedObject, int  from, int  to);
-   bool  __ne__(QPolygonF* theWrappedObject, const QVector<QPointF >&  v) const;
-   QPolygonF  __mul__(QPolygonF* theWrappedObject, const QMatrix&  m);
-   QPolygonF  __mul__(QPolygonF* theWrappedObject, const QTransform&  m);
-   void writeTo(QPolygonF* theWrappedObject, QDataStream&  stream);
-   QPolygonF*  operator_assign(QPolygonF* theWrappedObject, const QPolygonF&  other);
-   bool  __eq__(QPolygonF* theWrappedObject, const QVector<QPointF >&  v) const;
-   void readFrom(QPolygonF* theWrappedObject, QDataStream&  stream);
-   void pop_back(QPolygonF* theWrappedObject);
-   void pop_front(QPolygonF* theWrappedObject);
-   void prepend(QPolygonF* theWrappedObject, const QPointF&  t);
-   void push_back(QPolygonF* theWrappedObject, const QPointF&  t);
-   void push_front(QPolygonF* theWrappedObject, const QPointF&  t);
-   void remove(QPolygonF* theWrappedObject, int  i);
-   void remove(QPolygonF* theWrappedObject, int  i, int  n);
-   int  removeAll(QPolygonF* theWrappedObject, const QPointF&  t);
-   void removeAt(QPolygonF* theWrappedObject, int  i);
-   void removeFirst(QPolygonF* theWrappedObject);
-   void removeLast(QPolygonF* theWrappedObject);
-   bool  removeOne(QPolygonF* theWrappedObject, const QPointF&  t);
-   void replace(QPolygonF* theWrappedObject, int  i, const QPointF&  t);
-   void reserve(QPolygonF* theWrappedObject, int  size);
-   void resize(QPolygonF* theWrappedObject, int  size);
-   void setSharable(QPolygonF* theWrappedObject, bool  sharable);
-   void shrink_to_fit(QPolygonF* theWrappedObject);
-   int  size(QPolygonF* theWrappedObject) const;
-   void squeeze(QPolygonF* theWrappedObject);
-   bool  startsWith(QPolygonF* theWrappedObject, const QPointF&  t) const;
-   QPolygonF  subtracted(QPolygonF* theWrappedObject, const QPolygonF&  r) const;
-   void swap(QPolygonF* theWrappedObject, QPolygonF&  other);
-   void swapItemsAt(QPolygonF* theWrappedObject, int  i, int  j);
-   QPointF  takeAt(QPolygonF* theWrappedObject, int  i);
-   QPointF  takeFirst(QPolygonF* theWrappedObject);
-   QPointF  takeLast(QPolygonF* theWrappedObject);
-   QList<QPointF >  toList(QPolygonF* theWrappedObject) const;
-   QPolygon  toPolygon(QPolygonF* theWrappedObject) const;
-   void translate(QPolygonF* theWrappedObject, const QPointF&  offset);
-   void translate(QPolygonF* theWrappedObject, qreal  dx, qreal  dy);
-   QPolygonF  translated(QPolygonF* theWrappedObject, const QPointF&  offset) const;
-   QPolygonF  translated(QPolygonF* theWrappedObject, qreal  dx, qreal  dy) const;
-   QPolygonF  united(QPolygonF* theWrappedObject, const QPolygonF&  r) const;
-   QPointF  value(QPolygonF* theWrappedObject, int  i) const;
-   QPointF  value(QPolygonF* theWrappedObject, int  i, const QPointF&  defaultValue) const;
-    QString py_toString(QPolygonF*);
-    bool __nonzero__(QPolygonF* obj) { return !obj->isEmpty(); }
-};
-
-
-
-
-
-class PythonQtShell_QPrintDialog : public QPrintDialog
-{
-public:
-    PythonQtShell_QPrintDialog(QPrinter*  printer, QWidget*  parent = nullptr):QPrintDialog(printer, parent),_wrapper(nullptr) {};
-    PythonQtShell_QPrintDialog(QWidget*  parent = nullptr):QPrintDialog(parent),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QPrintDialog() override;
-
-void accept() override;
-void actionEvent(QActionEvent*  event) override;
-void changeEvent(QEvent*  arg__1) override;
-void childEvent(QChildEvent*  event) override;
-void closeEvent(QCloseEvent*  arg__1) override;
-void contextMenuEvent(QContextMenuEvent*  arg__1) override;
-void customEvent(QEvent*  event) override;
-int  devType() const override;
-void done(int  result) override;
-void dragEnterEvent(QDragEnterEvent*  event) override;
-void dragLeaveEvent(QDragLeaveEvent*  event) override;
-void dragMoveEvent(QDragMoveEvent*  event) override;
-void dropEvent(QDropEvent*  event) override;
-void enterEvent(QEvent*  event) override;
-bool  event(QEvent*  event) override;
-bool  eventFilter(QObject*  arg__1, QEvent*  arg__2) override;
-int  exec() override;
-void focusInEvent(QFocusEvent*  event) override;
-bool  focusNextPrevChild(bool  next) override;
-void focusOutEvent(QFocusEvent*  event) override;
-bool  hasHeightForWidth() const override;
-int  heightForWidth(int  arg__1) const override;
-void hideEvent(QHideEvent*  event) override;
-void initPainter(QPainter*  painter) const override;
-void inputMethodEvent(QInputMethodEvent*  arg__1) override;
-QVariant  inputMethodQuery(Qt::InputMethodQuery  arg__1) const override;
-void keyPressEvent(QKeyEvent*  arg__1) override;
-void keyReleaseEvent(QKeyEvent*  event) override;
-void leaveEvent(QEvent*  event) override;
-int  metric(QPaintDevice::PaintDeviceMetric  arg__1) const override;
-QSize  minimumSizeHint() const override;
-void mouseDoubleClickEvent(QMouseEvent*  event) override;
-void mouseMoveEvent(QMouseEvent*  event) override;
-void mousePressEvent(QMouseEvent*  event) override;
-void mouseReleaseEvent(QMouseEvent*  event) override;
-void moveEvent(QMoveEvent*  event) override;
-bool  nativeEvent(const QByteArray&  eventType, void*  message, long*  result) override;
-QPaintEngine*  paintEngine() const override;
-void paintEvent(QPaintEvent*  event) override;
-QPaintDevice*  redirected(QPoint*  offset) const override;
-void reject() override;
-void resizeEvent(QResizeEvent*  arg__1) override;
-void setVisible(bool  visible) override;
-QPainter*  sharedPainter() const override;
-void showEvent(QShowEvent*  arg__1) override;
-QSize  sizeHint() const override;
-void tabletEvent(QTabletEvent*  event) override;
-void timerEvent(QTimerEvent*  event) override;
-void wheelEvent(QWheelEvent*  event) override;
-
-  const QMetaObject* metaObject() const override;
-  int qt_metacall(QMetaObject::Call call, int id, void** args) override;
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtPublicPromoter_QPrintDialog : public QPrintDialog
-{ public:
-inline void py_q_accept() { QPrintDialog::accept(); }
-inline void py_q_done(int  result) { QPrintDialog::done(result); }
-inline int  py_q_exec() { return QPrintDialog::exec(); }
-inline void py_q_setVisible(bool  visible) { QPrintDialog::setVisible(visible); }
-};
-
-class PythonQtWrapper_QPrintDialog : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QPrintDialog* new_QPrintDialog(QPrinter*  printer, QWidget*  parent = nullptr);
-QPrintDialog* new_QPrintDialog(QWidget*  parent = nullptr);
-void delete_QPrintDialog(QPrintDialog* obj) { delete obj; }
-   void py_q_accept(QPrintDialog* theWrappedObject){  (((PythonQtPublicPromoter_QPrintDialog*)theWrappedObject)->py_q_accept());}
-   void py_q_done(QPrintDialog* theWrappedObject, int  result){  (((PythonQtPublicPromoter_QPrintDialog*)theWrappedObject)->py_q_done(result));}
-   int  py_q_exec(QPrintDialog* theWrappedObject){  return (((PythonQtPublicPromoter_QPrintDialog*)theWrappedObject)->py_q_exec());}
-   void open(QPrintDialog* theWrappedObject, QObject*  receiver, const char*  member);
-   QAbstractPrintDialog::PrintDialogOptions  options(QPrintDialog* theWrappedObject) const;
-   void setOption(QPrintDialog* theWrappedObject, QAbstractPrintDialog::PrintDialogOption  option, bool  on = true);
-   void setOptions(QPrintDialog* theWrappedObject, QAbstractPrintDialog::PrintDialogOptions  options);
-   void py_q_setVisible(QPrintDialog* theWrappedObject, bool  visible){  (((PythonQtPublicPromoter_QPrintDialog*)theWrappedObject)->py_q_setVisible(visible));}
-   bool  testOption(QPrintDialog* theWrappedObject, QAbstractPrintDialog::PrintDialogOption  option) const;
-};
-
-
 
 
 
@@ -2132,6 +1947,44 @@ void delete_QShortcut(QShortcut* obj) { delete obj; }
    void setKey(QShortcut* theWrappedObject, const QKeySequence&  key);
    void setWhatsThis(QShortcut* theWrappedObject, const QString&  text);
    QString  whatsThis(QShortcut* theWrappedObject) const;
+};
+
+
+
+
+
+class PythonQtShell_QShortcutEvent : public QShortcutEvent
+{
+public:
+    PythonQtShell_QShortcutEvent(const QKeySequence&  key, int  id, bool  ambiguous = false):QShortcutEvent(key, id, ambiguous),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QShortcutEvent() override;
+
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtWrapper_QShortcutEvent : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QShortcutEvent* new_QShortcutEvent(const QKeySequence&  key, int  id, bool  ambiguous = false);
+void delete_QShortcutEvent(QShortcutEvent* obj) { delete obj; }
+   bool  isAmbiguous(QShortcutEvent* theWrappedObject) const;
+   const QKeySequence*  key(QShortcutEvent* theWrappedObject) const;
+   int  shortcutId(QShortcutEvent* theWrappedObject) const;
+};
+
+
+
+
+
+class PythonQtWrapper_QShowEvent : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QShowEvent* new_QShowEvent();
+void delete_QShowEvent(QShowEvent* obj) { delete obj; }
 };
 
 

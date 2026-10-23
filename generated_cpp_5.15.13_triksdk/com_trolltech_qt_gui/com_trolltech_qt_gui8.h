@@ -73,44 +73,6 @@
 
 
 
-class PythonQtShell_QShortcutEvent : public QShortcutEvent
-{
-public:
-    PythonQtShell_QShortcutEvent(const QKeySequence&  key, int  id, bool  ambiguous = false):QShortcutEvent(key, id, ambiguous),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QShortcutEvent() override;
-
-
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtWrapper_QShortcutEvent : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QShortcutEvent* new_QShortcutEvent(const QKeySequence&  key, int  id, bool  ambiguous = false);
-void delete_QShortcutEvent(QShortcutEvent* obj) { delete obj; }
-   bool  isAmbiguous(QShortcutEvent* theWrappedObject) const;
-   const QKeySequence*  key(QShortcutEvent* theWrappedObject) const;
-   int  shortcutId(QShortcutEvent* theWrappedObject) const;
-};
-
-
-
-
-
-class PythonQtWrapper_QShowEvent : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QShowEvent* new_QShowEvent();
-void delete_QShowEvent(QShowEvent* obj) { delete obj; }
-};
-
-
-
-
-
 class PythonQtShell_QSizeGrip : public QSizeGrip
 {
 public:
@@ -2182,6 +2144,78 @@ void delete_QStyleOptionFocusRect(QStyleOptionFocusRect* obj) { delete obj; }
    QStyleOptionFocusRect*  operator_assign(QStyleOptionFocusRect* theWrappedObject, const QStyleOptionFocusRect&  arg__1);
 void py_set_backgroundColor(QStyleOptionFocusRect* theWrappedObject, QColor  backgroundColor){ theWrappedObject->backgroundColor = backgroundColor; }
 QColor  py_get_backgroundColor(QStyleOptionFocusRect* theWrappedObject){ return theWrappedObject->backgroundColor; }
+};
+
+
+
+
+
+class PythonQtShell_QStyleOptionFrame : public QStyleOptionFrame
+{
+public:
+    PythonQtShell_QStyleOptionFrame():QStyleOptionFrame(),_wrapper(nullptr) {};
+    PythonQtShell_QStyleOptionFrame(const QStyleOptionFrame&  other):QStyleOptionFrame(other),_wrapper(nullptr) {};
+    PythonQtShell_QStyleOptionFrame(int  version):QStyleOptionFrame(version),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QStyleOptionFrame();
+
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtWrapper_QStyleOptionFrame : public QObject
+{ Q_OBJECT
+public:
+Q_ENUMS(FrameFeature StyleOptionType StyleOptionVersion )
+Q_FLAGS(FrameFeatures )
+enum FrameFeature{
+  None = QStyleOptionFrame::None,   Flat = QStyleOptionFrame::Flat,   Rounded = QStyleOptionFrame::Rounded};
+enum StyleOptionType{
+  Type = QStyleOptionFrame::Type};
+enum StyleOptionVersion{
+  Version = QStyleOptionFrame::Version};
+Q_DECLARE_FLAGS(FrameFeatures, FrameFeature)
+public Q_SLOTS:
+QStyleOptionFrame* new_QStyleOptionFrame();
+QStyleOptionFrame* new_QStyleOptionFrame(const QStyleOptionFrame&  other);
+QStyleOptionFrame* new_QStyleOptionFrame(int  version);
+void delete_QStyleOptionFrame(QStyleOptionFrame* obj) { delete obj; }
+   QStyleOptionFrame*  operator_assign(QStyleOptionFrame* theWrappedObject, const QStyleOptionFrame&  arg__1);
+void py_set_features(QStyleOptionFrame* theWrappedObject, QStyleOptionFrame::FrameFeatures  features){ theWrappedObject->features = features; }
+QStyleOptionFrame::FrameFeatures  py_get_features(QStyleOptionFrame* theWrappedObject){ return theWrappedObject->features; }
+void py_set_frameShape(QStyleOptionFrame* theWrappedObject, QFrame::Shape  frameShape){ theWrappedObject->frameShape = frameShape; }
+QFrame::Shape  py_get_frameShape(QStyleOptionFrame* theWrappedObject){ return theWrappedObject->frameShape; }
+void py_set_lineWidth(QStyleOptionFrame* theWrappedObject, int  lineWidth){ theWrappedObject->lineWidth = lineWidth; }
+int  py_get_lineWidth(QStyleOptionFrame* theWrappedObject){ return theWrappedObject->lineWidth; }
+void py_set_midLineWidth(QStyleOptionFrame* theWrappedObject, int  midLineWidth){ theWrappedObject->midLineWidth = midLineWidth; }
+int  py_get_midLineWidth(QStyleOptionFrame* theWrappedObject){ return theWrappedObject->midLineWidth; }
+};
+
+
+
+
+
+class PythonQtShell_QStyleOptionFrameV2 : public QStyleOptionFrameV2
+{
+public:
+    PythonQtShell_QStyleOptionFrameV2():QStyleOptionFrameV2(),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QStyleOptionFrameV2();
+
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtWrapper_QStyleOptionFrameV2 : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QStyleOptionFrameV2* new_QStyleOptionFrameV2();
+QStyleOptionFrameV2* new_QStyleOptionFrameV2(const QStyleOptionFrameV2& other) {
+PythonQtShell_QStyleOptionFrameV2* a = new PythonQtShell_QStyleOptionFrameV2();
+*((QStyleOptionFrameV2*)a) = other;
+return a; }
+void delete_QStyleOptionFrameV2(QStyleOptionFrameV2* obj) { delete obj; }
 };
 
 

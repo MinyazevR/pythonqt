@@ -3,12 +3,22 @@
 #include <PythonQtMethodInfo.h>
 #include <PythonQtSignalReceiver.h>
 #include <QVariant>
+#include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qcoreevent.h>
 #include <QtCore/qline.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qobject.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qthread.h>
 #include <QtCore/qvector.h>
 #include <QtGui/qbrush.h>
 #include <QtGui/qcolor.h>
+#include <QtGui/qevent.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qfontinfo.h>
 #include <QtGui/qfontmetrics.h>
@@ -28,42 +38,11 @@
 #include <QtGui/qstatictext.h>
 #include <QtGui/qtextoption.h>
 #include <QtGui/qtransform.h>
+#include <QtWidgets/qabstractitemview.h>
+#include <QtWidgets/qitemeditorfactory.h>
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qwidget.h>
-
-PythonQtShell_QStyleOptionFrame::~PythonQtShell_QStyleOptionFrame() {
-  PythonQtPrivate* priv = PythonQt::priv();
-  if (priv) { priv->shellClassDeleted(this); }
-}
-QStyleOptionFrame* PythonQtWrapper_QStyleOptionFrame::new_QStyleOptionFrame()
-{ 
-return new PythonQtShell_QStyleOptionFrame(); }
-
-QStyleOptionFrame* PythonQtWrapper_QStyleOptionFrame::new_QStyleOptionFrame(const QStyleOptionFrame&  other)
-{ 
-return new PythonQtShell_QStyleOptionFrame(other); }
-
-QStyleOptionFrame* PythonQtWrapper_QStyleOptionFrame::new_QStyleOptionFrame(int  version)
-{ 
-return new PythonQtShell_QStyleOptionFrame(version); }
-
-QStyleOptionFrame*  PythonQtWrapper_QStyleOptionFrame::operator_assign(QStyleOptionFrame* theWrappedObject, const QStyleOptionFrame&  arg__1)
-{
-  return &( (*theWrappedObject)= arg__1);
-}
-
-
-
-PythonQtShell_QStyleOptionFrameV2::~PythonQtShell_QStyleOptionFrameV2() {
-  PythonQtPrivate* priv = PythonQt::priv();
-  if (priv) { priv->shellClassDeleted(this); }
-}
-QStyleOptionFrameV2* PythonQtWrapper_QStyleOptionFrameV2::new_QStyleOptionFrameV2()
-{ 
-return new PythonQtShell_QStyleOptionFrameV2(); }
-
-
 
 PythonQtShell_QStyleOptionFrameV3::~PythonQtShell_QStyleOptionFrameV3() {
   PythonQtPrivate* priv = PythonQt::priv();
@@ -611,6 +590,704 @@ void PythonQtWrapper_QStylePainter::drawPrimitive(QStylePainter* theWrappedObjec
 QStyle*  PythonQtWrapper_QStylePainter::style(QStylePainter* theWrappedObject) const
 {
   return ( theWrappedObject->style());
+}
+
+
+
+PythonQtShell_QStylePlugin::~PythonQtShell_QStylePlugin() {
+  PythonQtPrivate* priv = PythonQt::priv();
+  if (priv) { priv->shellClassDeleted(this); }
+}
+void PythonQtShell_QStylePlugin::childEvent(QChildEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("childEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QChildEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStylePlugin::childEvent(event0);
+}
+QStyle*  PythonQtShell_QStylePlugin::create(const QString&  key0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("create");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"QStyle*" , "const QString&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      QStyle* returnValue{};
+      void* args[2] = {nullptr, (void*)&key0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("create", methodInfo, result);
+          } else {
+            returnValue = *((QStyle**)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return nullptr;
+}
+void PythonQtShell_QStylePlugin::customEvent(QEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("customEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStylePlugin::customEvent(event0);
+}
+bool  PythonQtShell_QStylePlugin::event(QEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("event");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      bool returnValue{};
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("event", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStylePlugin::event(event0);
+}
+bool  PythonQtShell_QStylePlugin::eventFilter(QObject*  watched0, QEvent*  event1)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("eventFilter");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QObject*" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      bool returnValue{};
+      void* args[3] = {nullptr, (void*)&watched0, (void*)&event1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("eventFilter", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStylePlugin::eventFilter(watched0, event1);
+}
+void PythonQtShell_QStylePlugin::timerEvent(QTimerEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("timerEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QTimerEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStylePlugin::timerEvent(event0);
+}
+QStylePlugin* PythonQtWrapper_QStylePlugin::new_QStylePlugin(QObject*  parent)
+{ 
+return new PythonQtShell_QStylePlugin(parent); }
+
+const QMetaObject* PythonQtShell_QStylePlugin::metaObject() const {
+  if (QObject::d_ptr->metaObject) {
+    return QObject::d_ptr->dynamicMetaObject();
+  } else if (_wrapper) {
+    return PythonQt::priv()->getDynamicMetaObject(_wrapper, &QStylePlugin::staticMetaObject);
+  } else {
+    return &QStylePlugin::staticMetaObject;
+  }
+}
+int PythonQtShell_QStylePlugin::qt_metacall(QMetaObject::Call call, int id, void** args) {
+  int result = QStylePlugin::qt_metacall(call, id, args);
+  return result >= 0 ? PythonQt::priv()->handleMetaCall(this, _wrapper, call, id, args) : result;
+}
+QStyle*  PythonQtWrapper_QStylePlugin::create(QStylePlugin* theWrappedObject, const QString&  key)
+{
+  return ( theWrappedObject->create(key));
+}
+
+
+
+PythonQtShell_QStyledItemDelegate::~PythonQtShell_QStyledItemDelegate() {
+  PythonQtPrivate* priv = PythonQt::priv();
+  if (priv) { priv->shellClassDeleted(this); }
+}
+void PythonQtShell_QStyledItemDelegate::childEvent(QChildEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("childEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QChildEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::childEvent(event0);
+}
+QWidget*  PythonQtShell_QStyledItemDelegate::createEditor(QWidget*  parent0, const QStyleOptionViewItem&  option1, const QModelIndex&  index2) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("createEditor");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"QWidget*" , "QWidget*" , "const QStyleOptionViewItem&" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(4, argumentList);
+      QWidget* returnValue{};
+      void* args[4] = {nullptr, (void*)&parent0, (void*)&option1, (void*)&index2};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("createEditor", methodInfo, result);
+          } else {
+            returnValue = *((QWidget**)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::createEditor(parent0, option1, index2);
+}
+void PythonQtShell_QStyledItemDelegate::customEvent(QEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("customEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::customEvent(event0);
+}
+void PythonQtShell_QStyledItemDelegate::destroyEditor(QWidget*  editor0, const QModelIndex&  index1) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("destroyEditor");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QWidget*" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      void* args[3] = {nullptr, (void*)&editor0, (void*)&index1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::destroyEditor(editor0, index1);
+}
+QString  PythonQtShell_QStyledItemDelegate::displayText(const QVariant&  value0, const QLocale&  locale1) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("displayText");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"QString" , "const QVariant&" , "const QLocale&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      QString returnValue{};
+      void* args[3] = {nullptr, (void*)&value0, (void*)&locale1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("displayText", methodInfo, result);
+          } else {
+            returnValue = *((QString*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::displayText(value0, locale1);
+}
+bool  PythonQtShell_QStyledItemDelegate::editorEvent(QEvent*  event0, QAbstractItemModel*  model1, const QStyleOptionViewItem&  option2, const QModelIndex&  index3)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("editorEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QEvent*" , "QAbstractItemModel*" , "const QStyleOptionViewItem&" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(5, argumentList);
+      bool returnValue{};
+      void* args[5] = {nullptr, (void*)&event0, (void*)&model1, (void*)&option2, (void*)&index3};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("editorEvent", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::editorEvent(event0, model1, option2, index3);
+}
+bool  PythonQtShell_QStyledItemDelegate::event(QEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("event");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      bool returnValue{};
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("event", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::event(event0);
+}
+bool  PythonQtShell_QStyledItemDelegate::eventFilter(QObject*  object0, QEvent*  event1)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("eventFilter");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QObject*" , "QEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      bool returnValue{};
+      void* args[3] = {nullptr, (void*)&object0, (void*)&event1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("eventFilter", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::eventFilter(object0, event1);
+}
+bool  PythonQtShell_QStyledItemDelegate::helpEvent(QHelpEvent*  event0, QAbstractItemView*  view1, const QStyleOptionViewItem&  option2, const QModelIndex&  index3)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("helpEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"bool" , "QHelpEvent*" , "QAbstractItemView*" , "const QStyleOptionViewItem&" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(5, argumentList);
+      bool returnValue{};
+      void* args[5] = {nullptr, (void*)&event0, (void*)&view1, (void*)&option2, (void*)&index3};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("helpEvent", methodInfo, result);
+          } else {
+            returnValue = *((bool*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::helpEvent(event0, view1, option2, index3);
+}
+void PythonQtShell_QStyledItemDelegate::initStyleOption(QStyleOptionViewItem*  option0, const QModelIndex&  index1) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("initStyleOption");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QStyleOptionViewItem*" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      void* args[3] = {nullptr, (void*)&option0, (void*)&index1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::initStyleOption(option0, index1);
+}
+void PythonQtShell_QStyledItemDelegate::paint(QPainter*  painter0, const QStyleOptionViewItem&  option1, const QModelIndex&  index2) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("paint");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QPainter*" , "const QStyleOptionViewItem&" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(4, argumentList);
+      void* args[4] = {nullptr, (void*)&painter0, (void*)&option1, (void*)&index2};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::paint(painter0, option1, index2);
+}
+QVector<int >  PythonQtShell_QStyledItemDelegate::paintingRoles() const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("paintingRoles");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"QVector<int >"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(1, argumentList);
+      QVector<int > returnValue{};
+      void* args[1] = {nullptr};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("paintingRoles", methodInfo, result);
+          } else {
+            returnValue = *((QVector<int >*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::paintingRoles();
+}
+void PythonQtShell_QStyledItemDelegate::setEditorData(QWidget*  editor0, const QModelIndex&  index1) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("setEditorData");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QWidget*" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      void* args[3] = {nullptr, (void*)&editor0, (void*)&index1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::setEditorData(editor0, index1);
+}
+void PythonQtShell_QStyledItemDelegate::setModelData(QWidget*  editor0, QAbstractItemModel*  model1, const QModelIndex&  index2) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("setModelData");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QWidget*" , "QAbstractItemModel*" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(4, argumentList);
+      void* args[4] = {nullptr, (void*)&editor0, (void*)&model1, (void*)&index2};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::setModelData(editor0, model1, index2);
+}
+QSize  PythonQtShell_QStyledItemDelegate::sizeHint(const QStyleOptionViewItem&  option0, const QModelIndex&  index1) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("sizeHint");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"QSize" , "const QStyleOptionViewItem&" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(3, argumentList);
+      QSize returnValue{};
+      void* args[3] = {nullptr, (void*)&option0, (void*)&index1};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) {
+        args[0] = PythonQtConv::ConvertPythonToQt(methodInfo->parameters().at(0), result, false, nullptr, &returnValue);
+        if (args[0]!=&returnValue) {
+          if (args[0]==nullptr) {
+            PythonQt::priv()->handleVirtualOverloadReturnError("sizeHint", methodInfo, result);
+          } else {
+            returnValue = *((QSize*)args[0]);
+          }
+        }
+      }
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return returnValue;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  return QStyledItemDelegate::sizeHint(option0, index1);
+}
+void PythonQtShell_QStyledItemDelegate::timerEvent(QTimerEvent*  event0)
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("timerEvent");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QTimerEvent*"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(2, argumentList);
+      void* args[2] = {nullptr, (void*)&event0};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::timerEvent(event0);
+}
+void PythonQtShell_QStyledItemDelegate::updateEditorGeometry(QWidget*  editor0, const QStyleOptionViewItem&  option1, const QModelIndex&  index2) const
+{
+if (_wrapper) {
+  PYTHONQT_GIL_SCOPE
+  if (Py_REFCNT((PyObject*)_wrapper) > 0) {
+    static PyObject* name = PyUnicode_FromString("updateEditorGeometry");
+    PyObject* obj = PyBaseObject_Type.tp_getattro((PyObject*)_wrapper, name);
+    if (obj) {
+      static const char* argumentList[] ={"" , "QWidget*" , "const QStyleOptionViewItem&" , "const QModelIndex&"};
+      static const PythonQtMethodInfo* methodInfo = PythonQtMethodInfo::getCachedMethodInfoFromArgumentList(4, argumentList);
+      void* args[4] = {nullptr, (void*)&editor0, (void*)&option1, (void*)&index2};
+      PyObject* result = PythonQtSignalTarget::call(obj, methodInfo, args, true);
+      if (result) { Py_DECREF(result); }
+      Py_DECREF(obj);
+      return;
+    } else {
+      PyErr_Clear();
+    }
+  }
+}
+  QStyledItemDelegate::updateEditorGeometry(editor0, option1, index2);
+}
+QStyledItemDelegate* PythonQtWrapper_QStyledItemDelegate::new_QStyledItemDelegate(QObject*  parent)
+{ 
+return new PythonQtShell_QStyledItemDelegate(parent); }
+
+const QMetaObject* PythonQtShell_QStyledItemDelegate::metaObject() const {
+  if (QObject::d_ptr->metaObject) {
+    return QObject::d_ptr->dynamicMetaObject();
+  } else if (_wrapper) {
+    return PythonQt::priv()->getDynamicMetaObject(_wrapper, &QStyledItemDelegate::staticMetaObject);
+  } else {
+    return &QStyledItemDelegate::staticMetaObject;
+  }
+}
+int PythonQtShell_QStyledItemDelegate::qt_metacall(QMetaObject::Call call, int id, void** args) {
+  int result = QStyledItemDelegate::qt_metacall(call, id, args);
+  return result >= 0 ? PythonQt::priv()->handleMetaCall(this, _wrapper, call, id, args) : result;
+}
+QString  PythonQtWrapper_QStyledItemDelegate::displayText(QStyledItemDelegate* theWrappedObject, const QVariant&  value, const QLocale&  locale) const
+{
+  return ( theWrappedObject->displayText(value, locale));
+}
+
+void PythonQtWrapper_QStyledItemDelegate::initStyleOption(QStyledItemDelegate* theWrappedObject, QStyleOptionViewItem*  option, const QModelIndex&  index) const
+{
+  ( ((PythonQtPublicPromoter_QStyledItemDelegate*)theWrappedObject)->promoted_initStyleOption(option, index));
+}
+
+QItemEditorFactory*  PythonQtWrapper_QStyledItemDelegate::itemEditorFactory(QStyledItemDelegate* theWrappedObject) const
+{
+  return ( theWrappedObject->itemEditorFactory());
+}
+
+void PythonQtWrapper_QStyledItemDelegate::setItemEditorFactory(QStyledItemDelegate* theWrappedObject, QItemEditorFactory*  factory)
+{
+  ( theWrappedObject->setItemEditorFactory(factory));
 }
 
 

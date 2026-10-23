@@ -604,8 +604,6 @@ PythonQt::priv()->registerClass(&QOpenGLShader::staticMetaObject, "QtGui", Pytho
 PythonQt::priv()->registerClass(&QOpenGLShaderProgram::staticMetaObject, "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLShaderProgram>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QOpenGLShaderProgram>, module, 0);
 PythonQt::priv()->registerCPPClass("QOpenGLTexture", "", "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLTexture>, nullptr, module, 0);
 PythonQt::priv()->registerCPPClass("QOpenGLTextureBlitter", "", "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLTextureBlitter>, nullptr, module, 0);
-PythonQt::priv()->registerClass(&QOpenGLTimeMonitor::staticMetaObject, "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLTimeMonitor>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QOpenGLTimeMonitor>, module, 0);
-PythonQt::priv()->registerClass(&QOpenGLTimerQuery::staticMetaObject, "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLTimerQuery>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QOpenGLTimerQuery>, module, 0);
 PythonQt::priv()->registerCPPClass("QOpenGLVersionProfile", "", "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLVersionProfile>, nullptr, module, PythonQt::Type_NonZero|PythonQt::Type_RichCompare);
 PythonQt::priv()->registerClass(&QOpenGLVertexArrayObject::staticMetaObject, "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLVertexArrayObject>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QOpenGLVertexArrayObject>, module, 0);
 PythonQt::priv()->registerClass(&QOpenGLWidget::staticMetaObject, "QtGui", PythonQtCreateObject<PythonQtWrapper_QOpenGLWidget>, PythonQtSetInstanceWrapperOnShell<PythonQtShell_QOpenGLWidget>, module, PythonQt::Type_NonZero);

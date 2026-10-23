@@ -78,110 +78,9 @@
 #include <QtWidgets/qtooltip.h>
 #include <QtWidgets/qtreeview.h>
 #include <QtWidgets/qtreewidget.h>
+#include <QtWidgets/qundogroup.h>
+#include <QtWidgets/qundostack.h>
 #include <QtWidgets/qwidget.h>
-
-
-
-class PythonQtShell_QTextFrameFormat : public QTextFrameFormat
-{
-public:
-    PythonQtShell_QTextFrameFormat():QTextFrameFormat(),_wrapper(nullptr) {};
-    PythonQtShell_QTextFrameFormat(const QTextFormat&  fmt):QTextFrameFormat(fmt),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QTextFrameFormat();
-
-
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtWrapper_QTextFrameFormat : public QObject
-{ Q_OBJECT
-public:
-Q_ENUMS(BorderStyle Position )
-enum BorderStyle{
-  BorderStyle_None = QTextFrameFormat::BorderStyle_None,   BorderStyle_Dotted = QTextFrameFormat::BorderStyle_Dotted,   BorderStyle_Dashed = QTextFrameFormat::BorderStyle_Dashed,   BorderStyle_Solid = QTextFrameFormat::BorderStyle_Solid,   BorderStyle_Double = QTextFrameFormat::BorderStyle_Double,   BorderStyle_DotDash = QTextFrameFormat::BorderStyle_DotDash,   BorderStyle_DotDotDash = QTextFrameFormat::BorderStyle_DotDotDash,   BorderStyle_Groove = QTextFrameFormat::BorderStyle_Groove,   BorderStyle_Ridge = QTextFrameFormat::BorderStyle_Ridge,   BorderStyle_Inset = QTextFrameFormat::BorderStyle_Inset,   BorderStyle_Outset = QTextFrameFormat::BorderStyle_Outset};
-enum Position{
-  InFlow = QTextFrameFormat::InFlow,   FloatLeft = QTextFrameFormat::FloatLeft,   FloatRight = QTextFrameFormat::FloatRight};
-public Q_SLOTS:
-QTextFrameFormat* new_QTextFrameFormat();
-QTextFrameFormat* new_QTextFrameFormat(const QTextFormat&  fmt);
-QTextFrameFormat* new_QTextFrameFormat(const QTextFrameFormat& other) {
-PythonQtShell_QTextFrameFormat* a = new PythonQtShell_QTextFrameFormat();
-*((QTextFrameFormat*)a) = other;
-return a; }
-void delete_QTextFrameFormat(QTextFrameFormat* obj) { delete obj; }
-   qreal  border(QTextFrameFormat* theWrappedObject) const;
-   QBrush  borderBrush(QTextFrameFormat* theWrappedObject) const;
-   QTextFrameFormat::BorderStyle  borderStyle(QTextFrameFormat* theWrappedObject) const;
-   qreal  bottomMargin(QTextFrameFormat* theWrappedObject) const;
-   QTextLength  height(QTextFrameFormat* theWrappedObject) const;
-   bool  isValid(QTextFrameFormat* theWrappedObject) const;
-   qreal  leftMargin(QTextFrameFormat* theWrappedObject) const;
-   qreal  margin(QTextFrameFormat* theWrappedObject) const;
-   qreal  padding(QTextFrameFormat* theWrappedObject) const;
-   QTextFormat::PageBreakFlags  pageBreakPolicy(QTextFrameFormat* theWrappedObject) const;
-   QTextFrameFormat::Position  position(QTextFrameFormat* theWrappedObject) const;
-   qreal  rightMargin(QTextFrameFormat* theWrappedObject) const;
-   void setBorder(QTextFrameFormat* theWrappedObject, qreal  border);
-   void setBorderBrush(QTextFrameFormat* theWrappedObject, const QBrush&  brush);
-   void setBorderStyle(QTextFrameFormat* theWrappedObject, QTextFrameFormat::BorderStyle  style);
-   void setBottomMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
-   void setHeight(QTextFrameFormat* theWrappedObject, const QTextLength&  height);
-   void setHeight(QTextFrameFormat* theWrappedObject, qreal  height);
-   void setLeftMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
-   void setMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
-   void setPadding(QTextFrameFormat* theWrappedObject, qreal  padding);
-   void setPageBreakPolicy(QTextFrameFormat* theWrappedObject, QTextFormat::PageBreakFlags  flags);
-   void setPosition(QTextFrameFormat* theWrappedObject, QTextFrameFormat::Position  f);
-   void setRightMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
-   void setTopMargin(QTextFrameFormat* theWrappedObject, qreal  margin);
-   void setWidth(QTextFrameFormat* theWrappedObject, const QTextLength&  length);
-   void setWidth(QTextFrameFormat* theWrappedObject, qreal  width);
-   qreal  topMargin(QTextFrameFormat* theWrappedObject) const;
-   QTextLength  width(QTextFrameFormat* theWrappedObject) const;
-    bool __nonzero__(QTextFrameFormat* obj) { return !obj->isEmpty(); }
-};
-
-
-
-
-
-class PythonQtShell_QTextImageFormat : public QTextImageFormat
-{
-public:
-    PythonQtShell_QTextImageFormat():QTextImageFormat(),_wrapper(nullptr) {};
-    PythonQtShell_QTextImageFormat(const QTextFormat&  format):QTextImageFormat(format),_wrapper(nullptr) {};
-
-   ~PythonQtShell_QTextImageFormat();
-
-
-  PythonQtInstanceWrapper* _wrapper;
-};
-
-class PythonQtWrapper_QTextImageFormat : public QObject
-{ Q_OBJECT
-public:
-public Q_SLOTS:
-QTextImageFormat* new_QTextImageFormat();
-QTextImageFormat* new_QTextImageFormat(const QTextFormat&  format);
-QTextImageFormat* new_QTextImageFormat(const QTextImageFormat& other) {
-PythonQtShell_QTextImageFormat* a = new PythonQtShell_QTextImageFormat();
-*((QTextImageFormat*)a) = other;
-return a; }
-void delete_QTextImageFormat(QTextImageFormat* obj) { delete obj; }
-   qreal  height(QTextImageFormat* theWrappedObject) const;
-   bool  isValid(QTextImageFormat* theWrappedObject) const;
-   QString  name(QTextImageFormat* theWrappedObject) const;
-   int  quality(QTextImageFormat* theWrappedObject) const;
-   void setHeight(QTextImageFormat* theWrappedObject, qreal  height);
-   void setName(QTextImageFormat* theWrappedObject, const QString&  name);
-   void setQuality(QTextImageFormat* theWrappedObject, int  quality = 100);
-   void setWidth(QTextImageFormat* theWrappedObject, qreal  width);
-   qreal  width(QTextImageFormat* theWrappedObject) const;
-    bool __nonzero__(QTextImageFormat* obj) { return !obj->isEmpty(); }
-};
-
-
 
 
 
@@ -2118,6 +2017,99 @@ void delete_QTreeWidgetItem(QTreeWidgetItem* obj) { delete obj; }
    QString  whatsThis(QTreeWidgetItem* theWrappedObject, int  column) const;
    void write(QTreeWidgetItem* theWrappedObject, QDataStream&  out) const;
    void py_q_write(QTreeWidgetItem* theWrappedObject, QDataStream&  out) const{  (((PythonQtPublicPromoter_QTreeWidgetItem*)theWrappedObject)->py_q_write(out));}
+};
+
+
+
+
+
+class PythonQtShell_QUndoCommand : public QUndoCommand
+{
+public:
+    PythonQtShell_QUndoCommand(QUndoCommand*  parent = nullptr):QUndoCommand(parent),_wrapper(nullptr) {};
+    PythonQtShell_QUndoCommand(const QString&  text, QUndoCommand*  parent = nullptr):QUndoCommand(text, parent),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QUndoCommand() override;
+
+int  id() const override;
+bool  mergeWith(const QUndoCommand*  other) override;
+void redo() override;
+void undo() override;
+
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtPublicPromoter_QUndoCommand : public QUndoCommand
+{ public:
+inline int  py_q_id() const { return QUndoCommand::id(); }
+inline bool  py_q_mergeWith(const QUndoCommand*  other) { return QUndoCommand::mergeWith(other); }
+inline void py_q_redo() { QUndoCommand::redo(); }
+inline void py_q_undo() { QUndoCommand::undo(); }
+};
+
+class PythonQtWrapper_QUndoCommand : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QUndoCommand* new_QUndoCommand(QUndoCommand*  parent = nullptr);
+QUndoCommand* new_QUndoCommand(const QString&  text, QUndoCommand*  parent = nullptr);
+void delete_QUndoCommand(QUndoCommand* obj) { delete obj; }
+   QString  actionText(QUndoCommand* theWrappedObject) const;
+   const QUndoCommand*  child(QUndoCommand* theWrappedObject, int  index) const;
+   int  childCount(QUndoCommand* theWrappedObject) const;
+   int  id(QUndoCommand* theWrappedObject) const;
+   int  py_q_id(QUndoCommand* theWrappedObject) const{  return (((PythonQtPublicPromoter_QUndoCommand*)theWrappedObject)->py_q_id());}
+   bool  isObsolete(QUndoCommand* theWrappedObject) const;
+   bool  mergeWith(QUndoCommand* theWrappedObject, const QUndoCommand*  other);
+   bool  py_q_mergeWith(QUndoCommand* theWrappedObject, const QUndoCommand*  other){  return (((PythonQtPublicPromoter_QUndoCommand*)theWrappedObject)->py_q_mergeWith(other));}
+   void redo(QUndoCommand* theWrappedObject);
+   void py_q_redo(QUndoCommand* theWrappedObject){  (((PythonQtPublicPromoter_QUndoCommand*)theWrappedObject)->py_q_redo());}
+   void setObsolete(QUndoCommand* theWrappedObject, bool  obsolete);
+   void setText(QUndoCommand* theWrappedObject, const QString&  text);
+   QString  text(QUndoCommand* theWrappedObject) const;
+   void undo(QUndoCommand* theWrappedObject);
+   void py_q_undo(QUndoCommand* theWrappedObject){  (((PythonQtPublicPromoter_QUndoCommand*)theWrappedObject)->py_q_undo());}
+};
+
+
+
+
+
+class PythonQtShell_QUndoGroup : public QUndoGroup
+{
+public:
+    PythonQtShell_QUndoGroup(QObject*  parent = nullptr):QUndoGroup(parent),_wrapper(nullptr) {};
+
+   ~PythonQtShell_QUndoGroup() override;
+
+void childEvent(QChildEvent*  event) override;
+void customEvent(QEvent*  event) override;
+bool  event(QEvent*  event) override;
+bool  eventFilter(QObject*  watched, QEvent*  event) override;
+void timerEvent(QTimerEvent*  event) override;
+
+  const QMetaObject* metaObject() const override;
+  int qt_metacall(QMetaObject::Call call, int id, void** args) override;
+  PythonQtInstanceWrapper* _wrapper;
+};
+
+class PythonQtWrapper_QUndoGroup : public QObject
+{ Q_OBJECT
+public:
+public Q_SLOTS:
+QUndoGroup* new_QUndoGroup(QObject*  parent = nullptr);
+void delete_QUndoGroup(QUndoGroup* obj) { delete obj; }
+   QUndoStack*  activeStack(QUndoGroup* theWrappedObject) const;
+   void addStack(QUndoGroup* theWrappedObject, QUndoStack*  stack);
+   bool  canRedo(QUndoGroup* theWrappedObject) const;
+   bool  canUndo(QUndoGroup* theWrappedObject) const;
+   QAction*  createRedoAction(QUndoGroup* theWrappedObject, QObject*  parent, const QString&  prefix = QString()) const;
+   QAction*  createUndoAction(QUndoGroup* theWrappedObject, QObject*  parent, const QString&  prefix = QString()) const;
+   bool  isClean(QUndoGroup* theWrappedObject) const;
+   QString  redoText(QUndoGroup* theWrappedObject) const;
+   void removeStack(QUndoGroup* theWrappedObject, QUndoStack*  stack);
+   QList<QUndoStack* >  stacks(QUndoGroup* theWrappedObject) const;
+   QString  undoText(QUndoGroup* theWrappedObject) const;
 };
 
 
